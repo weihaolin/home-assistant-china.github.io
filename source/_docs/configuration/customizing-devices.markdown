@@ -73,3 +73,5 @@ HomeAssistant提供一个服务用来重新载入核心配置，服务的名称�
 <p class='note warning'>
 新的个性化设置信息将在该实体下一次状态更新时起作用。
 </p>
+
+By [Jones](https://bbs.hassbian.com/home.php?mod=space&username=Jones)
