@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Setup basic information"
-description: "Setting up the basic info of Home Assistant."
+title: "基本信息设置"
+description: "设置HomeAssistant运行的基本信息"
 date: 2015-03-23 12:50
 sidebar: true
 comments: false
@@ -34,7 +34,7 @@ homeassistant:
   name: Home
 ```
 
-### {% linkable_title Password protecting the web interface %}
+### {% linkable_title 设置密码，保护Web界面安全 %}
 
 首先，你需要为HomeAssistant的Web界面设置一个密码。使用你最喜欢的文本编辑工具打开 `configuration.yaml` 并且编辑其中的 `http` 部分:
 
