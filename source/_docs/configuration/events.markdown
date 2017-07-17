@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Events"
-description: "Describes all there is to know about events in Home Assistant."
+描述: "Describes all there is to know about events in Home Assistant."
 date: 2016-03-12 12:00 -0800
 sidebar: true
 comments: false
@@ -10,75 +10,75 @@ footer: true
 redirect_from: /topics/events/
 ---
 
-The core of Home Assistant is the event bus. The event bus allows any component to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity.
+家庭助理的核心是事件总线。事件总线允许任何组件触发或者侦听事件，它是核心.例如，任何状态的更改将在事件总线上声明为 包含之前和现在的状态改变。
 
-Home Assistant contains a few built-in events that are used to coordinate between various components.
+家庭助理包含一些内置的事件，被用来协调各个组件之间。
 
 ### {% linkable_title Event `homeassistant_start` %}
-Event `homeassistant_start` is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off `time_changed` events.
+当所有组件从配置文件中初始化时 事件HOMEASSISTANT_START 会被触发。这个事件将会启动定时器触发time_changed事件。
 
 ### {% linkable_title Event `homeassistant_stop` %}
-Event `homeassistant_stop` is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.
+当家庭助理停止运行时 事件 HOMERASSISTANT_STOP 将会被触发.他应当用来关闭任意已打开连接或者释放资源
 
 
 ### {% linkable_title Event `state_changed` %}
-Event `state_changed` is fired when a state changes. Both `old_state` and `new_state` are state objects. [Documentation about state objects.](/topics/state_object/)
+当状态改变时 事件 STATE_CHANGED 将被触发.  old_state和new_state都是状态对象 [关于状态对象的文档](/topics/state_object/)
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`entity_id` | Entity ID of the changed entity. Example: `light.kitchen`
-`old_state` | The previous state of the entity before it changed. This field is ommitted if the entity is new.
-`new_state` | The new state of the entity. This field is ommitted if the entity is removed from the state machine.
+`entity_id` | 已更改实体的实体id。例如：`light.kitchen`
+`old_state` | 变更前实体的先前状态。如果实体是新的，则该属性将被忽略。
+`new_state` | 实体的新状态。如果实体从状态中被删除，则该属性将被忽略。
 
 
 ### {% linkable_title Event `time_changed` %}
-Event `time_changed` is fired every second by the timer and contains the current time.
+事件time_changed每秒钟由计时器触发，并包含当前时间
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`now` | A [datetime object](https://docs.python.org/3.4/library/datetime.html#datetime.datetime) containing the current time in UTC.
+`now` |  [日期对象](https://docs.python.org/3.4/library/datetime.html#datetime.datetime) 一个包含目前UTC的时间对象
 
 
 ### {% linkable_title Event `service_registered` %}
-Event `service_registered` is fired when a new service has been registered within Home Assistant.
+在家庭助理中当有新的服务被注册时候该事件将会被触发 事件 SERVICE_REGISTERED
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`domain` | Domain of the service. Example: `light`.
-`service` | The service to call. Example: `turn_on`
+`domain` | 服务对象。例子： `light`.
+`service` | 要调用的服务。例如: `turn_on`
 
 
 ### {% linkable_title Event `call_service` %}
-Event `call_service` is fired to call a service.
+事件call_service 触发调用一个服务。
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`domain` | Domain of the service. Example: `light`.
-`service` | The service to call. Example: `turn_on`
-`service_data` | Dictionary with the service call parameters. Example: `{ 'brightness': 120 }`.
-`service_call_id` | String with a unique call id. Example: `23123-4`.
+`domain` | 服务对象。例子： `light`.
+`service` | 要调用的服务。例子： `turn_on`
+`service_data` | 使用服务调用参数的字典。例如：`{ 'brightness': 120 }`.
+`service_call_id` | 具有唯一调用id的字符串。例如：`23123-4`.
 
 
 ### {% linkable_title Event `service_executed` %}
-Event `service_executed` is fired by the service handler to indicate the service is done.
+事件service _executed由服务处理程序触发，以表示服务已完成。
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`service_call_id` | String with the unique call id of the service call that was executed. Example: `23123-4`.
+`service_call_id` | S具有唯一调用id的字符串。例如：`23123-4`.
 
 
 ### {% linkable_title Event `platform_discovered` %}
-Event `platform_discovered` is fired when a new platform has been discovered by the discovery component.
+当发现组件发现新的平台时将触发 事件 PLATFORM_DISCOVERED
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`service` | The service that is discovered. Example: `zwave`.
-`discovered` | Information that is discovered. Can be a dict, tuple etc. Example: `(192.168.1.10, 8889)`.
+`service` | 被发现的服务。例如: `zwave`.
+`discovered` | 发现的信息。可以是字典，元组等等。例如： `(192.168.1.10, 8889)`.
 
 
 ### {% linkable_title Event `component_loaded` %}
-Event `component_loaded` is fired when a new component has been loaded and initialized.
+当发现组件发现了一个新平台时将触发 事件COMPONENT_LOADED
 
-Field | Description
+属性 | 描述
 ----- | -----------
-`component` | Domain of the component that has just been initialized. Example: `light`.
+`component` | 刚刚初始化的组件的对象。例如: `light`.
