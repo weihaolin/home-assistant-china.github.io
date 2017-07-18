@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Events"
-描述: "Describes all there is to know about events in Home Assistant."
+description: "Describes all there is to know about events in Home Assistant."
 date: 2016-03-12 12:00 -0800
 sidebar: true
 comments: false
