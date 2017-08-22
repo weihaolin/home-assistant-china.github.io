@@ -149,12 +149,12 @@
       <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.select_source</span>
       <span class="s">data_template</span><span class="pi">:</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.receiver</span>
-        <span class="s">source</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">source</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">source</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">volume_set</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
       <span class="s">data_template</span><span class="pi">:</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.receiver</span>
-        <span class="s">volume_level</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">volume_level</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">volume_level</span><span class="nv"> </span><span class="s">}}'</span>
 
   <span class="s">attributes</span><span class="pi">:</span>
     <span class="s">state</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
@@ -188,6 +188,9 @@
         </li>
         <li>
             <a href='/components/media_player.apple_tv/'>Apple TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.bluesound/'>Bluesound</a>
         </li>
         <li>
             <a href='/components/media_player.clementine/'>Clementine Music Player</a>
@@ -241,6 +244,9 @@
             <a href='/components/media_player.mpchc/'>MPC-HC</a>
         </li>
         <li>
+            <a href='/components/media_extractor/'>Media Extractor</a>
+        </li>
+        <li>
             <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
         </li>
         <li>
@@ -277,6 +283,9 @@
             <a href='/components/media_player.roku/'>Roku</a>
         </li>
         <li>
+            <a href='/components/media_player.russound_rio/'>Russound RIO</a>
+        </li>
+        <li>
             <a href='/components/media_player.russound_rnet/'>Russound RNET</a>
         </li>
         <li>
@@ -305,6 +314,9 @@
         </li>
         <li>
             <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vizio/'>Vizio SmartCast TV</a>
         </li>
         <li>
             <a href='/components/media_player.volumio/'>Volumio Media Player</a>

@@ -104,15 +104,18 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">HD Temperature</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hddtemp</span><span class="nv"> </span><span class="s">-n</span><span class="nv"> </span><span class="s">/dev/sda"</span>
+    <span class="c1"># If errors occur, remove degree symbol below</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="cpu-temperature" href="#cpu-temperature"></a> CPU temperature</h3>
 <p>Thanks to the <a href="https://en.wikipedia.org/wiki/Procfs"><code class="highlighter-rouge">proc</code></a> file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">CPU Temperature</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cat</span><span class="nv"> </span><span class="s">/sys/class/thermal/thermal_zone0/temp"</span>
+    <span class="c1"># If errors occur, remove degree symbol below</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">multiply(0.001)</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
@@ -170,6 +173,16 @@
     <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">python3</span><span class="nv"> </span><span class="s">/path/to/script/arest-value.py"</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="usage-of-templating-in-command" href="#usage-of-templating-in-command"></a> Usage of templating in <code class="highlighter-rouge">command:</code></h3>
+<p><a href="/docs/configuration/templating/">Templates</a> are supported in the <code class="highlighter-rouge">command:</code> configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">wind direction</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sh</span><span class="nv"> </span><span class="s">/home/pi/.homeassistant/scripts/wind_direction.sh</span><span class="nv"> </span><span class="s">'</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Direction"</span>
 </code></pre>
 </div>
 </article>
@@ -295,6 +308,9 @@
             <a href='/components/sensor.gpsd/'>GPSD</a>
         </li>
         <li>
+            <a href='/components/sensor.geizhals/'>Geizhals</a>
+        </li>
+        <li>
             <a href='/components/sensor.gitter/'>Gitter Sensor</a>
         </li>
         <li>
@@ -412,6 +428,9 @@
             <a href='/components/sensor.sensehat/'>Sense HAT</a>
         </li>
         <li>
+            <a href='/components/sensor.shodan/'>Shodan Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
         </li>
         <li>
@@ -419,9 +438,6 @@
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
@@ -460,7 +476,13 @@
             <a href='/components/sensor.verisure/'>Verisure Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.version/'>Version Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.xiaomi/'>Xiaomi Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>

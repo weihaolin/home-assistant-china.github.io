@@ -90,9 +90,14 @@
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the system. Default to <code class="highlighter-rouge">True</code>.</li>
   <li><strong>monitored_conditions</strong> (<em>Optional</em>): Defines the stats to monitor as sensors.
     <ul>
-      <li><strong>dns_queries_today</strong>: Total number of DNS queries handled by Pi-Hole today</li>
-      <li><strong>ads_blocked_today</strong>: Total number of blocked ads today</li>
-      <li><strong>ads_percentage_today</strong>: Percentage of blocked ads</li>
+      <li><strong>ads_blocked_today</strong>: Total number of blocked ads today.</li>
+      <li><strong>ads_percentage_today</strong>: Percentage of blocked ads.</li>
+      <li><strong>dns_queries_today</strong>: Total number of DNS queries handled by Pi-Hole today.</li>
+      <li><strong>domains_being_blocked</strong>: Total number of domains blocked by Pi-Hole.</li>
+      <li><strong>queries_cached</strong>: Total number of cache queries on the last 24 hours.</li>
+      <li><strong>queries_forwarded</strong>: Total number of forwarded queries on the last 24 hours.</li>
+      <li><strong>unique_clients</strong>: Total number of unique clients on the last 24 hours.</li>
+      <li><strong>unique_domains</strong>: Total number of unique domains on the last 24 hours.</li>
     </ul>
   </li>
 </ul>
@@ -136,16 +141,19 @@
             <a href='/components/sensor.dovado/'>Dovado</a>
         </li>
         <li>
-            <a href='/components/sensor.fritzbox_netmonitor/'>FRITZ!Box</a>
+            <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box Call Monitor</a>
         </li>
         <li>
-            <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box</a>
+            <a href='/components/sensor.fritzbox_netmonitor/'>FRITZ!Box Net Monitor</a>
         </li>
         <li>
             <a href='/components/sensor.fastdotcom/'>Fast.com</a>
         </li>
         <li>
             <a href='/components/sensor.glances/'>Glances</a>
+        </li>
+        <li>
+            <a href='/components/sensor.google_wifi/'>Google Wifi</a>
         </li>
         <li>
             <a href='/components/sensor.hddtemp/'>HDDTemp</a>
@@ -173,6 +181,9 @@
         </li>
         <li>
             <a href='/components/sensor.supervisord/'>Supervisord</a>
+        </li>
+        <li>
+            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.systemmonitor/'>System Monitor</a>

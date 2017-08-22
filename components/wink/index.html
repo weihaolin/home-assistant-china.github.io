@@ -79,27 +79,27 @@
 <blockquote>
   <p>Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.</p>
 </blockquote>
-<p>Home Assistant integrates with the Wink API and allows you to get the status and control connected switches, lights, locks, fan, climate devices, covers, and sensors.</p>
-<p>Check the related componets pages for actual devices that are support.</p>
+<p>Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices, covers, sensors, and alarms.</p>
+<p>Check the related components pages for actual devices that are support.</p>
 <p>Home Assistant offers multiple ways to authenticate to the Wink API. Each authentication method is described below.</p>
-<h3>Authentication with an access token.</h3>
-<p>To use this form of authentication obtain a token from the form below and insert it into your <code class="highlighter-rouge">configuration.yaml</code></p>
-<iframe src="https://winkbearertoken.appspot.com" style="width: 100%; height: 200px; border: 0; margin: 0 auto 15px; border-left: 2px solid #049cdb; padding-left: 15px;"></iframe>
+<h3>Authenticate using <a href="https://developer.wink.com">developer.wink.com</a></h3>
+<p>This method will require you to setup a developer account with Wink. This process can take a few days to get approved, but is the recommended form of authentication. If you would like to use Wink in Home Assistant while you wait, you can use the email and password authentication below.</p>
+<p>This form of authentication doesn’t require any settings in the configuration.yaml other than <code class="highlighter-rouge">wink:</code> this is because you will be guided through setup via the configurator on the frontend.</p>
+<p class="note">
+When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly. 
+</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
-  <span class="s">access_token</span><span class="pi">:</span> <span class="s">YOUR_ACCESS_TOKEN</span>
 </code></pre>
 </div>
 <h3>Authentication with your Wink email and password.</h3>
-<p>This method uses the same form from above to obtain an access token, but does so without the user needing to manually do so.
-This method pulls a new token on every startup of Home Assistant.</p>
+<p>This method pulls a new token on every startup of Home Assistant from this <a href="https://winkbearertoken.appspot.com">URL</a></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
   <span class="s">email</span><span class="pi">:</span> <span class="s">YOUR_WINK_EMAIL_ADDRESS</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
 </code></pre>
 </div>
-<h3>Full oath authentication. (This is the best option!)</h3>
-<p>You can also request API access via Wink’s <a href="http://www.wink.com/help/contact/">contact us</a> page.</p>
-<p>You will be provided with a client ID and a client secret via email. These can then be used in your configuration in place of the access_token this will prevent you from having to manually refresh your access token.</p>
+<h3>Full oauth authentication (legacy).</h3>
+<p>This should be used for users that obtained their client_id and client_secret via email from Wink support.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
   <span class="s">email</span><span class="pi">:</span> <span class="s">YOUR_WINK_EMAIL_ADDRESS</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
@@ -109,21 +109,44 @@ This method pulls a new token on every startup of Home Assistant.</p>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>access_token</strong> (<em>Required if the below aren’t present.</em>): The retrieved access token.</li>
-  <li><strong>email</strong> (<em>Required if access token isn’t provided</em>): Your Wink login email.</li>
-  <li><strong>password</strong> (<em>Required if access token isn’t provided</em>): Your Wink login password.</li>
-  <li><strong>client_id</strong> (<em>Required if access token isn’t provided</em>): Your provided Wink client_id.</li>
-  <li><strong>client_secret</strong> (<em>Required if access token isn’t provided</em>): Your provided Wink client_secret.</li>
-  <li><strong>user_agent</strong> (<em>Optional</em>): The user-agent passed in the API calls to Wink.</li>
+  <li><strong>email</strong> (<em>Required for email/password auth or legacy oauth</em>): Your Wink login email.</li>
+  <li><strong>password</strong> (<em>Required for email/password auth or legacy oauth</em>): Your Wink login password.</li>
+  <li><strong>client_id</strong> (<em>Required for legacy oauth</em>): Your provided Wink client_id.</li>
+  <li><strong>client_secret</strong> (<em>Required for legacy oauth</em>): Your provided Wink client_secret.</li>
+  <li><strong>local_control</strong> (<em>Optional</em>): If set to <code class="highlighter-rouge">True</code> state changes for lights, locks, and switches will be issue to the local hub.</li>
 </ul>
-<p>This will connect to the Wink API and automatically set up any switches, lights, locks, fans, climate devices, covers, and sensors.</p>
+<p>Local control:</p>
+<ul>
+  <li>
+    <p>Wink’s local control API isn’t officially documented and therefore could be broken by a hub update. For these reasons <code class="highlighter-rouge">local_control</code> defaults to <code class="highlighter-rouge">False</code></p>
+  </li>
+  <li>
+    <p>Using local control doesn’t appear to make commands any quicker, but does function in an internet/Wink outage.</p>
+  </li>
+  <li>
+    <p>Local control is also only available for the Wink hub v1 and v2, not the Wink relay.</p>
+  </li>
+  <li>
+    <p>Local control isn’t used during startup of Home Assistant, this means initial setup requires an active internet connection.</p>
+  </li>
+  <li>
+    <p>Local control requests are first sent to the controlling hub. In the event that a request fails, that request will attempt to go online.</p>
+  </li>
+</ul>
+<p class="note">
+It is possible for the hub to get into a bad state where it stops accepting local control request. If this happens you will notice requests taking significantly longer as they are redirected online. This doesn’t happen often, but when it does, it appears to be resolved by rebooting the hub.
+The following error will be logged in the event that the hub is rejecting local requests.
+<code class="highlighter-rouge">
+Error sending local control request. Sending request online
+</code>
+</p>
 <h3><a class="title-link" name="service-refresh_state_from_wink" href="#service-refresh_state_from_wink"></a> Service <code class="highlighter-rouge">refresh_state_from_wink</code></h3>
 <p>The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions were an update isn’t pushed device states can be out of sync.</p>
-<p>You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices.</p>
+<p>You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If <code class="highlighter-rouge">local_control</code> is set to <code class="highlighter-rouge">True</code> states will be pulled from the devices controlling hub, not the online API.</p>
 <h3><a class="title-link" name="service-add_new_devices" href="#service-add_new_devices"></a> Service <code class="highlighter-rouge">add_new_devices</code></h3>
 <p>You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.</p>
 <p class="note">
-The Wink hub can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
+The Wink hub, by default can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s). 
 </p>
 </article>
         </div>
@@ -185,7 +208,13 @@ The Wink hub can only be accessed via the cloud. This means it requires an activ
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
         </li>
         <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
         </li>
         <li>
             <a href='/components/arlo/'>Arlo</a>
@@ -245,7 +274,13 @@ The Wink hub can only be accessed via the cloud. This means it requires an activ
             <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
             <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
         </li>
         <li>
             <a href='/components/litejet/'>LiteJet</a>
@@ -326,6 +361,12 @@ The Wink hub can only be accessed via the cloud. This means it requires an activ
             <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
             <a href='/components/velux/'>Velux</a>
         </li>
         <li>
@@ -339,6 +380,9 @@ The Wink hub can only be accessed via the cloud. This means it requires an activ
         </li>
         <li>
             Wink
+        </li>
+        <li>
+            <a href='/components/xiaomi/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

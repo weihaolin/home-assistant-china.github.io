@@ -134,14 +134,6 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
-  <span class="s">client_id</span><span class="pi">:</span> <span class="s">home-assistant-1</span>
-  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">protocol</span><span class="pi">:</span> <span class="s">3.1</span>
-  <span class="s">tls_insecure</span><span class="pi">:</span> <span class="s">True</span>
-  <span class="s">tls_version</span><span class="pi">:</span> <span class="s">1.2</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -153,6 +145,7 @@
   <li><strong>username</strong> (<em>Optional</em>): The username to use with your MQTT broker.</li>
   <li><strong>password</strong> (<em>Optional</em>): The corresponding password for the username to use with your MQTT broker.</li>
   <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.</li>
+  <li><strong>certificate</strong> (<em>Optional</em>): Path to the certificate file, eg. <code class="highlighter-rouge">/home/user/.homeassistant/server.crt</code>.</li>
   <li><strong>tls_insecure</strong> (<em>Optional</em>): Set the verification of the server hostname in the server certificate.</li>
   <li><strong>tls_version</strong> (<em>Optional</em>): TLS/SSL protocol version to use. Available options are: <code class="highlighter-rouge">auto</code>, <code class="highlighter-rouge">1.0</code>, <code class="highlighter-rouge">1.1</code>, <code class="highlighter-rouge">1.2</code>. Defaults to <code class="highlighter-rouge">auto</code>.</li>
 </ul>
@@ -161,7 +154,7 @@ There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Speci
 If you get this error <code class="highlighter-rouge">AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'</code>  then you need to set <code class="highlighter-rouge">tls_version: 1.2</code>.
 </p>
 <p class="note">
-If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own <code class="highlighter-rouge">.crt</code> certificates file. In the instance of ubuntu this would be <code class="highlighter-rouge">certificate: /etc/ssl/certs/ca-certificates.crt</code>
+If you are running a Mosquitto instance on a different server with proper SSL encryption using a service like Let’s Encrypt you may have to set the certificate to the operating systems own <code class="highlighter-rouge">.crt</code> certificates file. In the instance of Ubuntu this would be <code class="highlighter-rouge">certificate: /etc/ssl/certs/ca-certificates.crt</code>
 </p>
 <h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
 <p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.</p>
@@ -218,20 +211,12 @@ Home Assistant will automatically load the correct certificate if you connect to
       <li>
         <b><a  href='/docs/installation/'>Installation </a></b>
         <ul>
+          <li><a  href='/hassio/'>Hass.io </a></li>
           <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/hassbian/'>Hassbian </a></li>
           <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>
           <li><a  href='/docs/installation/updating/'>Updating </a></li>
           <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <b><a  href='/docs/hassbian/'>Hassbian </a></b>
-        <ul>
-          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
-          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
-          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
-          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
-          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
         </ul>
       </li>
       <li>
@@ -362,28 +347,9 @@ Home Assistant will automatically load the correct certificate if you connect to
           </li>
           <li>
             <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
-            </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
-              </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
@@ -406,7 +372,7 @@ Home Assistant will automatically load the correct certificate if you connect to
             </ul>
           </li>
           <li>
-            Certificates
+            <a  href='/docs/ecosystem/certificates/'>Certificates </a>
             <ul>
               <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
               <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>

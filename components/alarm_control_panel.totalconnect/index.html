@@ -76,7 +76,8 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">totalconnect</code> platform provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.</p>
-<p>If you have issues running this component, you may require “libxml2-dev” and “libxmlsec1-dev”. To install these on Hassbian, run the command <code class="highlighter-rouge">apt install libxml2-dev libxmlsec1-dev</code> with sudo</p>
+<p>This platform supports the following services: <code class="highlighter-rouge">alarm_arm_away</code>, <code class="highlighter-rouge">alarm_arm_home</code>, <code class="highlighter-rouge">alarm_arm_night</code> and <code class="highlighter-rouge">alarm_disarm</code>.</p>
+<p>If you have issues running this component, you may require <code class="highlighter-rouge">libxml2-dev</code> and <code class="highlighter-rouge">libxmlsec1-dev</code> packages. To install these on Hassbian, run the command <code class="highlighter-rouge">apt install libxml2-dev libxmlsec1-dev</code> with sudo.</p>
 <p>To enable this, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
@@ -120,6 +121,9 @@
             <a href='/components/alarm_control_panel.concord232/'>Concord232 Alarm Control Panel</a>
         </li>
         <li>
+            <a href='/components/alarm_control_panel.egardia/'>Egardia / Woonveilig Alarm Control Panel</a>
+        </li>
+        <li>
             <a href='/components/alarm_control_panel.envisalink/'>Envisalink Alarm</a>
         </li>
         <li>
@@ -133,6 +137,9 @@
         </li>
         <li>
             <a href='/components/alarm_control_panel.manual/'>Manual Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.manual_mqtt/'>Manual Alarm Control Panel with MQTT Support</a>
         </li>
         <li>
             <a href='/components/alarm_control_panel.nx584/'>NX584 Alarm Control Panel</a>

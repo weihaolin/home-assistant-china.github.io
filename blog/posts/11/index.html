@@ -71,6 +71,350 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2016/01/30/insteon-lifx-twitter-and-zigbee/">0.12: Insteon, LIFX, Twitter and ZigBee</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-01-30T16:22:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 30, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Another sprint has come to an end and it seems that we have not slowed down a single bit 🚀. 0.12 is full of new components, platforms and organizational additions.</p>
+<p>I would like to give a shout out to <a href="https://github.com/pavoni">Greg Dowling (@pavoni)</a> as every release includes new work from him. He is constantly adding support for new platforms or improving the reliablity of existing components and platforms. Keep up the good work!</p>
+<p>This release includes a very frequent requested feature: the ability to organize entities in different tabs in the frontend. See <a href="/demo/">the demo</a> to see this in action and read more in the <a href="/components/group/">group documentation</a> how to get started.</p>
+<p class="img">
+<a href="/demo/"><img src="/images/blog/2016-01-release-12/views.png" /></a>
+Example of the new views in the frontend. <a href="/components/group/">Learn more.</a>
+</p>
+<p><img src="/images/supported_brands/insteon.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/lifx.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/twitter.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/zigbee.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/google_voice.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<ul>
+  <li>Binary sensor: <a href="/components/binary_sensor.command/">command sensor</a> added (<a href="https://github.com/Bart274">@Bart274</a>)</li>
+  <li><a href="/components/nest/">Nest</a> support extended to include sensors and binary sensors (<a href="https://github.com/joshughes">@joshughes</a>)</li>
+  <li>Light: <a href="/components/light.lifx/">LIFX</a> platform added (<a href="https://github.com/TangoAlpha">@TangoAlpha</a>)</li>
+  <li>Notify: <a href="/components/notify.twitter/">Twitter</a> platform added (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Sensor: <a href="/components/sensor.template/">Template</a> platform added (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Switch: <a href="/components/wink/">Wink</a> platform now supports sirens (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li><a href="/components/insteon_hub/">Insteon hub</a> support added (<a href="https://github.com/FreekingDean">@FreekingDean</a>)</li>
+  <li><a href="/components/statsd/">Statsd</a> component added (<a href="https://github.com/michaelkuty">@michaelkuty</a>)</li>
+  <li>Light: <a href="/components/light.rfxtrx/">Rfxtrx</a> platform now supports dimming (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Time scheduling (including <a href="/getting-started/automation-trigger/#time-trigger">time automation</a>) now works with intervals (ie. <code class="highlighter-rouge">/5</code>) (<a href="https://github.com/kennedyshead">@kennedyshead</a>)</li>
+  <li>Sensor: <a href="/components/sensor.onewire/">onewire</a> support added (<a href="https://github.com/deisi">@deisi</a>)</li>
+  <li><a href="/components/zigbee/">Zigbee</a> support added (<a href="https://github.com/flyte">@flyte</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> can now track iBeacons (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Notify: <a href="/components/notify.google_voice/">Google Voice SMS</a> platform added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Toggle service added to <code class="highlighter-rouge">homeassistant</code>, <code class="highlighter-rouge">switch</code>, <code class="highlighter-rouge">light</code> and <code class="highlighter-rouge">media_player</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li><a href="/components/thermostat/">Thermostat</a> services added to control fans (<a href="https://github.com/auchter">@auchter</a>)</li>
+  <li>Improved Python automation: Event helpers are now also available as decorators for custom components (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li>Frontend: support added for tabs to show <a href="/components/group/">different views</a> of your house (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Bugfixes by <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/trollkarlen">@trollkarlen</a>, <a href="https://github.com/zmrow">@zmrow</a>, <a href="https://github.com/maddox">@maddox</a>, <a href="https://github.com/persandstrom">@persandstrom</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>, <a href="https://github.com/haraldnagel">@haraldnagel</a>.</li>
+</ul>
+<h3><a class="title-link" name="backwards-incompatible-changes" href="#backwards-incompatible-changes"></a> Backwards incompatible changes</h3>
+<ul>
+  <li>Nest config has moved from thermostat to the <a href="/components/nest/">Nest component</a>.</li>
+  <li>Entity IDs for Z-Wave devices are now generated in a deterministic way causing all IDs to change starting this release. This is a one time change. <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">(Changed again in 0.31)</a></li>
+</ul>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2016/01/19/perfect-home-automation/">Perfect Home Automation</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-01-19T16:20:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 19, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Internet-of-Things</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/01/19/perfect-home-automation/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>People often ask me about my vision for Home Assistant. Before I can describe where I want to go with Home Assistant, I should first talk about how home automation would look in my ideal world. This will be the aim of this post. I’m not going to focus on protocols, networks or specific hubs. That’s all implementation details. Instead, this post will focus on what is most important: the interaction between the users and their home.</p>
+<h3><a class="title-link" name="you-should-not-have-to-adapt-to-technology" href="#you-should-not-have-to-adapt-to-technology"></a> You should not have to adapt to technology.</h3>
+<p>When people start using home automation, they always experience home control first: being able to control devices in new ways using a phone or computer. They believe the future is now and their app will be their remote for their lives. They only focus on what they are getting, not on what they are losing. You install some light bulbs and all of a sudden you are no longer able to use the light switches. You’ll arrive at home at night and have to pull out your phone, open the app, let it connect and finally you’ll be able to turn on the light. All while turning the light on could have been a switch away.</p>
+<p>Yes, you can solve this with presence detection. What if  your phone runs out of battery? You’ll have to resort to the switch again.</p>
+<p>If you find that using your new home devices is cumbersome, the promise of home automation technology has failed you. Your lights should work with both a switch (or button) at the entrance of your room and via presence detection. Honestly, there are hardly any valid use cases for being able to control lights from your phone except for showing off.</p>
+      <a class="btn pull-right" href="/blog/2016/01/19/perfect-home-automation/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2016/01/18/extended-support-for-diy-solutions/">0.11: Extended support for DIY solutions</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-01-18T07:20:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 17, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/01/18/extended-support-for-diy-solutions/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>First release of 2016 and we are on 🔥! The <a href="https://github.com/home-assistant/home-assistant/">main repository</a> has passed 2500 ⭐ on GitHub (2596 ⭐ as of now). This release also has a <a href="https://github.com/home-assistant/home-assistant/pull/883#partial-users-participants">record number</a> of 20 contributors all working on improving and extending Home Assistant. With the continued growth, I am very excited to see what 2016 will bring us 🤘.</p>
+<p><img src="/images/supported_brands/mysensors.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/raspberry-pi.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="50" /><img src="/images/supported_brands/yr.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/telldus.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/free_mobile.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/netatmo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/alarmdotcom.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/proliphix.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<ul>
+  <li><a href="/components/mysensors/">MySensors</a> revamped and switch support added (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Full refactor of RPi GPIO. Now includes <a href="/components/binary_sensor.rpi_gpio/">binary sensor</a> and <a href="/components/switch.rpi_gpio/">switch</a> (<a href="https://github.com/sfam">@sfam</a>)</li>
+  <li>Sensor: <a href="/components/sensor.yr/">YR</a> platform added (<a href="https://github.com/danielhiversen">@danielhiversen</a>)</li>
+  <li>Device Tracker: Geofancy platform has been renamed to <a href="/components/device_tracker.locative/">Locative</a> (<a href="https://github.com/philipbl">@philipbl</a>)</li>
+  <li>Automation: Add <a href="/getting-started/automation-condition/#sun-condition">sun condition</a> (<a href="https://github.com/philipbl">@philipbl</a>)</li>
+  <li>Switch: <a href="/components/switch.command_switch/">command_switch</a> can now poll for state (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Switch: <a href="/components/switch.wemo/">wemo</a> now uses subscription to states instead of polling (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li><a href="/components/tellduslive/">Telldus Live</a> support added (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li><a href="/components/vera/">Vera</a> now uses subscription to states instead of polling (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>New <a href="/topics/templating/#home-assistant-template-extensions">template helper method</a> <code class="highlighter-rouge">is_state_attr(entity_id, name, value)</code> added (<a href="https://github.com/andythigpen">@andythigpen</a>)</li>
+  <li>Device tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> transition events now supported (<a href="https://github.com/xifle">@xifle</a>)</li>
+  <li>Light: <a href="/components/light.hue/">Philips Hue</a> platform now supports multiple hubs (<a href="https://github.com/rhooper">@rhooper</a>)</li>
+  <li>Notify: <a href="/components/notify.free_mobile/">Free Mobile</a> platform added (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>New <a href="/components/mqtt_eventstream/">MQTT Eventstream</a> component to connect two Home Assistant instances over MQTT (<a href="https://github.com/moonshot">@moonshot</a>)</li>
+  <li>Media player: <a href="/components/media_player.cast/">Cast</a> huge stability improvements (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li>Media Player: <a href="/components/media_player.universal/">Universal media player</a> added to combine multiple media players (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li>Sensor: <a href="/components/sensor.netatmo/">Netatmo</a> platform added (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.alarmdotcom/">Alarm.com</a> platform added (<a href="https://github.com/Xorso">@Xorso</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.proliphix/">Proliphix</a> platform added (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>New component <a href="/components/input_boolean/">input_boolean</a> will allow for customizing automation (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Support calling services via <a href="/components/alexa/">Amazon Echo</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+<h3>Backwards incompatible changes</h3>
+<ul>
+  <li>The <a href="/components/binary_sensor.rpi_gpio/">RPi.GPIO sensor platform</a> has been moved to the <code class="highlighter-rouge">binary_sensor</code> component.</li>
+  <li><a href="/components/sensor.mysensors/">MySensors sensor platform</a> now requires the <a href="/components/mysensors/">MySensors</a> component to be configured.</li>
+  <li>Geofancy platform has been renamed to <a href="/components/device_tracker.locative/">Locative</a>.</li>
+</ul>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/22/amazon-echo-icloud-and-templates/">0.10: Amazon Echo, iCloud, Dweet.io, Twitch and templating support!</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-22T17:30:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 22, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/22/amazon-echo-icloud-and-templates/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Alrighty, it’s time for Home Assistant 0.10. A lot amazing things have changed and sadly we also had to introduce a bunch of backwards incompatible changes. I would like to give a big shoutout to Philip Lundrigan (<a href="https://github.com/philipbl">@philipbl</a>) who put a lot in effort in helping the migration to move towards using templates for a wide variety of platforms.</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<p><img src="/images/supported_brands/icloud.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/heatmiser.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/dweet.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/amazon-echo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eliq.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<ul>
+  <li>Device tracker: <a href="/components/device_tracker.icloud/">iCloud</a> platform added (<a href="https://github.com/xorso">@xorso</a>, <a href="https://github.com/kevinpanaro">@kevinpanaro</a>)</li>
+  <li>Frontend: Improved caching using service workers if served over SSL (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Sensor: <a href="/components/sensor.twitch/">Twitch</a> platform added (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li><a href="/topics/templating/">Template</a> support (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/philipbl">@philipbl</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.heatmiser/">Heatmiser</a> platform added (<a href="https://github.com/andylockran">@andylockran</a>)</li>
+  <li>Sensor: <a href="/components/sensor.dweet/">Dweet.io</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li><a href="/components/alexa/">Alexa/Amazon echo</a> component added (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.fritz/">FritzBox</a> platform added (<a href="https://github.com/deisi">@deisi</a>, <a href="https://github.com/caiuspb">@caiuspb</a>)</li>
+  <li>Sensor: <a href="/components/sensor.wink/">Wink</a> now supports the Egg minders (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor: <a href="/components/sensor.eliqonline/">ELIQ Online</a> platform added (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Binary sensor: <a href="/components/binary_sensor.rest/">REST</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: <a href="/components/sensor.torque/">Torque (OBD2)</a> platform added (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2015/12/22/amazon-echo-icloud-and-templates/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/14/setup-encryption-using-lets-encrypt/">Set up encryption using Let's Encrypt</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-14T02:05:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 13, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Martin Hjelmare</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/14/setup-encryption-using-lets-encrypt/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Exposing your Home Assistant instance outside of your network always has been tricky. You have to set up port forwarding on your router and most likely add a dynamic DNS service to work around your ISP changing your IP. After this you would be able to use Home Assistant from anywhere but there is one big red flag: no encryption.</p>
+<p>This tutorial will take you through the steps to setup a dynamic DNS for your IP and allow trusted encrypted connection to it - for free using <a href="https://duckdns.org">DuckDNS</a> and <a href="https://letsencrypt.org">Let’s Encrypt</a>.</p>
+<p class="img">
+<img src="/images/blog/2015-12-lets-encrypt/letsencrypt-secured.png" />
+</p>
+      <a class="btn pull-right" href="/blog/2015/12/14/setup-encryption-using-lets-encrypt/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs/">[Update: decision reversed!] Philips Hue blocks 3rd party lights</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-13T02:44:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 12, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Public-Service-Announcement</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><strong>Update Dec 16</strong>: Great news! Philips has decided to <a href="http://www.developers.meethue.com/documentation/friends-hue-update">reverse their decision</a> and is working on a software update to allow 3rd party light bulbs again.</p>
+<p class="img">
+<img src="/images/blog/2015-12-philips-hue-3rd-party/philips-hue-reversed-faq.png" />
+Philips Hue FAQ entries regarding reversing the decision.
+</p>
+<p><em>Original post:</em></p>
+      <a class="btn pull-right" href="/blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/">Activating Tasker tasks from Home Assistant using command line switches</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-10T18:39:41+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 10, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Rowan Hine</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><img src="/images/blog/2015-12-tasker/tasker-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
+In this tutorial I will explain how you can activate Tasker tasks from Home Assistant command line switches. We are going to set up a switch that when toggled will make your Android device say either “On” or “Off”.</p>
+<p>You could also do this with the automation component instead so whenever you put your house to sleep mode for example your Android device will open up Google Play Books or the Kindle app ready for you to read as well as dimming your lights, but this tutorial is all about the switches.</p>
+      <a class="btn pull-right" href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/07/influxdb-and-grafana/">InfluxDB and Grafana</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-07T22:15:13+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 07, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/07/influxdb-and-grafana/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><img src="/images/supported_brands/grafana.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
+The <a href="https://influxdb.com/">InfluxDB</a> database is a so-called time series database primarly designed to store sensor data and real-time analytics.</p>
+<p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes from Home Assistant to an external <a href="https://influxdb.com/">InfluxDB</a> database.</p>
+      <a class="btn pull-right" href="/blog/2015/12/07/influxdb-and-grafana/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/07/locks-rollershutters-binary-sensors-and-influxdb-support/">0.9: Rollershutters, locks, binary sensors and InfluxDB</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-07T03:29:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 6, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/07/locks-rollershutters-binary-sensors-and-influxdb-support/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>It’s been a few weeks but we managed to polish a nice new release of Home Assistant for y’all!</p>
+<p><img src="/images/supported_brands/homematic.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /><img src="/images/supported_brands/ecobee.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /></p>
+<ul>
+  <li>New <a href="/components/lock/">lock component</a> including <a href="/components/lock.wink/">Wink</a> support (<a href="https://github.com/miniconfig">@miniconfig</a>)</li>
+  <li>New <a href="/components/binary_sensor/">binary sensor component</a> including <a href="/components/binary_sensor.arest/">aRest</a> and <a href="/components/binary_sensor.mqtt/">MQTT</a> support (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>New <a href="/components/rollershutter/">rollershutter component</a> including <a href="/components/rollershutter.mqtt/">MQTT</a> support (<a href="https://github.com/sfam">@sfam</a>)</li>
+  <li>New <a href="/components/influxdb/">InfluxDB component</a> to store data in InfluxDB (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.ecobee/">Ecobee</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.homematic/">Homematic</a> now supported (<a href="https://github.com/goir">@goir</a>)</li>
+  <li>Support for <a href="/components/mqtt/#processing-json">parsing JSON values</a> received over MQTT (<a href="https://github.com/mcdeck">@mcdeck</a>)</li>
+  <li>Bunch of bug fixes and optimizations</li>
+</ul>
+<p>To update, run <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code>.</p>
+<p class="img">
+<img src="/images/screenshots/lock-and-rollershutter-card.png" />
+</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2015/12/05/community-highlights/">Community Highlights</a>
   </h1>
   <div class="meta clearfix">
@@ -97,357 +441,6 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/9QQjklnSQKY" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <p>And last but not least, Midwestern Mac did a <a href="http://www.midwesternmac.com/blogs/jeff-geerling/raspberry-pi-microsd-card">microSD card performance comparison</a> for the Raspberry Pi. If you’re using a Pi, make sure to check it out!</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/11/22/survey-november-2015/">Survey November 2015</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-11-22T22:51:18+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 22, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Survey</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/11/22/survey-november-2015/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><img src="/images/blog/2015-11-survey/releases.png" style="float: right; margin-left: 8px; margin-bottom: 8px;" height="120" />Around a week ago we started with the first survey. Now 30 people have participated. Thank you very much if you did. We think that’s enough time to have some “only partially representative” data. It’s hard to tell how many Home Assistant users are out there. Currently there are 215 members in our <a href="https://gitter.im/balloob/home-assistant">Gitter chat room</a> and last week <a href="https://pypi.python.org/pypi/homeassistant/">PyPI</a> counted 5063 downloads.</p>
-<p>The idea was to anonymously collect some details about the usage of the different parts of Home Assistant and a little bit about the environment its running in.</p>
-      <a class="btn pull-right" href="/blog/2015/11/22/survey-november-2015/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/11/16/zwave-switches-lights-and-honeywell-thermostats-now-supported/">0.8: Honeywell Thermostats, Orvibo switches and Z-Wave switches and lights </a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-11-16T21:27:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 16, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/11/16/zwave-switches-lights-and-honeywell-thermostats-now-supported/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><img src="/images/screenshots/custom-icons.png" style="float: right;" />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> for idea and prototype). To get started with customizing, pick any icon from <a href="https://MaterialDesignIcons.com">MaterialDesignIcons.com</a>, prefix the name with <code class="highlighter-rouge">mdi:</code> and stick it into your <code class="highlighter-rouge">customize</code> section in <code class="highlighter-rouge">configuration.yaml</code>:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
-  <span class="s">customize</span><span class="pi">:</span>
-    <span class="s">switch.ac</span><span class="pi">:</span>
-      <span class="s">icon</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mdi:air-conditioner'</span>
-</code></pre>
-</div>
-<h4>Breaking changes</h4>
-<ul>
-  <li>Any existing zone icon will have to be replaced with one from <a href="https://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</li>
-  <li>LimitlessLED light services require colors to be specified in RGB instead of XY.</li>
-</ul>
-<h4>Changes</h4>
-<p><img src="/images/supported_brands/honeywell.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="/images/supported_brands/orvibo.png" style="clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="/images/supported_brands/pushetta.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /></p>
-<ul>
-  <li>Thermostat: <a href="/components/thermostat.honeywell/">Honeywell</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Switch: <a href="/components/switch.orvibo/">Orvibo</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Camera: <a href="/components/camera.mjpeg/">mjpeg camera’s</a> now supported (<a href="https://github.com/ryanturner">@ryanturner</a>)</li>
-  <li>Notify: <a href="/components/notify.pushetta/">Pushetta</a> now supported (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Light: <a href="/components/light.mqtt/">MQTT</a> now supported (<a href="https://github.com/hexxter">@hexxter</a>)</li>
-  <li>Light: <a href="/components/zwave/">Z-Wave</a> now supported (<a href="https://github.com/leoc">@leoc</a>)</li>
-  <li>Switch: <a href="/components/zwave/">Z-Wave</a> now supported (<a href="https://github.com/leoc">@leoc</a>)</li>
-  <li>New component <a href="/components/logger/">logger</a> allows filtering logged data (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>New component <a href="/components/updater/">updater</a> will notify users if an update for Home Assistant is available (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
-  <li>Notify: <a href="/components/notify.pushbullet/">PushBullet</a> now allows targeting contacts/channels/specific devices (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Light: Allow controlling color temperature (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Frontend: about page added (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Switch RGB as the color unit used in light component (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Re-install platform and component dependencies after a Home Assistant version upgrade (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/10/26/firetv-and-radiotherm-now-supported/">0.7.6: Amazon FireTV, Radiotherm thermostats</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-10-26T18:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 26, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/10/26/firetv-and-radiotherm-now-supported/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>After two weeks of hard work I’m proud to announce the release of Home Assistant v0.7.6. For this release the main focus was bugs, test coverage and documentation. And we exceeded expectations on all three fronts. Bugs have been squashed, <a href="https://coveralls.io/builds/3946399">test coverage increased to 85%</a> and thanks to the hard work by <a href="https://github.com/fabaff">@fabaff</a> and myself the <a href="/components/">component section</a> on the website has gotten a complete revamp.</p>
-<h4>Changes</h4>
-<p><img src="/images/supported_brands/radiotherm.png" style="border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="/images/supported_brands/firetv.png" style="border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;" height="50" /><img src="/images/supported_brands/locative.png" style="border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;" height="50" /></p>
-<ul>
-  <li>Device tracker: Newer <a href="/components/device_tracker.tplink/">TP-Link routers</a> now supported (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
-  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.manual/">Manual alarm</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.radiotherm/">Radiotherm</a> now supported (<a href="https://github.com/toddeye">@toddeye</a>)</li>
-  <li>Media Player: <a href="/components/media_player.firetv/">Amazon FireTV</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.locative/">Geofancy</a> now supported (<a href="https://github.com/wind-rider">@wind-rider</a>)</li>
-  <li>New component <a href="/components/shell_command/">Shell Command</a> can expose shell commands as services (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li><a href="/components/script/">Scripts</a> can now be customized using <code class="highlighter-rouge">customize</code> key in <code class="highlighter-rouge">configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.hyperion/">Hyperion</a> now supported (<a href="https://github.com/MakeMeASandwich">@MakeMeASandwich</a>)</li>
-  <li>Sensor: <a href="/components/sensor.arest/">aRest</a> can now also read out pins (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: <a href="/components/sensor.forecast/">Forecast.io</a> now supports specifying units in <code class="highlighter-rouge">configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.heat_control/">Heat Control</a> has been completely rewritten (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Switch: <a href="/components/switch.rest/">Rest</a> now supported (<a href="https://github.com/bachp">@bachp</a>)</li>
-  <li>Media Player: <a href="/components/media_player.plex/">Plex</a> can now be auto discovered and configure itself (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li><a href="/components/downloader/">Downloader</a> will now treat relative paths based on config dir (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Line Charts will use interpolation for sensor data and show current and target temperature for thermostats (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.ubus/">OpenWRT via ubus</a> now supported (<a href="https://github.com/krzynio">@krzynio</a>)</li>
-</ul>
-      <a class="btn pull-right" href="/blog/2015/10/26/firetv-and-radiotherm-now-supported/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/">Report the temperature with ESP8266 to MQTT</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-10-12T03:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> seven minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>ESP8266</li>
-        <li>How-To</li>
-        <li>MQTT</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-<p>I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.</p>
-<p>For this tutorial, I’ll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.</p>
-<p class="img">
-<img src="/images/blog/2015-10-esp8266-temp/setup.png" />
-Picture of the final setup (+ 2 LED for decoration)
-</p>
-<p class="img">
-<img src="/images/blog/2015-10-esp8266-temp/ha-sensor.png" />
-Home Assistant will keep track of historical values and allow you to integrate it into automation.
-</p>
-      <a class="btn pull-right" href="/blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/10/12/rfxtrx-blinkstick-and-snmp-support/">0.7.5: Blinkstick, SNMP, Telegram</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-10-12T01:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/10/12/rfxtrx-blinkstick-and-snmp-support/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>We discovered two issues annoying enough to warrent the release of 0.7.5:</p>
-<ul>
-  <li>Home Assistant package did not include the CloudMQTT certificate.</li>
-  <li>A bug in the core caused issues when some platforms are loaded twice.</li>
-</ul>
-<p>This release also includes some new platforms (because they keep coming!):</p>
-<p><img src="/images/supported_brands/blinkstick.png" style="border:none; box-shadow: none; float: right;" height="50" /><img src="/images/supported_brands/rfxtrx.png" style="border:none; box-shadow: none; float: right; clear: right;" height="50" /><img src="/images/supported_brands/telegram.png" style="border:none; box-shadow: none; float: right; clear: right;" height="50" /></p>
-<ul>
-  <li>Light: <a href="/components/light.blinksticklight/">blinkstick platform</a> added (<a href="https://github.com/alanbowman">@alanbowman</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.snmp/">SNMP platform</a> added (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Light: <a href="/components/light.rfxtrx/">rfxtrx platform</a> added (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>Switch: <a href="/components/switch.rfxtrx/">rfxtrx platform</a> added (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>Notify: <a href="/components/notify.telegram/">telegram platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-</ul>
-<p>Also, the media player was extended by <a href="https://github.com/maddox">@maddox</a> to support the play media command. This has been implemented for the <a href="/components/media_player.itunes/">iTunes platform</a>.</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">Home Assistant goes geo with OwnTracks</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-10-05T21:49:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 5, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>A few weeks have past and it is time again for another release: version 0.7.4. This time we’re very glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map. The geo support consists of three different parts:</p>
-<ul>
-  <li><a href="/components/device_tracker.owntracks/">OwnTracks platform for the device tracker</a> to get locations for devices</li>
-  <li>Brand new <a href="/components/zone/">zone component</a> to define zones to identify locations and <a href="/getting-started/automation-trigger/#zone-trigger">trigger automation</a></li>
-  <li>A map in the UI to see all this (<a href="/demo/">see it in action in the demo</a>)</li>
-</ul>
-<p>We have added a new <a href="/getting-started/presence-detection/">getting started section</a> to get up and running.</p>
-<p class="img">
-<img src="/images/screenshots/map.png" />
-Map in Home Assistant showing two people and three zones (home, school, work)
-</p>
-<p>Ofcourse more things happened in the last three weeks. I’m moving away from my usual long post to a short summary of highlights:</p>
-<p><a href="/components/media_player.plex/">
-<img src="/images/supported_brands/plex.png" style="border:none; box-shadow: none; float: right;" height="50" />
-</a></p>
-<ul>
-  <li>Sensor: <a href="/components/sensor.rest/">rest platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.mqtt/">MQTT platform</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Media Player: <a href="/components/media_player.plex/">Plex platform</a> added (<a href="https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault)">@miniconfig</a></li>
-  <li>Dev Tools: services can now show description of fields (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>MQTT: Support for certificates and improved error reporting (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.limitlessled/">limitlessled platform</a> extended with white light support (<a href="https://github.com/auchter">@auchter</a>)</li>
-  <li>Fuzzy matching for scenes (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Scene support for media player (<a href="https://github.com/maddox">@maddox</a>)</li>
-</ul>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/09/19/alarm-sonos-and-itunes-support/">Alarms, Sonos and iTunes now supported</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-09-19T21:47:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 19, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/09/19/alarm-sonos-and-itunes-support/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>It’s like someone opened a can of rock solid developers and emptied it above our <a href="https://gitter.im/balloob/home-assistant">chat channel</a> because it exploded with great conversations and solid contributions. Featured in release 0.7.3: Sonos, iTunes, Alarm component and Automation upgrade.</p>
-<p>See <a href="https://github.com/home-assistant/home-assistant/releases/tag/0.7.3">GitHub</a> for more detailed release notes.</p>
-<p><em>Migration note: the <code class="highlighter-rouge">scheduler</code> component has been removed in favor of the <code class="highlighter-rouge">automation</code> component.</em></p>
-<p><strong>Sonos</strong>
-<img src="/images/supported_brands/sonos.png" style="border:none; box-shadow: none; float: right;" height="50" /> Sonos support has been added by <a href="https://github.com/rhooper">@rhooper</a> and <a href="https://github.com/SEJeff">@SEJeff</a>. Home Assistant is now able to automatically detect Sonos devices in your network and set them up for you. It will allow you to control music playing on your Sonos and change the volume.</p>
-<p><strong>iTunes and airplay speakers</strong>
-<img src="/images/supported_brands/itunes.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/maddox">@maddox</a> has contributed support for controlling iTunes and airplay speakers. For this to work you will have to run <a href="https://github.com/maddox/itunes-api">itunes-api</a> on your Mac as middleware.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">itunes</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">iTunes</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.1.50</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">8181</span>
-</code></pre>
-</div>
-      <a class="btn pull-right" href="/blog/2015/09/19/alarm-sonos-and-itunes-support/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/09/18/monitoring-with-glances-and-home-assistant/">Remote Monitoring with Glances</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-09-18T17:00:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 18, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>How-To</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/09/18/monitoring-with-glances-and-home-assistant/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><img src="/images/supported_brands/glances.png" style="border:none; box-shadow: none; float: right;" height="80" />
-Inspried by a <a href="https://github.com/home-assistant/home-assistant/issues/310">feature requests</a> I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the <a href="/components/sensor.systemmonitor/">systemmonitor</a> sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present.</p>
-      <a class="btn pull-right" href="/blog/2015/09/18/monitoring-with-glances-and-home-assistant/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/09/14/home-assistant-meets-ifttt/">Home Assistant meets IFTTT</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-09-14T00:28:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 13, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>How-To</li>
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/09/14/home-assistant-meets-ifttt/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Today we announce the release of Home Assistant v0.7.2 which includes brand new support by <a href="https://github.com/sfam">@sfam</a> to integrate with <a href="https://ifttt.com">IFTTT</a>. IFTTT stands for If This, Then That and is a webservice that integrates with almost every possible webservice out there. Adding Home Assistant to this mix means Home Assistant can connect with all via IFTTT.</p>
-<p>It is now possible to disable your irregation system if it is going to be cloudy tomorrow or tweet if your smoke alarm goes off.</p>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/splash.png" />
-</p>
-<p>Head over to the <a href="/components/ifttt/">setup instructions</a> to get started with IFTTT. Click the read more button for some example recipes.</p>
-      <a class="btn pull-right" href="/blog/2015/09/14/home-assistant-meets-ifttt/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

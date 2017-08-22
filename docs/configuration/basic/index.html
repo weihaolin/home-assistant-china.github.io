@@ -78,8 +78,6 @@
   <hr class="divider">
   <p>在默认情况下，HomeAssistant将试图通过你的IP地址来检测你的地理位置，并将基于你的地理位置，自动选择温度单位和时区。当然你也可以覆盖 <code class="highlighter-rouge">configuration.yaml</code> 中的以下内容，来指明你的位置信息:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
-  <span class="c1"># 若非指明，此部分的缺省数据将通过freegeoip.io来自动获取</span>
-
   <span class="c1"># 经度和纬度数据，用来计算日出和日落时间</span>
   <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.87336</span>
   <span class="s">longitude</span><span class="pi">:</span> <span class="s">117.22743</span>
@@ -98,6 +96,19 @@
   <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
 </code></pre>
 </div>
+<p>可配置的变量:</p>
+<ul>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude of your location required to calculate the time the sun rises and sets.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude of your location required to calculate the time the sun rises and sets.</li>
+  <li><strong>elevation</strong> (<em>Optional</em>): Altitude above sea level in meters. Impacts weather/sunrise data.</li>
+  <li><strong>unit_system</strong> (<em>Optional</em>): <code class="highlighter-rouge">metric</code> for Metric, <code class="highlighter-rouge">imperial</code> for Imperial.</li>
+  <li><strong>time_zone</strong> (<em>Optional</em>): Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the location where Home Assistant is running.</li>
+  <li><strong>customize</strong> (<em>Optional</em>): <a href="/docs/configuration/customizing-devices/">Customize</a> entities.</li>
+  <li><strong>customize_domain</strong> (<em>Optional</em>): <a href="/docs/configuration/customizing-devices/">Customize</a> all entities in a domain.</li>
+  <li><strong>customize_glob</strong> (<em>Optional</em>): <a href="/docs/configuration/customizing-devices/">Customize</a> entities matching a pattern.</li>
+  <li><strong>whitelist_external_dirs</strong> (<em>Optional</em>): List of folders that can be used as sources for sending files.</li>
+</ul>
 <h3><a class="title-link" name="web" href="#web"></a> 设置密码，保护Web界面安全</h3>
 <p>首先，你需要为HomeAssistant的Web界面设置一个密码。使用你最喜欢的文本编辑工具打开 <code class="highlighter-rouge">configuration.yaml</code> 并且编辑其中的 <code class="highlighter-rouge">http</code> 部分:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
@@ -123,20 +134,12 @@
       <li>
         <b><a  href='/docs/installation/'>Installation </a></b>
         <ul>
+          <li><a  href='/hassio/'>Hass.io </a></li>
           <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/hassbian/'>Hassbian </a></li>
           <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>
           <li><a  href='/docs/installation/updating/'>Updating </a></li>
           <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <b><a  href='/docs/hassbian/'>Hassbian </a></b>
-        <ul>
-          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
-          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
-          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
-          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
-          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
         </ul>
       </li>
       <li>
@@ -267,28 +270,9 @@
           </li>
           <li>
             <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
-            </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
-              </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
@@ -311,7 +295,7 @@
             </ul>
           </li>
           <li>
-            Certificates
+            <a  href='/docs/ecosystem/certificates/'>Certificates </a>
             <ul>
               <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
               <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>

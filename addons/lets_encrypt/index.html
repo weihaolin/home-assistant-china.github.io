@@ -76,9 +76,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Setup and manage a <a href="https://letsencrypt.org/">Let’s Encrypt</a> certificate. This will create a certificate on the first run and renew it if the certificate is expiring in the next 30 days.</p>
+  <p>Setup and manage a <a href="https://letsencrypt.org/">Let’s Encrypt</a> certificate. This will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration.</p>
 <p class="note warning">
-This add-on need port 80/443 to verify the certificate request, please stop all add-ons they use also this ports, otherwise you can not start this add-on.
+This add-on need port 80/443 to verify the certificate request, please stop all add-ons that also use these ports, or you may not be able to start this add-on.
 </p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"challenge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https"</span><span class="p">,</span><span class="w">
@@ -114,24 +114,21 @@ This add-on need port 80/443 to verify the certificate request, please stop all 
           <li><a  href='/hassio/installation/'>Installation </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
-          <li><a  href='/hassio/external_storage/'>External storage </a></li>
-          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
-          <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
     </ul>
     <ul class='divided sidebar-menu'>
       <li>
-        <a  href='/hassio/addon_development/'>Add-on Development </a>
+        Advanced
         <ul>
-          <li><a  href='/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
-          <li><a  href='/hassio/addon_config/'>Configuration </a></li>
-          <li><a  href='/hassio/addon_testing/'>Local Testing </a></li>
-          <li><a  href='/hassio/addon_publishing/'>Publishing </a></li>
-          <li><a  href='/hassio/addon_repository/'>Repositories </a></li>
+          <li><a  href='/hassio/zwave/'>Z-Wave </a></li>
+          <li><a  href='/hassio/external_storage/'>External storage </a></li>
+          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
         </ul>
       </li>
-      <li><a  href='/hassio/debugging/'>Debugging Hass.io </a></li>
+    </ul>
+    <ul class='divided sidebar-menu'>
+      <li><a href='/developers/hassio/addon_development/'>Looking to create an add-on?</a></li>
     </ul>
   </div>
 </section>

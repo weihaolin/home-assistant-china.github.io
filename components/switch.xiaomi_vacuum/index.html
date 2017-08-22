@@ -75,68 +75,68 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi_vacuum</code>switch platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>. 
-Current supported features are <code class="highlighter-rouge">start</code> and <code class="highlighter-rouge">stop</code> (goes to dock).</p>
+  <p><a href="http://www.mi.com/roomrobot/">小米扫地机器人平台</a> <code class="highlighter-rouge">xiaomi_vacuum</code> 帮助你在 HA 中控制扫地机器人。</p>
+<p>目前支持的控制指令有启动 <code class="highlighter-rouge">start</code> 和停止 <code class="highlighter-rouge">stop</code> （回到充电桩）。</p>
 <p><a class="title-link" name="getting-started" href="#getting-started"></a> Getting started</p>
-<p>Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.</p>
+<p>请使用手机和米家 app 根据下述教程从 SQLite 文档中获取机器人的秘钥 <code class="highlighter-rouge">token</code>，从而将扫地机接入 HA 平台。</p>
 <p class="note warning">
-If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
+如果你的 HA 是在虚拟环境 <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>下运行的，在运行下列命令前请确保已切换到虚拟环境。</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
 <span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
 </code></pre>
 </div>
-<p>In order to fetch the token follow these instructions depending on your mobile phone platform.</p>
-<h3>Windows and Android</h3>
+<p>请根据手机平台选择获取 token 的方法：</p>
+<h3>Windows 和 Android</h3>
 <ol>
-  <li>Configure the robot with the Mi-Home app.</li>
-  <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
-  <li>Get ADB tool for Windows : https://developer.android.com/studio/releases/platform-tools.html</li>
-  <li>Create a backup of the application com.xiaomi.smarthome:
+  <li>通过米家 app 连接扫地机器人；</li>
+  <li>打开手机的开发者模式和 USB 调试模式，将手机连至电脑；</li>
+  <li>获取 ADB 工具： https://developer.android.com/studio/releases/platform-tools.html</li>
+  <li>创建 com.xiaomi.smarthome 的应用备份:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db backup -noapk com.xiaomi.smarthome -f backup.ab
 </code></pre>
     </div>
   </li>
-  <li>If you have this message : “More than one device or emulator”, use this command to list all devices:
+  <li>如果你的终端显示如下信息: “More than one device or emulator”，使用下列指令显示所有设备：
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db devices
 </code></pre>
     </div>
-    <p>and execute this command:</p>
+    <p>并执行下列指令：</p>
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
 </code></pre>
     </div>
   </li>
-  <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
-  <li>Get ADB Backup Extractor : https://sourceforge.net/projects/adbextractor/</li>
-  <li>Extract All files from the backup:
+  <li>在手机上选择确认备份，请勿输入任何密码；</li>
+  <li>获取 ADB 备份提取工具：https://sourceforge.net/projects/adbextractor/</li>
+  <li>提取所有备份文件：
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
 </code></pre>
     </div>
+    <p>9.解压 “.tar” 文件；</p>
   </li>
-  <li>Unzip the “.tar” file.</li>
-  <li>Open the sqlite DB miio2.db with a tool like SQLite Manager extension for FireFox.</li>
-  <li>Get token from “devicerecord” table.</li>
+  <li>使用 SQLite Manager 等类似工具，打开 sqlite 文件 <code class="highlighter-rouge">miio2.db</code>；</li>
+  <li>获取 “devicerecord” 数据表，即 token。</li>
 </ol>
-<h3>macOS and iOS</h3>
+<h3>macOS 和 iOS</h3>
 <ol>
-  <li>Setup iOS device with the Mi-Home app.</li>
-  <li>Create an unencrypted backup of the device using iTunes.</li>
-  <li>Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/</li>
-  <li>Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer</li>
-  <li>Open the file extracted using notepad. You will then see the list of all the device in your account with their token.</li>
+  <li>通过米家 app 连接扫地机器人；</li>
+  <li>通过 iTunes 创建备份；</li>
+  <li>安装 iBackup Viewer ： http://www.imactools.com/iphonebackupviewer/</li>
+  <li>提取文件 <code class="highlighter-rouge">/raw data/com.xiami.mihome/_mihome.sqlite</code> 至你的电脑</li>
+  <li>使用 notepad 或其他编译器打开文件。你会看到一系列的设备和秘钥，找到小米机器人。</li>
 </ol>
-<p><a class="title-link" name="configuration" href="#configuration"></a> Configuration</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_vacuum</span>
+<p><a class="title-link" name="configuration" href="#configuration"></a> Configuration 
+获取 token 后，在 <code class="highlighter-rouge">configuration.yaml</code>中添加如下配置：</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_vacuum</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">robot'</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
   <span class="s">token</span><span class="pi">:</span> <span class="s">your-token-here</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>变量说明：</p>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): The name of your robot</li>
-  <li><strong>host</strong> (<em>Required</em>): The IP of your robot</li>
-  <li><strong>token</strong> (<em>Required</em>): The token of your robot. Go to Getting started section to read more about how to get it</li>
+  <li><strong>name</strong> (<em>可选</em>): 机器人昵称</li>
+  <li><strong>host</strong> (<em>必需</em>): 机器人 IP</li>
+  <li><strong>token</strong> (<em>必需</em>):  机器人 token</li>
 </ul>
 </article>
         </div>
@@ -272,6 +272,9 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
             <a href='/components/switch.rachio/'>Rachio Switch</a>
         </li>
         <li>
+            <a href='/components/switch.rainmachine/'>RainMachine Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
         </li>
         <li>
@@ -299,6 +302,9 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
             <a href='/components/switch.thinkingcleaner/'>Thinking Cleaner Switch</a>
         </li>
         <li>
+            <a href='/components/switch.velbus/'>Velbus Switches</a>
+        </li>
+        <li>
             <a href='/components/switch.vera/'>Vera Switch</a>
         </li>
         <li>
@@ -312,6 +318,9 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
         </li>
         <li>
             Xiaomi Mi Robot Vacuum
+        </li>
+        <li>
+            <a href='/components/switch.xiaomi/'>Xiaomi Switch</a>
         </li>
         <li>
             <a href='/components/switch.zwave/'>Z-Wave Switch</a>

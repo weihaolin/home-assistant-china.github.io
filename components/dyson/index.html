@@ -75,17 +75,16 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">dyson</code> component is the main component to integrate all <a href="https://dyson.com">Dyson</a> related platforms.</p>
-<p>Currently limited to Cool Link Purifier.</p>
+  <p>The <code class="highlighter-rouge">dyson</code> component is the main component to integrate all <a href="https://dyson.com">Dyson</a> related platforms: <a href="/components/fan/dyson/">Fans</a> and <a href="/components/vacuum/dyson/">Robot vacuum</a>.</p>
 <p>To enable this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dyson</span><span class="pi">:</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">&lt;dyson_account_user_email&gt;</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">&lt;dyson_acount_password&gt;</span>
   <span class="s">language</span><span class="pi">:</span> <span class="s">&lt;dyson_account_language&gt;</span>
   <span class="s">devices</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">device_id</span><span class="pi">:</span> <span class="s">&lt;device_id_1&gt;</span>
+    <span class="pi">-</span> <span class="s">device_id</span><span class="pi">:</span> <span class="s">&lt;device_id_1&gt;</span> <span class="c1"># eg: Pure Cool Link device</span>
       <span class="s">device_ip</span><span class="pi">:</span> <span class="s">&lt;device_ip_1&gt;</span>
-    <span class="pi">-</span> <span class="s">device_id</span><span class="pi">:</span> <span class="s">&lt;device_id_2&gt;</span>
+    <span class="pi">-</span> <span class="s">device_id</span><span class="pi">:</span> <span class="s">&lt;device_id_2&gt;</span> <span class="c1"># eg: Eye 360 robot vacuum</span>
       <span class="s">device_ip</span><span class="pi">:</span> <span class="s">&lt;device_ip_2&gt;</span>
     <span class="s">...</span>
 </code></pre>
@@ -94,7 +93,7 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): Dyson account username (email address)</li>
   <li><strong>password</strong> (<em>Required</em>): Dyson account password</li>
-  <li><strong>language</strong> (<em>Required</em>): Dyson account language country code. Known working codes: <code class="highlighter-rouge">FR</code>, <code class="highlighter-rouge">NL</code>, <code class="highlighter-rouge">UK</code>, <code class="highlighter-rouge">AU</code>. But others codes should work.</li>
+  <li><strong>language</strong> (<em>Required</em>): Dyson account language country code. Known working codes: <code class="highlighter-rouge">FR</code>, <code class="highlighter-rouge">NL</code>, <code class="highlighter-rouge">GB</code>, <code class="highlighter-rouge">AU</code>. But others codes should work.</li>
   <li><strong>devices</strong> (<em>Optional</em>): List of devices
     <ul>
       <li><strong>device_id</strong> (<em>Required</em>): Device ID. Available in the mobiles applications (<em>Settings</em> page)</li>
@@ -103,7 +102,8 @@
   </li>
 </ul>
 <p><code class="highlighter-rouge">devices</code> list is optional but you’ll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
-To find devices IP address, you can use your router or <code class="highlighter-rouge">nmap</code>:</p>
+<em>If your are using a robot vacuum (Dyson 360 Eye), discovery is not yet supported so you have to provide <code class="highlighter-rouge">devices</code> list.</em></p>
+<p>To find devices IP address, you can use your router or <code class="highlighter-rouge">nmap</code>:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>nmap -p 1883 XXX.XXX.XXX.XXX/YY -- open
 </code></pre>
 </div>
@@ -134,6 +134,9 @@ To find devices IP address, you can use your router or <code class="highlighter-
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/vacuum.dyson/'>
+          Dyson 360 Eye
+        </a></li>
         <li><a href='/components/fan.dyson/'>
           Dyson Purifier Fan
         </a></li>
@@ -152,7 +155,13 @@ To find devices IP address, you can use your router or <code class="highlighter-
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
         </li>
         <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
         </li>
         <li>
             <a href='/components/arlo/'>Arlo</a>
@@ -212,7 +221,13 @@ To find devices IP address, you can use your router or <code class="highlighter-
             <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
             <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
         </li>
         <li>
             <a href='/components/litejet/'>LiteJet</a>
@@ -293,6 +308,12 @@ To find devices IP address, you can use your router or <code class="highlighter-
             <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
             <a href='/components/velux/'>Velux</a>
         </li>
         <li>
@@ -306,6 +327,9 @@ To find devices IP address, you can use your router or <code class="highlighter-
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/xiaomi/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

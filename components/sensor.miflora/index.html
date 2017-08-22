@@ -75,8 +75,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">miflora</code> sensor platform allows one to monitor to plants. The <a href="https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html">Mi Flora plant sensor</a> is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.</p>
-<p>Start a scan to determine the MAC addresses of the sensor:</p>
+  <p><a href="https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html">花花草草监测仪平台</a> <code class="highlighter-rouge">miflora</code> 帮助你在 HA 中接入监测仪。 花花草草监测仪使用蓝牙传输信息，由于低功耗蓝牙传输协议的设置，每次只能与一个设备进行信息交流，此插件适应了这一特性。</p>
+<p>在设备中开启扫描获取监测仪的 Mac 地址：</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo hcitool lescan
 LE Scan ...
 F8:04:33:AF:AB:A2 <span class="o">[</span>TV] UE48JU6580
@@ -84,40 +84,39 @@ C4:D3:8C:12:4C:57 Flower mate
 <span class="o">[</span>...]
 </code></pre>
 </div>
-<p>Check for <code class="highlighter-rouge">Flower care</code> or <code class="highlighter-rouge">Flower mate</code> entries, those are your sensor.</p>
-<p>To use your Mi Flora plant sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
+<p>（译者注：另可通过安卓手机搜寻蓝牙设备，过程更为简单快捷）</p>
+<p>寻找名为 <code class="highlighter-rouge">Flower care</code> 或 <code class="highlighter-rouge">Flower mate</code> 的设备，记录下 Mac。</p>
+<p>将下列配置添加至<code class="highlighter-rouge">configuration.yaml</code> 文件：</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">miflora</span>
     <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">xx:xx:xx:xx:xx:xx'</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">temperature</span>
 </code></pre>
 </div>
+<p>变量说明：</p>
 <ul>
-  <li><strong>mac</strong> (<em>Required</em>): The MAC address of your sensor.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): The paramaters that should be monitored (defaults to monitoring all parameters).
+  <li><strong>mac</strong> (<em>必需</em>): 监测仪的 mac 地址</li>
+  <li><strong>monitored_conditions</strong> array (<em>可选</em>): 监测仪需要检测的数据，默认监测所有数据：
     <ul>
-      <li><strong>moisture</strong>: Moisture in the soil.</li>
-      <li><strong>light</strong>: Brightness at the sensor’s location.</li>
-      <li><strong>temperature</strong>: Temperature at the sensor’s location.</li>
-      <li><strong>conductivity</strong>: Conductivity in the soil.</li>
-      <li><strong>battery</strong>: Battery details.</li>
+      <li><strong>moisture</strong>: 土壤湿度</li>
+      <li><strong>light</strong>: 亮度</li>
+      <li><strong>temperature</strong>: 温度</li>
+      <li><strong>conductivity</strong>: 肥力（土壤导电性）</li>
+      <li><strong>battery</strong>: 电量</li>
     </ul>
   </li>
-  <li><strong>name</strong> (<em>Optional</em>): The name displayed in the frontend.</li>
-  <li><strong>force_update</strong> (<em>Optional</em>): Sends update events even if the value hasn’t changed.</li>
-  <li><strong>median</strong> (<em>Optional</em>): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, <code class="highlighter-rouge">median: 1</code> will work fine.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): Define the timeout value in seconds when polling (defaults to 10 if not defined)</li>
-  <li><strong>retries</strong> (<em>Optional</em>): Define the number of retries when polling (defaults to 2 if not defined)</li>
-  <li><strong>cache_value</strong> (<em>Optional</em>): Define cache expiration value in seconds (defaults to 1200 if not defined)</li>
-  <li><strong>adapter</strong> (<em>Optional</em>): Define the bluetooth adapter to use (defaults to hci0). Run <code class="highlighter-rouge">hciconfig</code> to get a list of available adapters.</li>
+  <li><strong>name</strong> (<em>可选</em>): 昵称</li>
+  <li><strong>force_update</strong> (<em>可选</em>): 即使数据没有变化，依旧强制推送数据</li>
+  <li><strong>median</strong> (<em>可选</em>): 监测仪有时候只会显示数据的峰值，使用这个变量，数据将取各次推送的平均值，保证准确性。默认为 3 。</li>
+  <li><strong>timeout</strong> (<em>可选</em>): 数据推送时间间隔，默认为 10。（秒）</li>
+  <li><strong>retries</strong> (<em>可选</em>): 推送失败后的重试次数，默认为 2。</li>
+  <li><strong>cache_value</strong> (<em>可选</em>): 缓存数据容量，默认为 1200。</li>
+  <li><strong>adapter</strong> (<em>可选</em>): 蓝牙适配器接口，默认为 hci0 。运行<code class="highlighter-rouge">hciconfig</code> 获取蓝牙适配器列表。</li>
 </ul>
-<p>Note that by default the sensor is only polled once every 15 minutes. This means with the <code class="highlighter-rouge">median: 3</code> setting will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn’t a big problem. 
-Reducing polling intervals will have a negative effect on the battery life.</p>
-<p>A full configuration example could looks the one below:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
+<p>请注意监测仪默认每 15 分钟推送一次数据，这意味着如果设定为取 3 次数据的传送值，则一共需要花费30分钟 HA 才会显示数据。但是，通常情况下，由于数据在短时间内变动不大，因此可以容忍。如果强制缩短获取信息的时间，不利于电池的寿命。</p>
+<p>完整的配置如下：</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">miflora</span>
     <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">xx:xx:xx:xx:xx:xx'</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Flower 1</span>
@@ -166,12 +165,6 @@ Reducing polling intervals will have a negative effect on the battery life.</p>
         </li>
         <li>
             <a href='/components/sensor.eddystone_temperature/'>Eddystone Beacon</a>
-        </li>
-        <li>
-            <a href='/components/knx/'>KNX</a>
-        </li>
-        <li>
-            <a href='/components/cover.knx/'>KNX Cover</a>
         </li>
         <li>
             Mi Flora plant sensor

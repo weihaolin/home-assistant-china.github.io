@@ -76,17 +76,13 @@
   </header>
   <hr class="divider">
   <p>If you would like to use your own <a href="/developers/frontend_add_card/">State card</a> without merging your code into <a href="https://github.com/home-assistant/home-assistant-polymer/">home-assistant-polymer</a> you can create your own implementation.</p>
-<ul>
-  <li>Put the element source file and its dependencies in <code class="highlighter-rouge">www/custom_ui/</code> directory under your homeassistant config directory.</li>
-</ul>
+<p>Put the element source file and its dependencies in <code class="highlighter-rouge">www/custom_ui/</code> directory under your Home Assistant <a href="/docs/configuration/">configuration</a> directory.</p>
 <p>For example if creating a state card for the <code class="highlighter-rouge">light</code> domain named <code class="highlighter-rouge">my_custom_light_card</code> put <code class="highlighter-rouge">state-card-my_custom_light_card.html</code> in <code class="highlighter-rouge">www/custom_ui/</code>.</p>
 <p>That file should implement <code class="highlighter-rouge">&lt;state-card-my_custom_light_card&gt;</code> tag with Polymer.</p>
-<p>In <code class="highlighter-rouge">state-card-my_custom_light_card.html</code> you should use <code class="highlighter-rouge">&lt;link rel="import"&gt;</code> to import all the dependencies <strong>not</strong> used by Homeassistant UI.
-Do not import any dependencies used by Homeassistant UI.
+<p>In <code class="highlighter-rouge">state-card-my_custom_light_card.html</code> you should use <code class="highlighter-rouge">&lt;link rel="import"&gt;</code> to import all the dependencies <strong>not</strong> used by Home Assistant’s UI.
+Do not import any dependencies used by the Home Assistant UI.
 Importing those will work in <code class="highlighter-rouge">development: 1</code> mode, but will fail in production mode.</p>
-<ul>
-  <li>In the <code class="highlighter-rouge">customize:</code> section of <code class="highlighter-rouge">configuration.yaml</code> put <code class="highlighter-rouge">custom_ui_state_card: &lt;element-name&gt;</code>.</li>
-</ul>
+<p>In the <code class="highlighter-rouge">customize:</code> section of the <code class="highlighter-rouge">configuration.yaml</code> file put <code class="highlighter-rouge">custom_ui_state_card: &lt;element-name&gt;</code>.</p>
 <p>For example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">customize</span><span class="pi">:</span>
@@ -134,7 +130,7 @@ Importing those will work in <code class="highlighter-rouge">development: 1</cod
         </ul>
       </li>
       <li>
-        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <a  href='/developers/add_new_platform/'>Creating a new platform (to support a new device) </a>
         <ul>
           <li><a  href='/developers/code_review_platform/'>Checklist creating a platform </a></li>
           <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
@@ -152,6 +148,14 @@ Importing those will work in <code class="highlighter-rouge">development: 1</cod
           <li><a  href='/developers/component_visibility/'>Visibility </a></li>
           <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
           <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/intent/'>Intents (handling voice responses) </a>
+        <ul>
+          <li><a  href='/developers/intent/firing/'>Firing intents </a></li>
+          <li><a  href='/developers/intent/handling/'>Handling intents </a></li>
+          <li><a  href='/developers/intent/conversation/'>Registering sentences </a></li>
         </ul>
       </li>
       <li>
@@ -173,12 +177,28 @@ Importing those will work in <code class="highlighter-rouge">development: 1</cod
         </ul>
       </li>
       <li>
+        <a  href='/developers/hassio/architecture/'>Hass.io architecture </a>
+        <ul>
+          <li><a  href='/developers/hassio/debugging/'>Debugging Hass.io </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <ul>
+          <li><a  href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
+          <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/developers/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/developers/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/developers/hassio/addon_repository/'>Repositories </a></li>
+        </ul>
+      </li>
+      <li>
         <a  href='/developers/api/'>API </a>
         <ul>
-          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Python API </a></li>
           <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
-          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
-          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/rest_api/'>REST API </a></li>
+          <li><a  href='/developers/python_api/'>Python REST API </a></li>
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
         </ul>
       </li>

@@ -80,12 +80,12 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">lifx</span>
-    <span class="s">server</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>server</strong> (<em>Optional</em>): Your server address. Only needed if using more than one network interface. Omit if you are unsure.</li>
+  <li><strong>broadcast</strong> (<em>Optional</em>): The broadcast address for discovering lights. Only needed if using more than one network interface. Omit if you are unsure.</li>
+  <li><strong>server</strong> (<em>Optional</em>): Your server address. Will listen on all interfaces if omitted. Omit if you are unsure.</li>
 </ul>
 <h2><a class="title-link" name="set-state" href="#set-state"></a> Set state</h2>
 <p>The LIFX bulbs allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.</p>
@@ -107,6 +107,10 @@
     <tr>
       <td><code class="highlighter-rouge">transition</code></td>
       <td>Duration (in seconds) for the light to fade to the new state.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zones</code></td>
+      <td>List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">infrared</code></td>
@@ -288,6 +292,9 @@
             <a href='/components/light.decora/'>Decora</a>
         </li>
         <li>
+            <a href='/components/light.decora_wifi/'>Decora Wi-Fi</a>
+        </li>
+        <li>
             <a href='/components/light.enocean/'>EnOcean Light</a>
         </li>
         <li>
@@ -342,6 +349,9 @@
             <a href='/components/light.mqtt_template/'>MQTT Template Light</a>
         </li>
         <li>
+            <a href='/components/light.mochad/'>Mochad Light</a>
+        </li>
+        <li>
             <a href='/components/light.mysensors/'>MySensors Light</a>
         </li>
         <li>
@@ -372,6 +382,9 @@
             <a href='/components/light.sensehat/'>Sense HAT Light</a>
         </li>
         <li>
+            <a href='/components/light.tplink/'>TPLink Bulb</a>
+        </li>
+        <li>
             <a href='/components/light.tellstick/'>TellStick Light</a>
         </li>
         <li>
@@ -381,6 +394,9 @@
             <a href='/components/light.tikteck/'>Tikteck</a>
         </li>
         <li>
+            <a href='/components/light.velbus/'>Velbus lights</a>
+        </li>
+        <li>
             <a href='/components/light.vera/'>Vera Light</a>
         </li>
         <li>
@@ -388,6 +404,9 @@
         </li>
         <li>
             <a href='/components/light.x10/'>X10</a>
+        </li>
+        <li>
+            <a href='/components/light.xiaomi/'>Xiaomi Light</a>
         </li>
         <li>
             <a href='/components/light.yeelightsunflower/'>Yeelight Sunflower Bulb</a>

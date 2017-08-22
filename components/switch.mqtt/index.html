@@ -91,8 +91,11 @@
   <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the switch state.</li>
+  <li><strong>availability_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive availability (online/offline) updates.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
+  <li><strong>payload_available</strong> (<em>Optional</em>): The payload that represents the available state, e.g. ‘online’. Default is “ON”.</li>
+  <li><strong>payload_not_available</strong> (<em>Optional</em>): The payload that represents the unavailable state, e.g. ‘offline’. Default is “OFF”.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no <code class="highlighter-rouge">state_topic</code> defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
@@ -111,6 +114,7 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1"</span>
     <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
+    <span class="s">availability_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/available"</span>
     <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
     <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
     <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
@@ -297,6 +301,9 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
             <a href='/components/switch.rachio/'>Rachio Switch</a>
         </li>
         <li>
+            <a href='/components/switch.rainmachine/'>RainMachine Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
         </li>
         <li>
@@ -324,6 +331,9 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
             <a href='/components/switch.thinkingcleaner/'>Thinking Cleaner Switch</a>
         </li>
         <li>
+            <a href='/components/switch.velbus/'>Velbus Switches</a>
+        </li>
+        <li>
             <a href='/components/switch.vera/'>Vera Switch</a>
         </li>
         <li>
@@ -337,6 +347,9 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
         </li>
         <li>
             <a href='/components/switch.xiaomi_vacuum/'>Xiaomi Mi Robot Vacuum</a>
+        </li>
+        <li>
+            <a href='/components/switch.xiaomi/'>Xiaomi Switch</a>
         </li>
         <li>
             <a href='/components/switch.zwave/'>Z-Wave Switch</a>

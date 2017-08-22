@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Media | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/media/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-08-22T19:00:07+08:00</updated>
+  <updated>2017-08-23T00:34:04+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast #5]]></title>
+    <link href="http:///blog/2017/08/01/hasspodcast-ep-5/"/>
+    <updated>2017-08-01T08:01:00+08:00</updated>
+    <id>http:///blog/2017/08/01/hasspodcast-ep-5</id>
+    <content type="html"><![CDATA[We cover off AppDaemon/HADashboard and all the fun stuff introduced in 0.49 and 0.50.
+
+Show notes available on the [Home Assistant Podcast Website](https://hasspodcast.io/ha005/)
+
+[Listen online][episode]
+
+[episode]: https://hasspodcast.io/ha005/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Talk Python interview with Paulus Schoutsen]]></title>
+    <link href="http:///blog/2017/07/27/talk-python-podcast/"/>
+    <updated>2017-07-27T10:00:00+08:00</updated>
+    <id>http:///blog/2017/07/27/talk-python-podcast</id>
+    <content type="html"><![CDATA[<iframe width="100%" height="166" scrolling="no" frameborder="no"
+     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335038628&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false">
+</iframe>
+
+Join Michael Kennedy at the Talk Python podcast for an hour long interview with Paulus Schoutsen, the founder of Home Assistant, as they discuss the release of Hass.io and the vision for the perfect home automation.
+
+<a href='https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation'>
+  Visit the episode page on Talk Python
+</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast #4]]></title>
+    <link href="http:///blog/2017/07/17/hasspodcast-ep-4/"/>
+    <updated>2017-07-17T08:01:00+08:00</updated>
+    <id>http:///blog/2017/07/17/hasspodcast-ep-4</id>
+    <content type="html"><![CDATA[We quickly cover off a few community items including the move to Discord and Carlo talks with Phil about his use of Floorplan.
+
+[Listen online][episode]
+
+[episode]: https://hasspodcast.io/ha004/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast #3]]></title>
+    <link href="http:///blog/2017/07/05/hasspodcast-ep-3/"/>
+    <updated>2017-07-05T08:01:00+08:00</updated>
+    <id>http:///blog/2017/07/05/hasspodcast-ep-3</id>
+    <content type="html"><![CDATA[The third episode of the Home Assistant Podcast is out. Paulus joins to talk about some stats and the release of 0.47 and Petar tells all about his Floorplan project for Home Assistant.
+
+[Listen online][episode]
+
+[episode]: https://hasspodcast.io/ha003/
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux Action Show special about Home Assistant]]></title>
@@ -26,52 +84,6 @@
 
 [Hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296/48
 [Home Assistant podcast]: https://hasspodcast.io/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant Podcast 1]]></title>
-    <link href="http:///blog/2017/06/02/home-assistant-podcast-1/"/>
-    <updated>2017-06-02T14:00:00+08:00</updated>
-    <id>http:///blog/2017/06/02/home-assistant-podcast-1</id>
-    <content type="html"><![CDATA[The first podcast by [Home Assistant Podcast](https://hasspodcast.io) contains an introduction and covers the [0.45](/blog/2017/05/20/automation-editor-zwave-panel-ocr/) release of Home Assistant.
-
-- Listen online: [https://hasspodcast.io/ha001/](https://hasspodcast.io/ha001/)
-- Download: [https://hasspodcast.io/podcast-download/13/ha001.mp3](https://hasspodcast.io/podcast-download/13/ha001.mp3)
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Podcast.__init__ interview with Paulus Schoutsen]]></title>
-    <link href="http:///blog/2017/05/05/podcast-init-interview/"/>
-    <updated>2017-05-05T10:00:00+08:00</updated>
-    <id>http:///blog/2017/05/05/podcast-init-interview</id>
-    <content type="html"><![CDATA[<p class='img'>
-<a href='https://www.podcastinit.com/'><img src='http:/images/blog/2017-05-podcast-init/podcast_init.png' /></a>
-</p>
-
-Earlier this year I was interviewed by Tobias Macey from [Podcast.\_\_init\_\_][pc-init] about Python and Home Assistant. Just realized that we never shared this on the blog, oops. Here it is, enjoy!
-
-<script class="podigee-podcast-player" src="//cdn.podigee.com/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://www.podcastinit.com?podigee_player=205" async></script>
-
-[pc-init]: https://www.podcastinit.com/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OpenSourceCraft interviews our founder Paulus Schoutsen]]></title>
-    <link href="http:///blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/"/>
-    <updated>2017-03-23T16:04:05+08:00</updated>
-    <id>http:///blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen</id>
-    <content type="html"><![CDATA[Last month Gregg Pollack from [OpenSourceCraft] visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the [full article including extra video material][article].
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-[OpenSourceCraft]: http://codepop.com/open-sourcecraft
-[article]: http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/
 ]]></content>
   </entry>
   

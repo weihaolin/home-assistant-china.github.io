@@ -104,48 +104,32 @@
   <span class="s">customize_domain</span><span class="pi">:</span>
     <span class="s">light</span><span class="pi">:</span>
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+    <span class="s">automation</span><span class="pi">:</span>
+      <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
   <span class="c1"># 为满足某些条件的实体添加自定义设置，支持通配符</span>
   <span class="s">customize_glob</span><span class="pi">:</span>
     <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:description</span>
-
+    <span class="s2">"</span><span class="s">scene.month_*_colors"</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">emulated_hue</span><span class="pi">:</span> <span class="s">false</span>
+      <span class="s">homebridge_hidden</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="" href="#"></a> 可能的值</h3>
-<table>
-  <thead>
-    <tr>
-      <th>属性</th>
-      <th>描述</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">friendly_name</code></td>
-      <td>实体名称（可使用汉字，汉化一般在此处）</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hidden</code></td>
-      <td>设置为 <code class="highlighter-rouge">true</code> 表示隐藏实体，<code class="highlighter-rouge">false</code> 表示显示实体</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">entity_picture</code></td>
-      <td>要设置为实体图标的图像URL</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">icon</code></td>
-      <td><a href="http://MaterialDesignIcons.com">MDI</a>网站上所有支持的图标，格式为：mdi:图标名称</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">assumed_state</code></td>
-      <td>非状态反馈（假定状态）开关会默认显示为 ` 开<code class="highlighter-rouge"> 和 </code>关<code class="highlighter-rouge"> 两个按钮，如果设置为 </code>false` 则会显示为默认滑块开关</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">device_class</code></td>
-      <td>设置设备的类别，更改设备类别后前端界面显示会有相应变化（见下文）</td>
-    </tr>
-  </tbody>
-</table>
+<p>| 属性 | 描述 |
+| ——— | ———– |
+| <code class="highlighter-rouge">friendly_name</code> | 实体名称（可使用汉字，汉化一般在此处）
+| <code class="highlighter-rouge">homebridge_name</code> |  <code class="highlighter-rouge">HomeBridge</code>中实体的名称.
+| <code class="highlighter-rouge">hidden</code>    | 设置为 <code class="highlighter-rouge">true</code> 表示隐藏实体，<code class="highlighter-rouge">false</code> 表示显示实体
+| <code class="highlighter-rouge">homebridge_hidden</code> | 设置为 <code class="highlighter-rouge">true</code> 表示隐藏<code class="highlighter-rouge">HomeBridge</code>中的实体，<code class="highlighter-rouge">false</code> 表示显示<code class="highlighter-rouge">HomeBridge</code>中的实体
+| <code class="highlighter-rouge">emulated_hue</code> |设置为 <code class="highlighter-rouge">true</code>表示隐藏emulated_hue中的实体.
+| <code class="highlighter-rouge">entity_picture</code> | 要设置为实体图标的图像URL
+| <code class="highlighter-rouge">icon</code> | <a href="http://MaterialDesignIcons.com">MDI</a>网站上所有支持的图标，格式为：mdi:图标名称
+| <code class="highlighter-rouge">assumed_state</code> | 非状态反馈（假定状态）开关会默认显示为 ` 开<code class="highlighter-rouge"> 和 </code>关<code class="highlighter-rouge"> 两个按钮，如果设置为 </code>false<code class="highlighter-rouge"> 则会显示为默认滑块开关
+| </code>device_class<code class="highlighter-rouge"> | 设置设备的类别，更改设备类别后前端界面显示会有相应变化（见下文）
+| </code>initial_state<code class="highlighter-rouge"> | 设置自动化操作中的默认操作. </code>on<code class="highlighter-rouge"> or </code>off<code class="highlighter-rouge">.
+| </code>unit_of_measurement` | 定义测量值的单位</p>
 <h3><a class="title-link" name="" href="#"></a> 设备类别</h3>
 <p>目前，仅以下两个平台支持设备类别属性：</p>
 <ul>
@@ -172,20 +156,12 @@
       <li>
         <b><a  href='/docs/installation/'>Installation </a></b>
         <ul>
+          <li><a  href='/hassio/'>Hass.io </a></li>
           <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/hassbian/'>Hassbian </a></li>
           <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>
           <li><a  href='/docs/installation/updating/'>Updating </a></li>
           <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <b><a  href='/docs/hassbian/'>Hassbian </a></b>
-        <ul>
-          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
-          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
-          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
-          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
-          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
         </ul>
       </li>
       <li>
@@ -316,28 +292,9 @@
           </li>
           <li>
             <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
-            </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
-              </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
@@ -360,7 +317,7 @@
             </ul>
           </li>
           <li>
-            Certificates
+            <a  href='/docs/ecosystem/certificates/'>Certificates </a>
             <ul>
               <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
               <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>

@@ -85,20 +85,17 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
 <p>To enable the emulated Hue bridge, add one of the following configs to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Google Home example configuration.yaml entry</span>
 <span class="s">emulated_hue</span><span class="pi">:</span>
-  <span class="s">type</span><span class="pi">:</span> <span class="s">google_home</span>
   <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
   <span class="c1"># Google Home does not work on different ports.</span>
 </code></pre>
 </div>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Amazon Echo example configuration.yaml entry</span>
 <span class="s">emulated_hue</span><span class="pi">:</span>
-  <span class="s">type</span><span class="pi">:</span> <span class="s">alexa</span>
-  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>type</strong> (<em>Optional</em>): The type of assistant who we are emulated for. Either <code class="highlighter-rouge">alexa</code> or <code class="highlighter-rouge">google_home</code>, defaults to <code class="highlighter-rouge">google_home</code>.</li>
+  <li><strong>type</strong> (<em>Optional</em>): The type of assistant who we are emulated for. Either <code class="highlighter-rouge">alexa</code> or <code class="highlighter-rouge">google_home</code>, defaults to <code class="highlighter-rouge">google_home</code>. <strong>This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.</strong></li>
   <li><strong>host_ip</strong> (<em>Optional</em>): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.</li>
   <li>
     <p><strong>listen_port</strong> (<em>Optional</em>): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.</p>
@@ -148,7 +145,7 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
     <span class="pi">-</span> <span class="s">light</span>
 </code></pre>
 </div>
-<p>With additional customization you will be able to specify the behaviour of the existing entities.</p>
+<p>With additional customization you will be able to specify the behavior of the existing entities.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example customization</span>
 <span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">customize</span><span class="pi">:</span>
@@ -171,11 +168,12 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
   <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/description.xml</code> - This URL should return a descriptor file in the form of an XML file.</li>
   <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/api/pi/lights</code> - This will return a list of devices, lights, scenes, groups, etc.. that <code class="highlighter-rouge">emulated_hue</code> is exposing to Alexa.</li>
 </ul>
-<p>For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. http://<HA IP="" Address="">:80/description.xml).</HA></p>
+<p>For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. <code class="highlighter-rouge">http://&lt;HA IP Address&gt;:80/description.xml</code>).</p>
 <p>An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow <code class="highlighter-rouge">emulated_hue</code> to use port 80 as non-root user.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo setcap <span class="s1">'cap_net_bind_service=+ep'</span> /srv/homeassistant/homeassistant_venv/bin/python3
 </code></pre>
 </div>
+<p>Please note that your path may be different depending on your installation method. For example, if you followed the <a href="https://home-assistant.io/docs/installation/virtualenv/">Virtualenv instructions</a>, your path will be <code class="highlighter-rouge">/srv/homeassistant/bin/python3</code>.</p>
 <h3><a class="title-link" name="license" href="#license"></a> License</h3>
 <p>Much of this code is based on work done by Bruce Locke on his <a href="https://github.com/blocke/ha-local-echo">ha-local-echo</a> project, originally released under the MIT License. The license is located <a href="https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE">here</a>.</p>
 </article>
@@ -203,7 +201,13 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
         </li>
         <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
         </li>
         <li>
             <a href='/components/arlo/'>Arlo</a>
@@ -263,7 +267,13 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
             <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
             <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
         </li>
         <li>
             <a href='/components/litejet/'>LiteJet</a>
@@ -344,6 +354,12 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
             <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
             <a href='/components/velux/'>Velux</a>
         </li>
         <li>
@@ -357,6 +373,9 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/xiaomi/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

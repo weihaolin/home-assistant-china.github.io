@@ -77,6 +77,9 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network.</p>
 <p>For this to work, you need to install a modified lib-coap library.</p>
+<p class="note">
+If you are using <a href="/hassio/">Hass.io</a> then just move forward to the configuration as all requirements are already fullfilled.
+</p>
 <p>Linux:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libtool
 <span class="gp">$ </span>sudo apt-get install autoconf
@@ -90,15 +93,15 @@
 </code></pre>
 </div>
 <p>macOS:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo brew install libtool
-<span class="gp">$ </span>sudo brew install autoconf
-<span class="gp">$ </span>sudo brew install automake
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install libtool
+<span class="gp">$ </span>brew install autoconf
+<span class="gp">$ </span>brew install automake
 <span class="gp">$ </span>git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 <span class="gp">$ </span><span class="nb">cd </span>libcoap
 <span class="gp">$ </span>./autogen.sh
 <span class="gp">$ </span>./configure --disable-documentation --disable-shared --without-debug <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">"-D COAP_DEBUG_FD=stderr"</span>
 <span class="gp">$ </span>make
-<span class="gp">$ </span>sudo make install
+<span class="gp">$ </span>make install
 </code></pre>
 </div>
 <p>You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure</p>
@@ -151,7 +154,13 @@ If you see an “Unable to connect” message, restart the gateway and try again
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
         </li>
         <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
         </li>
         <li>
             <a href='/components/arlo/'>Arlo</a>
@@ -211,7 +220,13 @@ If you see an “Unable to connect” message, restart the gateway and try again
             <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
             <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
         </li>
         <li>
             <a href='/components/litejet/'>LiteJet</a>
@@ -292,6 +307,12 @@ If you see an “Unable to connect” message, restart the gateway and try again
             <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
             <a href='/components/velux/'>Velux</a>
         </li>
         <li>
@@ -305,6 +326,9 @@ If you see an “Unable to connect” message, restart the gateway and try again
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/xiaomi/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

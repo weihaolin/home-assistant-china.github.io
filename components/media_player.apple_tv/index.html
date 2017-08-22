@@ -75,35 +75,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">apple_tv</code> platform allows you to control an Apple TV (3rd and 4th generation).</p>
-<p class="note">
-Currently you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
-</p>
-<p>If you want to automatically discover new devices, just make sure you have <code class="highlighter-rouge">discovery:</code> in your <code class="highlighter-rouge">configuration.yaml</code> file. To manually add an Apple TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">media_player</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">apple_tv</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-    <span class="s">login_id</span><span class="pi">:</span> <span class="s">LOGIN_ID</span>
-</code></pre>
-</div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP-address of the device</li>
-  <li><strong>login_id</strong> (<em>Required</em>): An identifier used to login to the device, see below</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend</li>
-</ul>
-<p>In order to connect to the device you need a <em>login id</em>. The easiest way to obtain this identifier is to use the application <code class="highlighter-rouge">atvremote</code>. It should be available in the same environment as you installed Home-Assistant. To install this utility, run <code class="highlighter-rouge">pip3 install --upgrade pyatv</code>.  The run atvremote scan for all devices (try again if a device is missing):</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>atvremote scan
-Found Apple TVs:
- - Apple TV at 10.0.10.22 <span class="o">(</span>login id: 00000000-1234-5678-9012-345678901234<span class="o">)</span>
-</code></pre>
-</div>
-<p>Just copy and paste the login id from the device you want to add. For more details about <code class="highlighter-rouge">atvremote</code>, see: <a href="https://github.com/postlund/pyatv/blob/master/docs/atvremote.rst">this page</a>.</p>
-<h2><a class="title-link" name="notes-and-limitations" href="#notes-and-limitations"></a> Notes and Limitations</h2>
-<ul>
-  <li>Pairing is currently not supported</li>
-</ul>
+  <p>To setup the <code class="highlighter-rouge">apple_tv</code> platform, please follow the instructions on the <a href="/components/apple_tv/">Apple TV Component page</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -114,7 +86,7 @@ Found Apple TVs:
       <img src='/images/supported_brands/apple.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
     Introduced in release: 0.38
@@ -122,6 +94,17 @@ Found Apple TVs:
     <div class='section'>
       This is a platform for
       <a href='/components/media_player/'>the Media Player component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/apple_tv/'>
+          Apple TV
+        </a></li>
+        <li><a href='/components/remote.apple_tv/'>
+          Apple TV
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Media Player</h1>
@@ -131,6 +114,9 @@ Found Apple TVs:
         </li>
         <li>
             Apple TV
+        </li>
+        <li>
+            <a href='/components/media_player.bluesound/'>Bluesound</a>
         </li>
         <li>
             <a href='/components/media_player.clementine/'>Clementine Music Player</a>
@@ -184,6 +170,9 @@ Found Apple TVs:
             <a href='/components/media_player.mpchc/'>MPC-HC</a>
         </li>
         <li>
+            <a href='/components/media_extractor/'>Media Extractor</a>
+        </li>
+        <li>
             <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
         </li>
         <li>
@@ -220,6 +209,9 @@ Found Apple TVs:
             <a href='/components/media_player.roku/'>Roku</a>
         </li>
         <li>
+            <a href='/components/media_player.russound_rio/'>Russound RIO</a>
+        </li>
+        <li>
             <a href='/components/media_player.russound_rnet/'>Russound RNET</a>
         </li>
         <li>
@@ -248,6 +240,9 @@ Found Apple TVs:
         </li>
         <li>
             <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vizio/'>Vizio SmartCast TV</a>
         </li>
         <li>
             <a href='/components/media_player.volumio/'>Volumio Media Player</a>

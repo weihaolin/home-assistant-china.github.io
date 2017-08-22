@@ -82,8 +82,8 @@
 </code></pre>
 </div>
 <h2><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h2>
-<p>Requirements are Python libraries that you would normally install using <code class="highlighter-rouge">pip</code> for your component. Home Assistant will try to install the requirements into the <code class="highlighter-rouge">deps</code> subdirectory of the Home Assistant configuration directory (<code class="highlighter-rouge">.home-assistant</code> by default) or verify it is already installed at startup. If that fails, the component will fail to load.</p>
-<p>Requirements is a list of strings. Each entry is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast v0.6.12:</p>
+<p>Requirements are Python libraries or modules that you would normally install using <code class="highlighter-rouge">pip</code> for your component. Home Assistant will try to install the requirements into the <code class="highlighter-rouge">deps</code> subdirectory of the Home Assistant <a href="/docs/configuration/">configuration directory</a> if you are not using a <code class="highlighter-rouge">venv</code> or in something like <code class="highlighter-rouge">path/to/venv/lib/python3.6/site-packages</code> if you running in a virtual environment. This will make sure that all requirements are present at startup. If steps fails like missing packages for the compilation of a module or other install errors, the component will fail to load.</p>
+<p>Requirements is a list of strings. Each entry is a <code class="highlighter-rouge">pip</code> compatible string. For example, the media player Cast platform depends on the Python package PyChromecast v0.6.12:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pychromecast==0.6.12'</span><span class="p">]</span>
 </code></pre>
 </div>
@@ -93,7 +93,7 @@
   <li><code class="highlighter-rouge">hass --skip-pip</code></li>
 </ul>
 <p>This will use the specified version, and prevent Home Assistant from trying to override it with what is currently in <code class="highlighter-rouge">REQUIREMENTS</code>.</p>
-<p>If you need to make changes to a requirement to support your component, it’s also possible to pip install from a checkout of the requirement.</p>
+<p>If you need to make changes to a requirement to support your component, it’s also possible to <code class="highlighter-rouge">pip install</code> from a checkout of the requirement.</p>
 <ul>
   <li><code class="highlighter-rouge">git clone https://github.com/balloob/pychromecast.git</code></li>
   <li><code class="highlighter-rouge">pip install ./pychromecast</code></li>
@@ -138,7 +138,7 @@
         </ul>
       </li>
       <li>
-        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <a  href='/developers/add_new_platform/'>Creating a new platform (to support a new device) </a>
         <ul>
           <li><a  href='/developers/code_review_platform/'>Checklist creating a platform </a></li>
           <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
@@ -156,6 +156,14 @@
           <li><a  href='/developers/component_visibility/'>Visibility </a></li>
           <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
           <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/intent/'>Intents (handling voice responses) </a>
+        <ul>
+          <li><a  href='/developers/intent/firing/'>Firing intents </a></li>
+          <li><a  href='/developers/intent/handling/'>Handling intents </a></li>
+          <li><a  href='/developers/intent/conversation/'>Registering sentences </a></li>
         </ul>
       </li>
       <li>
@@ -177,12 +185,28 @@
         </ul>
       </li>
       <li>
+        <a  href='/developers/hassio/architecture/'>Hass.io architecture </a>
+        <ul>
+          <li><a  href='/developers/hassio/debugging/'>Debugging Hass.io </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <ul>
+          <li><a  href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
+          <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/developers/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/developers/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/developers/hassio/addon_repository/'>Repositories </a></li>
+        </ul>
+      </li>
+      <li>
         <a  href='/developers/api/'>API </a>
         <ul>
-          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Python API </a></li>
           <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
-          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
-          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/rest_api/'>REST API </a></li>
+          <li><a  href='/developers/python_api/'>Python REST API </a></li>
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
         </ul>
       </li>

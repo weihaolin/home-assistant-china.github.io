@@ -169,6 +169,17 @@
   <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
   <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.</li>
 </ul>
+<p class="note">
+Since Homeassistant version 0.48 you have to <a href="/docs/configuration/basic/">whitelist the source folder</a> of the file you want to include in the notification.
+<code class="highlighter-rouge">yaml
+configuration.yaml
+...
+homeassistant:
+  whitelist_external_dirs:
+    - /tmp
+    - /home/kenji/data
+</code>
+</p>
 <h3><a class="title-link" name="document-support" href="#document-support"></a> Document support</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -251,7 +262,7 @@
             <a href='/components/notify.ciscospark/'>Cisco Spark</a>
         </li>
         <li>
-            <a href='/components/notify.clicksend/'>ClickSend</a>
+            <a href='/components/notify.clicksend/'>ClickSend SMS</a>
         </li>
         <li>
             <a href='/components/notify.command_line/'>Command line Notify</a>
@@ -275,6 +286,9 @@
             <a href='/components/notify.gntp/'>GNTP (Growl)</a>
         </li>
         <li>
+            <a href='/components/notify.hipchat/'>HipChat</a>
+        </li>
+        <li>
             <a href='/components/notify.instapush/'>Instapush</a>
         </li>
         <li>
@@ -288,6 +302,9 @@
         </li>
         <li>
             <a href='/components/notify.webostv/'>LG WebOS TV notifications</a>
+        </li>
+        <li>
+            <a href='/components/notify.lametric/'>LaMetric Notify</a>
         </li>
         <li>
             <a href='/components/notify.lannouncer/'>Lannouncer</a>
@@ -321,6 +338,9 @@
         </li>
         <li>
             <a href='/components/notify.nma/'>Notify My Android</a>
+        </li>
+        <li>
+            <a href='/components/notify.prowl/'>Prowl</a>
         </li>
         <li>
             <a href='/components/notify.html5/'>Push Notifications</a>

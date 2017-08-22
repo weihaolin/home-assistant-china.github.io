@@ -145,9 +145,6 @@
 <p class="note warning">
   Use quotes around your values for <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code> to avoid the YAML parser interpreting values as booleans.
 </p>
-<p class="note warning">
-  Using <code class="highlighter-rouge">state</code> as an alias for <code class="highlighter-rouge">to</code> is deprecated.
-</p>
 <h3><a class="title-link" name="sun-trigger" href="#sun-trigger"></a> Sun trigger</h3>
 <p>Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
@@ -248,20 +245,12 @@ With template triggers you can also evaluate attribute changes by using is_state
       <li>
         <b><a  href='/docs/installation/'>Installation </a></b>
         <ul>
+          <li><a  href='/hassio/'>Hass.io </a></li>
           <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/hassbian/'>Hassbian </a></li>
           <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>
           <li><a  href='/docs/installation/updating/'>Updating </a></li>
           <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <b><a  href='/docs/hassbian/'>Hassbian </a></b>
-        <ul>
-          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
-          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
-          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
-          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
-          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
         </ul>
       </li>
       <li>
@@ -392,28 +381,9 @@ With template triggers you can also evaluate attribute changes by using is_state
           </li>
           <li>
             <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
-            </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
-              </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
@@ -436,7 +406,7 @@ With template triggers you can also evaluate attribute changes by using is_state
             </ul>
           </li>
           <li>
-            Certificates
+            <a  href='/docs/ecosystem/certificates/'>Certificates </a>
             <ul>
               <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
               <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>

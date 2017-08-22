@@ -175,6 +175,13 @@ The component will only write a log message. Keep in mind for later that you hav
 <p class="img">
 <img src="/images/screenshots/create-component01.png" />
 </p>
+<p>In order to expose attributes of your component, you will need to define a method called <code class="highlighter-rouge">state_attributes</code> which will return a dictionary of attributes:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span>
+<span class="n">def</span> <span class="n">state_attributes</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Return the attributes of the entity."""</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_attributes</span>
+</code></pre>
+</div>
 <p>To get your component included in the Home Assistant releases, follow the steps described in the <a href="https://home-assistant.io/developers/#submitting-improvements">Submitting improvements</a> section. Basically you only need to move your component in the <code class="highlighter-rouge">homeassistant/component/</code> directory of your fork and create a Pull Request.</p>
 </article>
         </div>
@@ -215,7 +222,7 @@ The component will only write a log message. Keep in mind for later that you hav
         </ul>
       </li>
       <li>
-        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <a  href='/developers/add_new_platform/'>Creating a new platform (to support a new device) </a>
         <ul>
           <li><a  href='/developers/code_review_platform/'>Checklist creating a platform </a></li>
           <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
@@ -233,6 +240,14 @@ The component will only write a log message. Keep in mind for later that you hav
           <li><a  href='/developers/component_visibility/'>Visibility </a></li>
           <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
           <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/intent/'>Intents (handling voice responses) </a>
+        <ul>
+          <li><a  href='/developers/intent/firing/'>Firing intents </a></li>
+          <li><a  href='/developers/intent/handling/'>Handling intents </a></li>
+          <li><a  href='/developers/intent/conversation/'>Registering sentences </a></li>
         </ul>
       </li>
       <li>
@@ -254,12 +269,28 @@ The component will only write a log message. Keep in mind for later that you hav
         </ul>
       </li>
       <li>
+        <a  href='/developers/hassio/architecture/'>Hass.io architecture </a>
+        <ul>
+          <li><a  href='/developers/hassio/debugging/'>Debugging Hass.io </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <ul>
+          <li><a  href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
+          <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/developers/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/developers/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/developers/hassio/addon_repository/'>Repositories </a></li>
+        </ul>
+      </li>
+      <li>
         <a  href='/developers/api/'>API </a>
         <ul>
-          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Python API </a></li>
           <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
-          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
-          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/rest_api/'>REST API </a></li>
+          <li><a  href='/developers/python_api/'>Python REST API </a></li>
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
         </ul>
       </li>
