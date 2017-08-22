@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Release-Notes | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/release-notes/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/release-notes/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[0.48: Snips.ai, Shiftr.io and a massive History query speed up]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/07/02/release-48/"/>
+    <link href="http:///blog/2017/07/02/release-48/"/>
     <updated>2017-07-02T08:02:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/07/02/release-48</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant-china.github.io/components/#version/0.48'><img src='https://home-assistant-china.github.io/images/blog/2017-07-0.48/components.png' style='border: 0;box-shadow: none;'></a>
+    <id>http:///blog/2017/07/02/release-48</id>
+    <content type="html"><![CDATA[<a href='http:/components/#version/0.48'><img src='http:/images/blog/2017-07-0.48/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for a great new release!
 
@@ -64,10 +64,10 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
 - Snips ASR and NLU component ([@michaelfester] - [#8156]) ([snips docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
@@ -523,18 +523,18 @@ light:
   
   <entry>
     <title type="html"><![CDATA[0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/06/17/release-47/"/>
+    <link href="http:///blog/2017/06/17/release-47/"/>
     <updated>2017-06-17T09:04:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/06/17/release-47</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant-china.github.io/components/#version/0.47'><img src='https://home-assistant-china.github.io/images/blog/2017-06-0.47/components.png' style='border: 0;box-shadow: none;'></a>
+    <id>http:///blog/2017/06/17/release-47</id>
+    <content type="html"><![CDATA[<a href='http:/components/#version/0.47'><img src='http:/images/blog/2017-06-0.47/components.png' style='border: 0;box-shadow: none;'></a>
 
 In this release a ton of new stuff! And who doesn't like new stuff? This release we're passing the 700 integrations for Home Assistant. As of today [we're 1369 days old][first-commit], which means that roughly every two days a new integration gets added!
 
-## {% linkable_title Python Scripts %}
+## <a class='title-link' name='python-scripts' href='#python-scripts'></a> Python Scripts 
 
 The biggest change is a new type of script component: [Python scripts][python_script docs]. This new component will allow you to write scripts to manipulate Home Assistant: call services, set states and fire events. Each Python script is made available as a service. Head over to [the docs][python_script docs] to see how to get started.
 
-## {% linkable_title Updater %}
+## <a class='title-link' name='updater' href='#updater'></a> Updater 
 
 The updater has received a new opt-in option to let us know which components you use. This will allow us to focus development efforts on the components that are popular.
 
@@ -545,7 +545,7 @@ updater:
 
 And as a reminder. We will never share gathered data in a manner that can be used to identify anyone. We do plan on making aggregate data public soon. This will include total number of users and which hardware/software platform people use to run Home Assistant.
 
-## {% linkable_title Z-Wave %}
+## <a class='title-link' name='z-wave' href='#z-wave'></a> Z-Wave 
 
 Z-Wave is also getting a big update in this release. The confusing entity_ids will be on their way out. There is a [zwave blog post] that gives more detail, but the upgrade steps will be as follows:
 
@@ -557,7 +557,7 @@ Z-Wave is also getting a big update in this release. The confusing entity_ids wi
 6.  Restart Home Assistant to run with new IDs.
 7.  The old entity IDs will be available in the more info dialog to trace down any remaining errors.
 
-## {% linkable_title Monkey Patching Python 3.6 %}
+## <a class='title-link' name='monkey-patching-python-36' href='#monkey-patching-python-36'></a> Monkey Patching Python 3.6 
 
 Some people have noticed that running Home Assistant under Python 3.6 can lead to segfaults. It seems to be related to the [earlier segfault issues][old-bug] that we experienced when we released the asyncio-based core. We thought that those issues would have been fixed when [Python bug 26617] was resolved. Although we see less reports compared to the old bug, there are still users [experiencing them][new-bug] ([gdb stacktrace points at `PyObject_GC_Del()`][gdb]).
 
@@ -573,7 +573,7 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 [gdb]: https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009
 [Ben Bangert]: https://github.com/bbangert
 
-## {% linkable_title Release 0.47.1 - June 21 %}
+## <a class='title-link' name='release-0471---june-21' href='#release-0471---june-21'></a> Release 0.47.1 - June 21 
 
 - Fix Vera lights issue #8098 ([@tsvi] - [#8101]) ([light.vera docs])
 - Fix Dyson async_add_job ([@CharlesBlonde] - [#8113]) ([fan.dyson docs]) ([sensor.dyson docs])
@@ -581,7 +581,7 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 - Fixed iTach command parsing with empty data ([@alanfischer] - [#8104]) ([remote.itach docs])
 - Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
 
-## {% linkable_title New platforms %}
+## <a class='title-link' name='new-platforms' href='#new-platforms'></a> New platforms 
 
 - Added a Taps Aff binary sensor ([@bazwilliams] - [#7880]) ([binary_sensor.tapsaff docs]) (new-platform)
 - lock.sesame: New lock platform for Sesame smart locks ([@trisk] - [#7873]) ([lock.sesame docs]) (new-platform)
@@ -599,14 +599,14 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 - Update mailgun ([@happyleavesaoc] - [#7984]) ([mailgun docs]) ([notify.mailgun docs]) (breaking change) (new-platform)
 - Add Flexit AC climate platform ([@Sabesto] - [#7871]) ([climate.flexit docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
 - Update opencv config to match other image processors ([@Teagan42] - [#7864]) ([image_processing.opencv docs]) (breaking change)
 
@@ -674,7 +674,7 @@ automation:
 - Use standard entity_ids for zwave entities. This also introduces a small API breakage, where `EVENT_SCENE_ACTIVATED` and `EVENT_NODE_EVENT` will no longer supply an `object_id`. They will now be tied to the node entity_id. ([@armills] - [#7786]) ([zwave docs]) ([light.zwave docs]) (breaking change)
 - Fix attribute entities. Home Assistant will no longer filter out entities that are 'falsey'. So you might see more entity attributes show up. ([@pvizeli] - [#8066]) (breaking change)
 
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Update squeezebox.py ([@molobrakos] - [#7617]) ([media_player.squeezebox docs])
 - Fix html5 unsub ([@balloob] - [#7874]) ([notify.html5 docs])
@@ -1095,21 +1095,21 @@ automation:
   
   <entry>
     <title type="html"><![CDATA[0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/06/04/release-46/"/>
+    <link href="http:///blog/2017/06/04/release-46/"/>
     <updated>2017-06-04T09:04:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/06/04/release-46</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant-china.github.io/components/#version/0.46'><img src='https://home-assistant-china.github.io/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
+    <id>http:///blog/2017/06/04/release-46</id>
+    <content type="html"><![CDATA[<a href='http:/components/#version/0.46'><img src='http:/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 
-## {% linkable_title New platforms %}
+## <a class='title-link' name='new-platforms' href='#new-platforms'></a> New platforms 
 
 - Template light ([@cribbstechnologies] - [#7657]) ([light.template docs]) (new-platform)
 - Support for GE Zwave fan controller ([@armills] - [#7767]) ([zwave docs]) ([fan.zwave docs]) (new-platform)
 - Rachio (Sprinklers) ([@Klikini] - [#7600]) ([switch.rachio docs]) (new-platform)
 - Introduced support to Netgear Arlo Cameras ([@tchellomello] - [#7826]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs]) (new-platform)
 
-## {% linkable_title Release 0.46.1 - June 9 %}
+## <a class='title-link' name='release-0461---june-9' href='#release-0461---june-9'></a> Release 0.46.1 - June 9 
 
 - Support for renaming ZWave values ([@armills] - [#7780]) ([zwave docs])
 - Dsmr5 revert ([@aequitas] - [#7900]) ([sensor.dsmr docs])
@@ -1119,7 +1119,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 - Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 
-## {% linkable_title Breaking changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
@@ -1141,14 +1141,14 @@ sensor:
 - Broadlink switches: Entity ids will change for switches that don't have a default name set. In this case the object_id is now used. ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both `xy_color` and `rgb_color`. ([@amelchio] - [#7765]) (breaking change)
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
@@ -1489,17 +1489,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
   
   <entry>
     <title type="html"><![CDATA[Home Assistant 0.45: Automation editor, Z-Wave panel, OCR]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/05/20/automation-editor-zwave-panel-ocr/"/>
+    <link href="http:///blog/2017/05/20/automation-editor-zwave-panel-ocr/"/>
     <updated>2017-05-20T21:00:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/05/20/automation-editor-zwave-panel-ocr</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant-china.github.io/components/#version/0.45'><img src='https://home-assistant-china.github.io/images/blog/2017-05-0.45/components.png' style='border: 0;box-shadow: none;'></a>
+    <id>http:///blog/2017/05/20/automation-editor-zwave-panel-ocr</id>
+    <content type="html"><![CDATA[<a href='http:/components/#version/0.45'><img src='http:/images/blog/2017-05-0.45/components.png' style='border: 0;box-shadow: none;'></a>
 
 Welcome to another great release of Home Assistant! While some of contributors and users are gathering at PyCon US 2017, we still managed to get a great release together!
 
 First thing for this release is a feature that has been requested a lot: an automation editor! It's still experimental - and many things are still in progress - but it works! You can create new automations and edit existing ones. If you start a new config, you're all good to go. Otherwise check [these instructions](https://home-assistant.io/docs/automation/editor/) to get your automations ready for editing in the UI.
 
 <p class='img'>
-  <img src='{{site_root}}/images/blog/2017-05-0.45/trigger.png' />
+  <img src='/images/blog/2017-05-0.45/trigger.png' />
 </p>
 
 Check this [video](https://youtu.be/0j_hWdCTip4) by [Ben](https://twitter.com/BRUHautomation) from [BRUHautomation](http://www.bruhautomation.com/) to see the new release in action. 
@@ -1513,7 +1513,7 @@ As the editor is experimental, there are some limitations. These include that Ch
 On the Z-Wave front a lot has happened. The biggest one is that we have a major extension of the Z-Wave panel thanks to [@turbokongen]! You will now be able to change config parameters and manage your devices.
 
 <p class='img'>
-  <img src='{{site_root}}/images/blog/2017-05-0.45/zwave.png' />
+  <img src='/images/blog/2017-05-0.45/zwave.png' />
 </p>
 Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.
 
@@ -1526,7 +1526,7 @@ Next to that [@armills] has lead the charge and managed to get full test coverag
 This release also contains two integrations which could help you to make non-smart devices a little smarter. The [`file` sensor][sensor.file docs] and the [`seven_segments` OCR image processing platform][image_processing.seven_segments docs]. The first simply reads a plain-text file which was created by a logger or alike. The latter one extracts the value from a captured image that shows a seven-segments display.
 
 <p class='img'>
-  <img src='{{site_root}}/images/blog/2017-05-0.45/power-meter.png' />
+  <img src='/images/blog/2017-05-0.45/power-meter.png' />
 </p>
 
 And last, but not least, our Docker image is now based off Python 3.6. This version is faster and uses less memory than Python 3.5. Win!
@@ -1536,7 +1536,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 [hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296
 [hass.io-install]: https://home-assistant.io/hassio/installation/
 
-## {% linkable_title New integrations %}
+## <a class='title-link' name='new-integrations' href='#new-integrations'></a> New integrations 
 
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
 - Add datadog component ([@nunofgs] - [#7158]) ([datadog docs]) (new-platform)
@@ -1551,26 +1551,26 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) (new-platform)
 - Axis component ([@Kane610] - [#7381]) ([axis docs]) (new-platform)
 
-## {% linkable_title Release 0.45.1 - May 22 %}
+## <a class='title-link' name='release-0451---may-22' href='#release-0451---may-22'></a> Release 0.45.1 - May 22 
 
 - Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot.__init__ docs])
 - Fix playback control of web streams ([@cgtobi] - [#7683]) ([media_player.volumio docs])
 - device_tracker.ubus: Handle empty results ([@tobygray] - [#7673]) ([device_tracker.ubus docs])
 - Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Breaking changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)
 
 <!--more-->
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Add hass to rfxtrx object ([@danielhiversen] - [#6844])
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
@@ -1921,10 +1921,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   
   <entry>
     <title type="html"><![CDATA[Home Assistant 0.44: ZigBee, OpenCV and DLib]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/05/06/zigbee-opencv-dlib/"/>
+    <link href="http:///blog/2017/05/06/zigbee-opencv-dlib/"/>
     <updated>2017-05-06T09:04:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/05/06/zigbee-opencv-dlib</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant-china.github.io/components/#version/0.44'><img src='https://home-assistant-china.github.io/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
+    <id>http:///blog/2017/05/06/zigbee-opencv-dlib</id>
+    <content type="html"><![CDATA[<a href='http:/components/#version/0.44'><img src='http:/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
 
 This release brings some great new integrations. The biggest one is the [native ZigBee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
@@ -1936,13 +1936,13 @@ And finally, for users of the config panel in the UI, we have fixed the issue wi
 
 Enjoy!
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title New integrations %}
+## <a class='title-link' name='new-integrations' href='#new-integrations'></a> New integrations 
 
 - Pushbullet notification sensor ([@jotunacorn] - [#7182]) ([sensor.pushbullet docs])
 - Add https certificate expiry sensor ([@fabfurnari] - [#7272]) ([sensor.cert_expiry docs])
@@ -1958,11 +1958,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
 
-## {% linkable_title Release 0.44.2 - May 8 %}
+## <a class='title-link' name='release-0442---may-8' href='#release-0442---may-8'></a> Release 0.44.2 - May 8 
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 
-## {% linkable_title Release 0.44.1 - May 7 %}
+## <a class='title-link' name='release-0441---may-7' href='#release-0441---may-7'></a> Release 0.44.1 - May 7 
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 - sensor.envirophat: add missing requirement ([@imrehg] - [#7451]) ([sensor.envirophat docs])
@@ -1973,7 +1973,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
 - Python Open Z-Wave made a release that fixed string processing. This was backwards incompatible. We have updated our code so you'll have to update to the latest Python Open Z-Wave with this release. You can also wait one release, as next release we'll introduce automatic installing of Python Open Z-Wave. ([@keatontaylor] - [#7266]) ([climate.zwave docs]) (breaking change)
 - InfluxDB configuration to blacklist domains has been updated to allow more features. ([@janLo] - [#7264]) (breaking change)
@@ -1997,7 +1997,7 @@ influxdb:
 - The LimitlessLED color temperatures have been turned around to work like other lights. To maintain previous colors you must adjust the color_temp value in your light.turn_on calls to 654 minus your old value (for example, 280 becomes 374). ([@amelchio] - [#7359]) (breaking change)
 - Joao apps will now require an API key to be set for all commands. ([@nkgilley] - [#7443]) ([joaoapps_join docs]) ([notify.joaoapps_join docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - LIFX light effects ([@amelchio] - [#7145]) ([light.lifx docs])
 - HassIO API v2 ([@pvizeli] - [#7201])

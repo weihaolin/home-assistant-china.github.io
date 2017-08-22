@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Announcements | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/announcements/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/announcements/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[1 year and 22 days ago I had an idea...]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/04/15/ios/"/>
+    <link href="http:///blog/2017/04/15/ios/"/>
     <updated>2017-04-15T16:04:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/04/15/ios</id>
+    <id>http:///blog/2017/04/15/ios</id>
     <content type="html"><![CDATA[1 year and 22 days ago, or 387 days ago, on March 25th, 2016, I started a project to bring Home Assistant to the iPhone.
 
 I thought the existing notification and location solutions were lacking in one way or another and had wanted for _years_ to have a project I could call my own which would allow me to learn iOS development. What better way then implementing an extremely complex application like Home Assistant?

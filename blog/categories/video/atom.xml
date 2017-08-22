@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Video | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/video/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/video/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,13 +15,13 @@
   
   <entry>
     <title type="html"><![CDATA[Home Assistant at PyCon 2016]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/06/13/home-assistant-at-pycon-2016/"/>
+    <link href="http:///blog/2016/06/13/home-assistant-at-pycon-2016/"/>
     <updated>2016-06-13T09:06:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/06/13/home-assistant-at-pycon-2016</id>
+    <id>http:///blog/2016/06/13/home-assistant-at-pycon-2016</id>
     <content type="html"><![CDATA[It's been already almost two weeks ago that a few of the Home Assistant developers headed towards Portland for [PyCon 2016] - the conference about everything Python. We were there to learn all the nifty tricks to make our code better but most of all, to talk Home Automation.
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
+  <img src='http:/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
   Couple of Home Assistant devs. Left to right: [Paulus (@balloob)], [Alex (@infamy)], [Ryan (@rmkraus)].
 </p>
 
@@ -45,7 +45,7 @@ We've had such positive reception on our open spaces that [Jonathan Baginski][@j
 After the conference part of PyCon was over we spent one extra day to host a Home Assistant sprint. This allowed us to help people get started with hacking on Home Assistant which lead to some great contributions.
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
+  <img src='http:/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
   Home Assistant sprint group photo.
 </p>
 
@@ -63,16 +63,16 @@ I've had a really great time at PyCon. It was awesome to meet everyone in person
   
   <entry>
     <title type="html"><![CDATA[Community Highlights]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/06/02/community-highlights/"/>
+    <link href="http:///blog/2016/06/02/community-highlights/"/>
     <updated>2016-06-02T02:34:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/06/02/community-highlights</id>
+    <id>http:///blog/2016/06/02/community-highlights</id>
     <content type="html"><![CDATA[Our community is amazingly helpful and creative. If you haven't been there yet, make sure to stop by our [chat room] and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.
 
-### {% linkable_title SceneGen - cli for making scenes %}
+### <a class='title-link' name='scenegen---cli-for-making-scenes' href='#scenegen---cli-for-making-scenes'></a> SceneGen - cli for making scenes 
 
 [SceneGen] is a new command line utility developed by [Andrew Cockburn] that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.
 
-### {% linkable_title Videos %}
+### <a class='title-link' name='videos' href='#videos'></a> Videos 
 
 [Nick Touran] has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up [a blog post] and has put out a video showing the new integration, very cool!
 
@@ -103,9 +103,9 @@ Muhammed Kilic has created a video how to make your Home Assistant instance acce
   
   <entry>
     <title type="html"><![CDATA[Raspberry Pi all-in-one installer]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/05/23/get-started-with-all-in-one-installer/"/>
+    <link href="http:///blog/2016/05/23/get-started-with-all-in-one-installer/"/>
     <updated>2016-05-23T00:06:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/05/23/get-started-with-all-in-one-installer</id>
+    <id>http:///blog/2016/05/23/get-started-with-all-in-one-installer</id>
     <content type="html"><![CDATA[We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That's why [@jbags81] recently introduced the [all-in-one installer]. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:
 
 ```bash
@@ -125,9 +125,9 @@ This feature wouldn't be complete if it wasn't accompanied by a new video by Ben
   
   <entry>
     <title type="html"><![CDATA[Video: How To Configure Home Assistant]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/05/12/video-configuring-home-assistant/"/>
+    <link href="http:///blog/2016/05/12/video-configuring-home-assistant/"/>
     <updated>2016-05-12T08:09:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/05/12/video-configuring-home-assistant</id>
+    <id>http:///blog/2016/05/12/video-configuring-home-assistant</id>
     <content type="html"><![CDATA[Ben from [BRUH Automation](http://www.bruhautomation.com) authors a lot of great video's about how he is using Home Assistant and how you can get started with it too. The video below will walk you through how to configure Home Assistant. Enjoy!
 
 Make sure to subscribe to [his YouTube channel](https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w) for more Home Assistant video's.
@@ -140,9 +140,9 @@ Make sure to subscribe to [his YouTube channel](https://www.youtube.com/channel/
   
   <entry>
     <title type="html"><![CDATA[Talk: Automating your home with Home Assistant (OpenIoT Summit)]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/05/06/open-iot-summit-talk/"/>
+    <link href="http:///blog/2016/05/06/open-iot-summit-talk/"/>
     <updated>2016-05-06T22:09:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/05/06/open-iot-summit-talk</id>
+    <id>http:///blog/2016/05/06/open-iot-summit-talk</id>
     <content type="html"><![CDATA[At the beginning of April I gave a talk about Home Assistant at the OpenIoT summit in San Diego. I talk about the Home Assistant architecture and explain how to get started integrating your devices. Big thanks to my employer AppFolio ([we're hiring!]) for letting me attend. [Slides.]
 
 <div class='videoWrapper'>

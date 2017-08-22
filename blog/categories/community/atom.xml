@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Community | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/community/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/community/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Home Assistant at PyCon US 2017]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/05/19/home-assistant-at-pycon-us-2017/"/>
+    <link href="http:///blog/2017/05/19/home-assistant-at-pycon-us-2017/"/>
     <updated>2017-05-19T08:00:01+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/05/19/home-assistant-at-pycon-us-2017</id>
+    <id>http:///blog/2017/05/19/home-assistant-at-pycon-us-2017</id>
     <content type="html"><![CDATA[In just 12 hours PyCon US 2017 starts. This is an exciting conference because there will be a bunch of Home Assistant developers and users there being able to meet in person.
 
 Just like last year, we'll be hosting a [Home Assistant Open Space](https://us.pycon.org/2017/events/open-spaces/). Please stop by to ask any questions you have to the available developers. ~~We haven't reserved a slot yet but will do so tomorrow. We'll update this post and announce it on social media as we know time and location.~~ **First open-space will be Friday at 4pm in room B112.**
@@ -30,9 +30,9 @@ On a final note, the Home Assistant community is very very active so don't take 
   
   <entry>
     <title type="html"><![CDATA[Grazer Linuxtage 2017: Python Everywhere]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/"/>
+    <link href="http:///blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/"/>
     <updated>2017-05-07T10:00:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere</id>
+    <id>http:///blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere</id>
     <content type="html"><![CDATA[I like Python. It's a clean easy to read, easy to learn language. Yet when you use it for some time you still find more features to improve your coding. What I probably like most about Python is the community and the great libraries that already exist. Often solving a problem means including a pre-existing library and writing some glue code. That makes it quick to get things up and running.
 
 I just gave a talk on how you can run Python to automate your home (yes with Home-Assistant) but also with [MicroPython]. Micropython allows you to run Python on your DIY sensors and switches around your home. Python everywhere - even on the chips that give Home-Assistant the data to be awesome.
@@ -47,9 +47,9 @@ I just gave a talk on how you can run Python to automate your home (yes with Hom
   
   <entry>
     <title type="html"><![CDATA[Hardware Contest 2017]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/04/24/hardware-contest-2017/"/>
+    <link href="http:///blog/2017/04/24/hardware-contest-2017/"/>
     <updated>2017-04-24T14:00:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/04/24/hardware-contest-2017</id>
+    <id>http:///blog/2017/04/24/hardware-contest-2017</id>
     <content type="html"><![CDATA[We have four submissions for our [Hardware Contest 2017][hardware].
 
 - [Part of IoT-course](https://community.home-assistant.io/t/entry-for-hardware-contest-part-of-iot-course/14827)
@@ -71,14 +71,14 @@ End of the voting period: April, 30 2017 - 23.59 UTC
   
   <entry>
     <title type="html"><![CDATA[Thomas Krenn award 2017]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/04/01/thomas-krenn-award/"/>
+    <link href="http:///blog/2017/04/01/thomas-krenn-award/"/>
     <updated>2017-04-01T14:00:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/04/01/thomas-krenn-award</id>
+    <id>http:///blog/2017/04/01/thomas-krenn-award</id>
     <content type="html"><![CDATA[You may already know from our social media channels and the release blog post for 0.41: We are now an award-winning Open source project. The jury of the [Thomas-Krenn-Award][award] put us on the 2nd place. This is an awesome achievment for an independent community project.
 
 I would like to thanks all contributors. Your endless effort made this possible.
 
-<img src='https://home-assistant-china.github.io/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'>
+<img src='http:/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'>
 
 The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four [Low Energy Server v2 (LES)][LES] units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.
 
@@ -87,7 +87,7 @@ As a raffle would be to easy, we make a contest out of it. This means that we ar
 Create an entry in our [Forum][forum]. Be creative and use your imagination.
 
 
-### {% linkable_title The details %}
+### <a class='title-link' name='the-details' href='#the-details'></a> The details 
 
 - Jury: The Home Assistant community
 - Dead line: April, 23 2017 - 23.59 UTC
@@ -107,9 +107,9 @@ Keep in mind that you may have to pay the fee for customs handling and the impor
   
   <entry>
     <title type="html"><![CDATA[Workshop at CLT 2017]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/02/14/clt-workshop/"/>
+    <link href="http:///blog/2017/02/14/clt-workshop/"/>
     <updated>2017-02-14T16:04:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/02/14/clt-workshop</id>
+    <id>http:///blog/2017/02/14/clt-workshop</id>
     <content type="html"><![CDATA[There will be a Home Assistant Workshop at the [Chemnitzer Linux-Tage 2017][clt]. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component. 
 
 Check the Workshop [overview][overview] to get the details.

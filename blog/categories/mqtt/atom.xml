@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MQTT | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/mqtt/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/mqtt/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/08/31/esp8266-and-micropython-part2/"/>
+    <link href="http:///blog/2016/08/31/esp8266-and-micropython-part2/"/>
     <updated>2016-08-31T12:17:25+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/08/31/esp8266-and-micropython-part2</id>
-    <content type="html"><![CDATA[<img src='https://home-assistant-china.github.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+    <id>http:///blog/2016/08/31/esp8266-and-micropython-part2</id>
+    <content type="html"><![CDATA[<img src='http:/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
 So, part 1 of [ESP8266 and MicroPython](/blog/2016/07/28/esp8266-and-micropython-part1/) was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.
 
 <!--more-->
@@ -29,7 +29,7 @@ You have to make a decision: Do you want to pull or to [poll](https://en.wikiped
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### {% linkable_title MQTT %}
+### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 
@@ -117,9 +117,9 @@ sensor:
   
   <entry>
     <title type="html"><![CDATA[Smarter SmartThings with MQTT and Home Assistant]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/"/>
+    <link href="http:///blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/"/>
     <updated>2016-02-09T15:44:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant</id>
+    <id>http:///blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant</id>
     <content type="html"><![CDATA[_This is a guest post by Home Assistant users [Jeremiah Wuenschel](https://github.com/jer) and [St. John Johnson](https://github.com/stjohnjohnson)._
 
 So you own a [SmartThings][smartthings] Hub. You probably bought it when you were looking to get into the whole Home Automation hobby because it worked with pretty much everything and offered you the ability to automate __anything.__ After a week of ownership, you realized that building dashboards and automating required writing way more Groovy then you expected. Then one day you were browsing [reddit][r/homeautomation] and discovered the amazingness that is Home Assistant! A solution that offered dashboards, graphs, working support for Nest, and REAL EASY automation!
@@ -129,7 +129,7 @@ You spent your weekend getting everything set up, showing it off to your signifi
 That's where we came in. We wanted a solution that can bridge the awesomeness of Home Assistant with the SmartThings hub that works with almost everything.
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2016-02-smartthings/splash.png'>
+  <img src='http:/images/blog/2016-02-smartthings/splash.png'>
 </p>
 
 <!--more-->
@@ -297,8 +297,8 @@ On the Home Assistant side, there is a powerful platform available based on the 
 Here is the final sequence of events:
 
 <p class='img'>
-  <a href='https://home-assistant-china.github.io/images/blog/2016-02-smartthings/SmartThings-HomeAssistant.png'>
-    <img src='https://home-assistant-china.github.io/images/blog/2016-02-smartthings/SmartThings-HomeAssistant.png' alt='SmartThings Bridge Sequence'>
+  <a href='http:/images/blog/2016-02-smartthings/SmartThings-HomeAssistant.png'>
+    <img src='http:/images/blog/2016-02-smartthings/SmartThings-HomeAssistant.png' alt='SmartThings Bridge Sequence'>
   </a>
   SmartThings Bridge Sequence
 </p>
@@ -331,9 +331,9 @@ There are a lot of stops along the way for these events, but each piece is a sim
   
   <entry>
     <title type="html"><![CDATA[Report the temperature with ESP8266 to MQTT]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/"/>
+    <link href="http:///blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/"/>
     <updated>2015-10-12T03:10:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt</id>
+    <id>http:///blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt</id>
     <content type="html"><![CDATA[{::options coderay_line_numbers="table" /}
 
 I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.
@@ -341,18 +341,18 @@ I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduin
 For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.
 
 <p class='img'>
-<img src='https://home-assistant-china.github.io/images/blog/2015-10-esp8266-temp/setup.png' />
+<img src='http:/images/blog/2015-10-esp8266-temp/setup.png' />
 Picture of the final setup (+ 2 LED for decoration)
 </p>
 
 <p class='img'>
-<img src='https://home-assistant-china.github.io/images/blog/2015-10-esp8266-temp/ha-sensor.png' />
+<img src='http:/images/blog/2015-10-esp8266-temp/ha-sensor.png' />
 Home Assistant will keep track of historical values and allow you to integrate it into automation.
 </p>
 
 <!--more-->
 
-### {% linkable_title Components %}
+### <a class='title-link' name='components' href='#components'></a> Components 
 
 I've been using Adafruit for my shopping:
 
@@ -362,14 +362,14 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
-### {% linkable_title Alternatives %}
+### <a class='title-link' name='alternatives' href='#alternatives'></a> Alternatives 
 
 Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:
 
  - [DHT22 sensor](https://www.adafruit.com/product/385) and [updated sketch](https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9).
  - [BME280 sensor](https://www.adafruit.com/product/2652) and [updated sketch](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
 
-### {% linkable_title Connections %}
+### <a class='title-link' name='connections' href='#connections'></a> Connections 
 
 On your breadboard, make the following connections from your ESP8266 to the HDC1008:
 
@@ -382,7 +382,7 @@ On your breadboard, make the following connections from your ESP8266 to the HDC1
 
 _I picked `#2` and `14` myself, you can configure them in the sketch._
 
-### {% linkable_title Preparing your IDE %}
+### <a class='title-link' name='preparing-your-ide' href='#preparing-your-ide'></a> Preparing your IDE 
 
 Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
 
@@ -391,7 +391,7 @@ After you're done installing, open the Arduino IDE, in the menu click on `sketch
 - PubSubClient by Nick 'O Leary
 - Adafruit HDC1000
 
-### {% linkable_title Sketch %}
+### <a class='title-link' name='sketch' href='#sketch'></a> Sketch 
 
 If you have followed the previous steps, you're all set.
 
@@ -519,7 +519,7 @@ void loop() {
 }
 ```
 
-### {% linkable_title Configuring Home Assistant %}
+### <a class='title-link' name='configuring-home-assistant' href='#configuring-home-assistant'></a> Configuring Home Assistant 
 
 The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
 
@@ -548,12 +548,12 @@ sensor 2:
   
   <entry>
     <title type="html"><![CDATA[Using MQTT with Home Assistant]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant/"/>
+    <link href="http:///blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant/"/>
     <updated>2015-09-11T17:19:38+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant</id>
+    <id>http:///blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant</id>
     <content type="html"><![CDATA[{::options coderay_line_numbers="table" /}
 
-<img src='https://home-assistant-china.github.io/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' /> [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](https://home-assistant.io/components/mqtt/) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
+<img src='http:/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' /> [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](https://home-assistant.io/components/mqtt/) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
 
 A great example is shown in a [Laundry Automation](https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/) post in this blog.
 
@@ -561,7 +561,7 @@ This post will give you a small overview of some other possibilities on how to u
 
 <!--more-->
 
-### {% linkable_title Manual usage %}
+### <a class='title-link' name='manual-usage' href='#manual-usage'></a> Manual usage 
 
 The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
 
@@ -584,13 +584,13 @@ $ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
 ```
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2015-09-mqtt/mood.png' />
+  <img src='http:/images/blog/2015-09-mqtt/mood.png' />
   The Mood sensor
 </p>
 
 This is a really bad example. Don't do this in the real world because you won't be able to create diagrams of historical data. Better use a numerical value.
 
-### {% linkable_title Python MQTT bindings %}
+### <a class='title-link' name='python-mqtt-bindings' href='#python-mqtt-bindings'></a> Python MQTT bindings 
 
 The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-).
 
@@ -637,18 +637,18 @@ while True:
 Every 5 seconds a message with a new number is sent to the broker and picked up by Home Assistant. By the way, my mood is much better now.
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2015-09-mqtt/lottery.png' />
+  <img src='http:/images/blog/2015-09-mqtt/lottery.png' />
   The Lottery sensor
 </p>
 
 With only a few lines of Python and an MQTT broker you can create your own "smartdevice" or send information to Home Assistant which you haven't think of. Of course this is not limited to Python. If there is an MQTT library available, the device can be used with Home Assistant now.
 
-### {% linkable_title Arduino %}
+### <a class='title-link' name='arduino' href='#arduino'></a> Arduino 
 
 To get started with real hardware that is capable to send MQTT messages, the Arduino platform is an inexpensive way to do it. In this section an Arduino UNO with an Ethernet shield and a photo resistor is used. The photo resistor is connected to analog pin 0 (A0) and has an output from 0 to 1024.
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2015-09-mqtt/arduino-shield.png' />
+  <img src='http:/images/blog/2015-09-mqtt/arduino-shield.png' />
   The Arduino UNO with Ethernet shield and photo resistor
 </p>
 
@@ -737,7 +737,7 @@ The Arduino will send the value of the sensor every second. To use the data in H
 After a restart of Home Assistant the values of your Arduino will be available.
 
 <p class='img'>
-  <img src='https://home-assistant-china.github.io/images/blog/2015-09-mqtt/arduino.png' />
+  <img src='http:/images/blog/2015-09-mqtt/arduino.png' />
   The Brightness sensor
 </p>
 

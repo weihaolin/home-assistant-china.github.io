@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Micropython | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/micropython/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/micropython/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Grazer Linuxtage 2017: Python Everywhere]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/"/>
+    <link href="http:///blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/"/>
     <updated>2017-05-07T10:00:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere</id>
+    <id>http:///blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere</id>
     <content type="html"><![CDATA[I like Python. It's a clean easy to read, easy to learn language. Yet when you use it for some time you still find more features to improve your coding. What I probably like most about Python is the community and the great libraries that already exist. Often solving a problem means including a pre-existing library and writing some glue code. That makes it quick to get things up and running.
 
 I just gave a talk on how you can run Python to automate your home (yes with Home-Assistant) but also with [MicroPython]. Micropython allows you to run Python on your DIY sensors and switches around your home. Python everywhere - even on the chips that give Home-Assistant the data to be awesome.
@@ -32,10 +32,10 @@ I just gave a talk on how you can run Python to automate your home (yes with Hom
   
   <entry>
     <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/08/31/esp8266-and-micropython-part2/"/>
+    <link href="http:///blog/2016/08/31/esp8266-and-micropython-part2/"/>
     <updated>2016-08-31T12:17:25+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/08/31/esp8266-and-micropython-part2</id>
-    <content type="html"><![CDATA[<img src='https://home-assistant-china.github.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+    <id>http:///blog/2016/08/31/esp8266-and-micropython-part2</id>
+    <content type="html"><![CDATA[<img src='http:/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
 So, part 1 of [ESP8266 and MicroPython](/blog/2016/07/28/esp8266-and-micropython-part1/) was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.
 
 <!--more-->
@@ -46,7 +46,7 @@ You have to make a decision: Do you want to pull or to [poll](https://en.wikiped
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### {% linkable_title MQTT %}
+### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 
@@ -134,10 +134,10 @@ sensor:
   
   <entry>
     <title type="html"><![CDATA[ESP8266 and MicroPython - Part 1]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2016/07/28/esp8266-and-micropython-part1/"/>
+    <link href="http:///blog/2016/07/28/esp8266-and-micropython-part1/"/>
     <updated>2016-07-28T12:00:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2016/07/28/esp8266-and-micropython-part1</id>
-    <content type="html"><![CDATA[<img src='https://home-assistant-china.github.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+    <id>http:///blog/2016/07/28/esp8266-and-micropython-part1</id>
+    <content type="html"><![CDATA[<img src='http:/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
 The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html) covers a lot of ground. This post is providing only a little summary which should get you started.
 
 Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for [download](https://micropython.org/download/#esp8266).

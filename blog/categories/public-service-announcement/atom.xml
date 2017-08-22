@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Public-Service-Announcement | Home Assistant 中文网]]></title>
-  <link href="https://home-assistant-china.github.io//blog/categories/public-service-announcement/atom.xml" rel="self"/>
-  <link href="https://home-assistant-china.github.io//"/>
-  <updated>2017-08-22T18:47:11+08:00</updated>
-  <id>https://home-assistant-china.github.io//</id>
+  <link href="http:///blog/categories/public-service-announcement/atom.xml" rel="self"/>
+  <link href="http:///"/>
+  <updated>2017-08-22T19:00:07+08:00</updated>
+  <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Update: fixed] A frank and serious warning about X]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2017/06/20/things-you-should-know-about-senic-covi/"/>
+    <link href="http:///blog/2017/06/20/things-you-should-know-about-senic-covi/"/>
     <updated>2017-06-20T09:04:05+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2017/06/20/things-you-should-know-about-senic-covi</id>
+    <id>http:///blog/2017/06/20/things-you-should-know-about-senic-covi</id>
     <content type="html"><![CDATA[**Update June 21:** Senic has removed our name from their materials and have [issued an apology][apology]. We wish them best of luck with the launch of COVI.
 
 **Update June 28:** Removed the brand name from the title to reduce the search ranking.
@@ -76,13 +76,13 @@ Core Developer, Home Assistant
   
   <entry>
     <title type="html"><![CDATA[[Update: decision reversed!] Philips Hue blocks 3rd party lights]]></title>
-    <link href="https://home-assistant-china.github.io//blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs/"/>
+    <link href="http:///blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs/"/>
     <updated>2015-12-13T02:44:00+08:00</updated>
-    <id>https://home-assistant-china.github.io//blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs</id>
+    <id>http:///blog/2015/12/13/philips-hue-blocks-3rd-party-bulbs</id>
     <content type="html"><![CDATA[**Update Dec 16**: Great news! Philips has decided to [reverse their decision][philips-reverse] and is working on a software update to allow 3rd party light bulbs again.
 
 <p class='img'>
-<img src='https://home-assistant-china.github.io/images/blog/2015-12-philips-hue-3rd-party/philips-hue-reversed-faq.png'>
+<img src='http:/images/blog/2015-12-philips-hue-3rd-party/philips-hue-reversed-faq.png'>
 Philips Hue FAQ entries regarding reversing the decision.
 </p>
 
@@ -94,7 +94,7 @@ Philips Hue was one of the first to get smart lights accepted by the mainstream.
 Yesterday a thread on [/r/homeautomation][reddit-hue] published that Philips Hue now blocks all but their own bulbs and those of "friends of Hue". I have been able to confirm this in the [Philips Hue FAQ][philips-hue-faq] (Update Dec 14: they have removed the entries - [mirror here][philips-hue-faq-mirror]):
 
 <p class='img'>
-<img src='https://home-assistant-china.github.io/images/blog/2015-12-philips-hue-3rd-party/philips-hue-faq.png'>
+<img src='http:/images/blog/2015-12-philips-hue-3rd-party/philips-hue-faq.png'>
 Philips Hue FAQ entries regarding 3rd party light bulbs.
 </p>
 
