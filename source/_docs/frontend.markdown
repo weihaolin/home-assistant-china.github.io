@@ -9,13 +9,13 @@ sharing: true
 footer: true
 ---
 
-The frontend of Home Assistant is built with [Polymer](https://www.polymer-project.org/).
+由 [Polymer](https://www.polymer-project.org/)构建的Home Assistant前端。
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/ui2015.png' />
 </p>
 
-The [User Interface section](/cookbook/#user-interface) can give you some starting points to expand the frontend.
+ [UI选择](/cookbook/#user-interface) 能给你一些开展前端的基点。
 
-If you want to work on the frontend, please refer to the [Frontend Development documentation](/developers/frontend/).
+若你想开发前端，请参照 [Frontend Development documentation](/developers/frontend/).
 
