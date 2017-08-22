@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The command-line part of Home Assistant is `hass`.
+Home Assistant 所使用的命令是 `hass`.
 
 
 ```bash
@@ -22,24 +22,22 @@ usage: hass [-h] [--version] [-c path_to_config_dir] [--demo-mode] [--debug]
 Home Assistant: Observe, Control, Automate.
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --version             show program's version number and exit
+  -h, --help            显示此帮助信息并退出
+  --version             显示 HA 版本号并退出
   -c path_to_config_dir, --config path_to_config_dir
-                        Directory that contains the Home Assistant
-                        configuration
-  --demo-mode           Start Home Assistant in demo mode
-  --debug               Start Home Assistant in debug mode
-  --open-ui             Open the webinterface in a browser
-  --skip-pip            Skips pip install of required packages on startup
-  -v, --verbose         Enable verbose logging to file.
+                        指明 HA 配置文件所在文件夹
+  --demo-mode           演示模式下启动 HA
+  --debug               Debug 模式下启动 HA
+  --open-ui             开启 UI
+  --skip-pip            启动时跳过安装必需的pip包
+  -v, --verbose         开启详细日志记录
   --pid-file path_to_pid_file
-                        Path to PID file useful for running as daemon
+                        后台运行文件PID file 所在文件夹
   --log-rotate-days LOG_ROTATE_DAYS
-                        Enables daily log rotation and keeps up to the
-                        specified days
+                        允许日志回滚和特定日期跳转
   --runner              On restart exit with code 100
-  --script ...          Run one of the embedded scripts
-  --daemon              Run Home Assistant as daemon
+  --script ...          执行命令
+  --daemon              后台运行 HA
 ```
 
 
