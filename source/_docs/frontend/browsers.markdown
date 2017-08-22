@@ -29,7 +29,7 @@ Home Assistant 需要浏览器来展现前端，它支持所有主流现代浏�
 
 | 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | 可用      | 地图有一些问题。 |
+| [Safari]              |                | 可用      | 地图一些问题在版本0.51已修复。 |
 
 ## {% linkable_title Linux %}
 
@@ -60,8 +60,9 @@ Home Assistant 需要浏览器来展现前端，它支持所有主流现代浏�
 
 | 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | 可用      | 可以添加到桌面。地图有些问题。 |
+| [Safari]              |                | 可用      | 可以添加到桌面。地图一些问题在版本0.51已修复。 |
 | [Chrome]              |                | 可用      |                          |
+
 
 
 [Firefox]: https://www.mozilla.org/en-US/firefox/
@@ -81,3 +82,5 @@ Home Assistant 需要浏览器来展现前端，它支持所有主流现代浏�
 [w3m]: http://w3m.sourceforge.net/
 [Epiphany]: https://wiki.gnome.org/Apps/Web
 [surf]: http://surf.suckless.org/
+
+

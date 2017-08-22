@@ -46,7 +46,7 @@ data:
 你可以运用模板 [templating] 动态选择所调用的服务。例如，你可以在开灯状态下调用特定的服务：
 ```yaml
 service_template: >
-  {% raw %}{% if states.sensor.temperature | float > 15 %}
+  {% raw %}{% if states.sensor.temperature.state | float > 15 %}
     switch.turn_on
   {% else %}
     switch.turn_off

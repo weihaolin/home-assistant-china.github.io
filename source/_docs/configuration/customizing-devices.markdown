@@ -41,11 +41,16 @@ homeassistant:
   customize_domain:
     light:
       icon: mdi:home
+    automation:
+      initial_state: 'on'
   # 为满足某些条件的实体添加自定义设置，支持通配符
   customize_glob:
     "light.kitchen_*":
       icon: mdi:description
-
+    "scene.month_*_colors":
+      hidden: true
+      emulated_hue: false
+      homebridge_hidden: true
 ```
 
 ### {% linkable_title 可能的值 %}
@@ -53,11 +58,17 @@ homeassistant:
 | 属性 | 描述 |
 | --------- | ----------- |
 | `friendly_name` | 实体名称（可使用汉字，汉化一般在此处）
+| `homebridge_name` |  `HomeBridge`中实体的名称.
 | `hidden`    | 设置为 `true` 表示隐藏实体，`false` 表示显示实体
+| `homebridge_hidden` | 设置为 `true` 表示隐藏`HomeBridge`中的实体，`false` 表示显示`HomeBridge`中的实体
+| `emulated_hue` |设置为 `true`表示隐藏emulated_hue中的实体.
 | `entity_picture` | 要设置为实体图标的图像URL
 | `icon` | [MDI](http://MaterialDesignIcons.com)网站上所有支持的图标，格式为：mdi:图标名称
 | `assumed_state` | 非状态反馈（假定状态）开关会默认显示为 ` 开` 和 `关` 两个按钮，如果设置为 `false` 则会显示为默认滑块开关
 | `device_class` | 设置设备的类别，更改设备类别后前端界面显示会有相应变化（见下文）
+| `initial_state` | 设置自动化操作中的默认操作. `on` or `off`.
+| `unit_of_measurement` | 定义测量值的单位
+
 
 ### {% linkable_title 设备类别 %}
 
@@ -75,3 +86,5 @@ HomeAssistant提供一个服务用来重新载入核心配置，服务的名称�
 </p>
 
 By [Jones](https://bbs.hassbian.com/home.php?mod=space&username=Jones)
+
+
