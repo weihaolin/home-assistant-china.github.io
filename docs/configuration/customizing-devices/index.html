@@ -1,0 +1,436 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>实体的个性化 - Home Assistant 中文网</title>
+    <meta name="author" content="Home Assistant China">
+    <meta name="description" content="简单的实体前端个性化">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant-china.github.io/docs/configuration/customizing-devices/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="实体的个性化">
+    <meta property="og:site_name" content="Home Assistant 中文网">
+    <meta property="og:url" content="https://home-assistant-china.github.io/docs/configuration/customizing-devices/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="简单的实体前端个性化">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="实体的个性化">
+    <meta name="twitter:description" content="简单的实体前端个性化">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant 中文网" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant 中文网</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">快速开始</a></li>
+  <li><a href="/components/">组件</a></li>
+  <li><a href="/docs/">使用文档</a></li>
+  <li><a href="/cookbook/">范例</a></li>
+  <li><a href="/developers/">开发文档</a></li>
+  <li><a href="/blog/">博客</a></li>
+  <li><a href="/help/">需要帮助？</a></li>
+  <li><a href="https://bbs.hassbian.com/forum.php?from=github">中文论坛</a></li>
+  <li><a href="https://home-assistant.io">英文官网</a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/configuration/customizing-devices.markdown'>Edit this page on GitHub</a></div>
+  <header>
+    <h1 class="title indent">
+      实体的个性化
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>默认情况下，接入HomeAssistant的所有设备都是可见状态，并且根据其所属类型的不同，都会被分配一个默认图标。通过修改下面一些参数，你可以自定义这些设备在前端网页的显示效果。具体是通过覆盖特定实体的某些属性来实现的。</p>
+<p class="note">
+请记住，一定要把 <code class="highlighter-rouge">customize</code>, <code class="highlighter-rouge">customize_domain</code> 和 <code class="highlighter-rouge">customize_glob</code> 放在 <code class="highlighter-rouge">homeassistant:</code> 字段下，否则会配置失败。
+</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
+  <span class="c1"># 等等其他</span>
+
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="c1"># 为每一个你想自定义的实体，添加一个自定义设置</span>
+    <span class="s">sensor.living_room_motion</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">thermostat.family_room</span><span class="pi">:</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">https://example.com/images/nest.jpg</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Nest</span>
+    <span class="s">switch.wemo_switch_1</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Toaster</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">/local/toaster.jpg</span>
+    <span class="s">switch.wemo_switch_2</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen kettle</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span>
+    <span class="s">switch.rfxtrx_switch</span><span class="pi">:</span>
+      <span class="s">assumed_state</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="c1"># 为一类实体添加自定义设置</span>
+  <span class="s">customize_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+  <span class="c1"># 为满足某些条件的实体添加自定义设置，支持通配符</span>
+  <span class="s">customize_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:description</span>
+
+</code></pre>
+</div>
+<h3><a class="title-link" name="" href="#"></a> 可能的值</h3>
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">friendly_name</code></td>
+      <td>实体名称（可使用汉字，汉化一般在此处）</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hidden</code></td>
+      <td>设置为 <code class="highlighter-rouge">true</code> 表示隐藏实体，<code class="highlighter-rouge">false</code> 表示显示实体</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_picture</code></td>
+      <td>要设置为实体图标的图像URL</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">icon</code></td>
+      <td><a href="http://MaterialDesignIcons.com">MDI</a>网站上所有支持的图标，格式为：mdi:图标名称</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assumed_state</code></td>
+      <td>非状态反馈（假定状态）开关会默认显示为 ` 开<code class="highlighter-rouge"> 和 </code>关<code class="highlighter-rouge"> 两个按钮，如果设置为 </code>false` 则会显示为默认滑块开关</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">device_class</code></td>
+      <td>设置设备的类别，更改设备类别后前端界面显示会有相应变化（见下文）</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="" href="#"></a> 设备类别</h3>
+<p>目前，仅以下两个平台支持设备类别属性：</p>
+<ul>
+  <li><a href="/components/binary_sensor/">Binary Sensor</a>（二进制传感器，如仅有 <code class="highlighter-rouge">开</code> 和 <code class="highlighter-rouge">关</code> 两个状态）</li>
+  <li><a href="/components/cover/">Cover</a>（电动门/窗）</li>
+</ul>
+<h3><a class="title-link" name="" href="#"></a> 重新载入个性化设置</h3>
+<p>HomeAssistant提供一个服务用来重新载入核心配置，服务的名称为 <code class="highlighter-rouge">homeassistant/reload_core_config</code>。这就允许你在不重启HomeAssistant的情况下，使个性化设置生效。点击<img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> 服务开发者工具，选择 <code class="highlighter-rouge">homeassistant/reload_core_config</code> 然后点击 “Call Service” 即可调用此服务。</p>
+<p class="note warning">
+新的个性化设置信息将在该实体下一次状态更新时起作用。
+</p>
+<p>By <a href="https://bbs.hassbian.com/home.php?mod=space&amp;username=Jones">Jones</a></p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <b><a  href='/faq/'>FAQ </a></b>
+      </li>
+      <li>
+        <b><a  href='/docs/installation/'>Installation </a></b>
+        <ul>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/hassbian/'>Hassbian </a></b>
+        <ul>
+          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
+          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
+          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
+          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
+          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/configuration/'>Configuration </a></b>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a class='active' href='/docs/configuration/customizing-devices/'>Customizing entities </a></li>
+          <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <b>Advanced Configuration</b>
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a  href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <b>Core objects</b>
+        <ul>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/automation/'>Automation </a></b>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/editor/'>Editor </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/frontend/'>Frontend </a></b>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/backend/'>Backend </a></b>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/scripts/'>Scripts </a></b>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/tools/'>Tools and Helpers </a></b>
+        <ul>
+          <li><a  href='/docs/tools/dev-tools/'>Developer Tools </a></li>
+          <li><a  href='/docs/tools/hass/'>hass </a></li>
+          <li><a  href='/docs/tools/scripts/'>Scripts </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/z-wave/'>Z-Wave </a></b>
+        <ul>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/mqtt/'>MQTT </a></b>
+        <ul>
+          <li><a  href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/ecosystem/ios/'>iOS </a></b>
+        <ul>
+          <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+          <ul>
+            <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+          </ul>
+          <li>Advanced notifications</li>
+          <ul>
+            <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+          </ul>
+          <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+          <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+              </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Database </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            Remote access
+            <ul>
+              <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
+              <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
+              <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>
+            </ul>
+          </li>
+          <li>
+            Certificates
+            <ul>
+              <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
+              <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>
+              <li><a  href='/docs/ecosystem/certificates/lets_encrypt/'>Let's Encrypt (detailed) </a></li>
+            </ul>
+          </li>
+          <li>
+            Backup
+            <ul>
+              <li><a  href='/docs/ecosystem/backup/backup_github/'>Backup to GitHub </a></li>
+              <li><a  href='/docs/ecosystem/backup/backup_dropbox/'>Backup to Dropbox </a></li>
+              <li><a  href='/docs/ecosystem/backup/backup_usb/'>Backup to USB device </a></li>
+            </ul>
+          </li>
+          <li><a  href='/docs/ecosystem/scenegen/'>scenegen </a></li>
+          <li><a  href='/docs/ecosystem/synology/'>Synology </a></li>
+          <li><a  href='/docs/ecosystem/hass-configurator/'>HASS Configurator </a></li>
+        </ul>
+    </ul>
+  </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-100550088-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

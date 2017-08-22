@@ -1,0 +1,661 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Assistant 中文网</title>
+    <meta name="author" content="Home Assistant China">
+    <meta name="description" content="Home Assistant 是一个基于Python 3开发的开源家庭自动化平台。">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant-china.github.io/blog/posts/3/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Home Assistant 中文网">
+    <meta property="og:site_name" content="Home Assistant 中文网">
+    <meta property="og:url" content="https://home-assistant-china.github.io/blog/posts/3/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Home Assistant 中文网">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant 中文网" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant 中文网</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">快速开始</a></li>
+  <li><a href="/components/">组件</a></li>
+  <li><a href="/docs/">使用文档</a></li>
+  <li><a href="/cookbook/">范例</a></li>
+  <li><a href="/developers/">开发文档</a></li>
+  <li><a href="/blog/">博客</a></li>
+  <li><a href="/help/">需要帮助？</a></li>
+  <li><a href="https://bbs.hassbian.com/forum.php?from=github">中文论坛</a></li>
+  <li><a href="https://home-assistant.io">英文官网</a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/">Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-08T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 8, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 11 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-04-0.42/social.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>It’s time for Home Assistant 0.42. This release has been focused on refining the system and fixing a lot of bugs. We have also upgraded to the latest version of our HTTP library which should give us a significant boost serving files and API.</p>
+<p>On our social media front, we have crossed the 1000 likes on <a href="https://www.facebook.com/homeassistantio">our Facebook page</a>! Also on the social media front, the YouTube channel diyAutomate has been putting out a lot of great getting started videos about Home Assistant, <a href="https://www.youtube.com/c/diyautomate">go check them out!</a></p>
+<p>Also want to take a moment to thank Austin Andrews aka <a href="https://github.com/templarian">Templarian</a> for his <a href="https://materialdesignicons.com/">Material Design Icons</a>. He is part of what makes Home Assistant so beautiful 🤗.</p>
+<h2>New integrations</h2>
+<ul>
+  <li>Lockitron locks (<a href="https://github.com/aarya123">@aarya123</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6805">#6805</a>)</li>
+  <li>Met Office weather and sensor components (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6742">#6742</a>)</li>
+  <li>Total Connect alarm systems (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6887">#6887</a>)</li>
+  <li>Eddystone Beacon Temperature Sensor (<a href="https://github.com/citruz">@citruz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6789">#6789</a>)</li>
+  <li>CrimeReports.com integration shows crimes around a location in the US (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6966">#6966</a>)</li>
+  <li>The Ring doorbell has been integrated further with the inclusion of binary sensors (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6520">#6520</a>)</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/04/01/thomas-krenn-award/">Thomas Krenn award 2017</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-01T14:00:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 01, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/04/01/thomas-krenn-award/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>You may already know from our social media channels and the release blog post for 0.41: We are now an award-winning Open source project. The jury of the <a href="https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/">Thomas-Krenn-Award</a> put us on the 2nd place. This is an awesome achievment for an independent community project.</p>
+<p>I would like to thanks all contributors. Your endless effort made this possible.</p>
+<p><img src="/images/blog/2017-04-award/award.jpg" style="border: 0;box-shadow: none;" /></p>
+<p>The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four <a href="https://www.thomas-krenn.com/en/products/low-energy-systems/les-v2.html">Low Energy Server v2 (LES)</a> units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.</p>
+<p>As a raffle would be to easy, we make a contest out of it. This means that we are looking for your application. Of course, we would like to see those systems goes to active or future developers who can justify their need for one of the systems to run CI, UI tests, public accessible Home Assistant demo instances, etc. At the other hand we would like to keep it open, to see with what people are coming up. Please participate as well if you are planning to automate the public school of your kids with 1000 switches or light, need a server to run it, and want to provide regular feedback about the user experience.</p>
+<p>Create an entry in our <a href="https://community.home-assistant.io/c/contest-2017">Forum</a>. Be creative and use your imagination.</p>
+<h3><a class="title-link" name="the-details" href="#the-details"></a> The details</h3>
+<ul>
+  <li>Jury: The Home Assistant community</li>
+  <li>Dead line: April, 23 2017 - 23.59 UTC</li>
+  <li>Voting period: April, 24th till April, 30 2017 - 23.59 UTC</li>
+</ul>
+<p>The decision of the jury will be final. If there will be a dispute then the Top-5 commiter of the Home Assistant organisation on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the <a href="https://community.home-assistant.io/c/contest-2017">Forum</a> and on <a href="https://twitter.com/home_assistant">Twitter</a>.</p>
+<p>Keep in mind that you may have to pay the fee for customs handling and the import duty by yourself. The plan is to ship the hardware from Germany. If you are located in a country with import/export regulations, we may not be able to ship the hardware to you.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/03/28/http-to-mqtt-bridge/">HTTP to MQTT bridge</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-03-28T14:00:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 28, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> petkov</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/03/28/http-to-mqtt-bridge/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>The idea of creating <a href="https://github.com/petkov/http_to_mqtt">HTTP to MQTT bridge</a> appeared when I was trying to integrate Google Assistant with my Home Assistant after watching <a href="https://youtu.be/087tQ7Ly7f4?t=265">BRUH Automation</a> video. Right now there is no MQTT service available in <a href="https://ifttt.com/about">IFTTT</a>. Existing integration solution uses <a href="https://ifttt.com/maker_webhooks">Maker Webhooks</a> which requires that your Home Assistant instance is publically accessible, which I think brings some security concerns or simply not always possible to set up.</p>
+<p>The HTTP to MQTT bridge should fill that gap. The idea is to receive messages using HTTP requests and transfer them to your MQTT broker, which can be contacted by Home Assistant. The HTTP to MQTT bridge is written using Node.js with <a href="https://expressjs.com/">Express</a> for the server part and <a href="https://www.npmjs.com/package/mqtt">MQTT.js</a> for the client.</p>
+      <a class="btn pull-right" href="/blog/2017/03/28/http-to-mqtt-bridge/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/03/25/todo-volumio-workday/">Home Assistant 0.41: Tado, Volumio, Workday, improved Plex</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-03-25T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 25, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/03/25/todo-volumio-workday/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Welcome to 0.41. There was a lot going on in the last two weeks. Not only from the code side but also from the social one of Home Assistant. <a href="https://github.com/balloob">Paulus</a> did an <a href="https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/">interview</a> with <a href="http://codepop.com/open-sourcecraft">OpenSourceCraft</a>, <a href="https://github.com/fabaff">Fabian</a> did a <a href="https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-clt-workshop">workshop</a> at the <a href="https://chemnitzer.linux-tage.de/2017/en/">Chemnitzer Linux Tage</a>, and we are now an award-winning Open source project (I will cover that in a separate blog post).</p>
+<h2>Plex</h2>
+<p><a href="https://github.com/JesseWebDotCom">@JesseWebDotCom</a> made massive changes to the <a href="https://home-assistant.io/components/media_player.plex/">Plex</a> media player platform. From better metadata support over new configuration options to improved controls and non-controllable clients.</p>
+<h2>Component overview</h2>
+<p>The <a href="https://home-assistant.io/components/">Components</a> overview is now powered by search/filtering feature. This will make it faster to get the component/platform you are looking for more quickly. Thanks again, <a href="https://github.com/bdurrer">@bdurrer</a> for this.</p>
+<h2>Changelog</h2>
+<p>The new format of the changelog which was introduced with 0.40 will provide a link to the related pull request. We are not covering everything in our release notes but we think that this addition will make it easier to find details about the change.</p>
+<h2>New platforms/components</h2>
+<ul>
+  <li>Support for <a href="https://home-assistant.io/components/climate.tado/">Tado</a> climate devices (<a href="https://github.com/wmalgadey">@wmalgadey</a>)</li>
+  <li><a href="https://home-assistant.io//components/media_player.volumio/">Volumio</a> media player added (<a href="https://github.com/jslove">@jslove</a>)</li>
+  <li><a href="https://home-assistant.io/components/binary_sensor.workday/">Workday</a> sensor (<a href="https://github.com/BastianPoe">@BastianPoe</a>)</li>
+</ul>
+<h2>Breaking changes</h2>
+<ul>
+  <li>The <a href="https://home-assistant.io/components/notify.kodi/">Kodi notifier</a> platform was migrated to async and the configuration synced with the Kodi media player platform (<a href="https://github.com/home-assistant/home-assistant/pull/6497">#6497</a>).</li>
+  <li>For the <a href="https://home-assistant.io/components/media_player.mpd/">Music Player Daemon</a> (MPD) platform was <code class="highlighter-rouge">location</code> replaced with <code class="highlighter-rouge">name</code> (<a href="https://github.com/home-assistant/home-assistant/pull/6553">#6553</a>).</li>
+  <li>Event decorators were removed (<a href="https://github.com/home-assistant/home-assistant/pull/6634">#6634</a>).</li>
+  <li>The <a href="https://home-assistant.io/components/media_player.emby/">Emby mediaplayer</a> platform was changed to avoid name clashes (<a href="https://github.com/home-assistant/home-assistant/pull/6664">#6664</a>).</li>
+  <li>In a lot of places were the power and energy units update. This change mostly affects the <code class="highlighter-rouge">switch</code> platforms (<a href="https://github.com/home-assistant/home-assistant/pull/6212">#6212</a>).</li>
+  <li>If set to <code class="highlighter-rouge">auto</code> then the <a href="https://home-assistant.io/docs/mqtt/">MQTT</a> implementation will use the bundled certificates automatically (<a href="https://github.com/home-assistant/home-assistant/pull/6707">#6707</a>).</li>
+  <li>Autodiscovery of <a href="https://home-assistant.io/components/android_ip_webcam/">Android IP Webcam</a> was removed (<a href="https://github.com/home-assistant/home-assistant/pull/6528">#6528</a>).</li>
+  <li>The frontend is now using <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> and this could break your custom panels (<a href="https://github.com/home-assistant/home-assistant-polymer/issues/228">#228</a>).</li>
+</ul>
+<h2>If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2>Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/03/25/todo-volumio-workday/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/">OpenSourceCraft interviews our founder Paulus Schoutsen</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-03-23T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 23, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Media</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Last month Gregg Pollack from <a href="http://codepop.com/open-sourcecraft">OpenSourceCraft</a> visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the <a href="http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/">full article including extra video material</a>.</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/03/22/broken-dependencies/">0.40.2 and broken dependencies</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-03-22T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 22, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/03/22/broken-dependencies/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>TL; DR: We have just released version 0.40.2 that includes a fix related to the installation of dependencies.</p>
+<p>Some users in the last few days have been reporting that their Home Assistant installation fails to start with an error in the http component:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ImportError: No module named 'aiohttp.file_sender'
+</code></pre>
+</div>
+<p>The problem is that Home Assistant did not handle the case where a dependency would want to install a core dependency of Home Assistant that is newer than what Home Assistant works with. For now, we have identified the following two components that can cause this issue:</p>
+<ul>
+  <li>AppleTV (0.38+)</li>
+  <li>Android IP Webcam (0.40+)</li>
+</ul>
+<p>This issue has been resolved by 0.40.2. If you are on an impacted version and cannot upgrade to the latest version just yet, a temporary workaround will be to remove the <code class="highlighter-rouge">&lt;config dir&gt;/deps</code> directory and stop using the above mentioned integrations. In the case of AppleTV, you will also have to disable the discovery component to prevent it from being auto-detected.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-03-11T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 11, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 10 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-03-0.40/social.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>It’s time for version 0.40 already! For this version, the main focus was on performance and bug fixes. Big thanks to <a href="https://github.com/pvizeli">@pvizeli</a> for driving this effort. Startup is now super fast. We have also continued with adding warnings for components and platforms that are slowing down Home Assistant.</p>
+<p>Some people have interpreted our recent added warnings as if 0.39 introduced the issues that caused the warning. This is not the case, the platforms and components have been misbehaving for a while but now we are adding warnings so we are able to track down the culprits.</p>
+<p>Before we continue talking about all the improvements in this release I want to take a moment to thank a few people from the Home Assistant community that are fundamental to the success of Home Assistant. Big thanks to <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/CCOSTAN">@CCOSTAN</a>, <a href="https://github.com/skalavala">@skalavala</a>, <a href="https://github.com/rrubin0">@rrubin0</a>, <a href="https://github.com/brahmafear">@brahmafear</a>, <a href="https://github.com/bassclarinetl2">@bassclarinetl2</a>, and <a href="https://github.com/torn8o">@torn8o</a>! These are all people that hang out in our <a href="https://gitter.im/home-assistant/home-assistant">main chat channel</a> and help new users get started and help existing users when running into trouble. Home Assistant would not be there without all the effort you put in! 🙇</p>
+<p>And that our community kicks ass is also shown in the numbers. We have already raised together over $700 for the <a href="https://www.eff.org">EFF</a> via the sale of <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">our t-shirts</a>! All of you rock! Another number worth mentioning is that this release brings us passed 600 integrations for Home Assistant. All of you rock, again!</p>
+<h2>Z-Wave is now threadsafe</h2>
+<p><a href="https://github.com/andrey-git">@andrey-git</a> has spend a lot of time to make Z-Wave perform better. It should no longer cause Home Assistant to run slower or raise warnings about the timer getting out of sync.</p>
+<h2>Update on the MQTT Out of Memory errors in 0.39</h2>
+<p>MQTT started causing “Out of Memory” errors for some people on a Raspberry Pi. We have been able to track this down to Raspberry Pis that are using an older firmware. If you are experiencing this issue, please <a href="https://github.com/Hexxeh/rpi-update#installing">upgrade your firmware using <code class="highlighter-rouge">rpi-update</code></a>.</p>
+<h2>Turn any Android phone into an IP Camera</h2>
+<p>With the new support for <a href="/components/android_ip_webcam/">IP Webcam</a> added by <a href="https://github.com/robbiet480">@robbiet480</a> and <a href="https://github.com/pvizeli">@pvizeli</a> you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:</p>
+<ul>
+  <li>Integrate the Android device camera</li>
+  <li>Binary sensor when motion is detected</li>
+  <li>Sensors to expose the device sensors, including pressure, sound, battery, light</li>
+  <li>Control device features like the GPS, night vision and camera flash</li>
+</ul>
+<p class="img">
+<img src="/images/blog/2017-03-0.40/ipwebcam.png" />
+Screenshot of all the different functionality the IP webcam integration offers.
+</p>
+<h2>Other Highlights</h2>
+<ul>
+  <li>Support added for Austrian weather using Zamg weather data (<a href="https://github.com/Zac-HD">@Zac-HD</a>)</li>
+  <li>Ring.com video doorbell integration added (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Blink Home Security Camera support added (<a href="https://github.com/fronzbot">@fronzbot</a>)</li>
+  <li>AppleTV has been converted to push data to Home Assistant instead of us having to poll (<a href="https://github.com/postlund">@postlund</a>)</li>
+</ul>
+<h2>Breaking changes</h2>
+<ul>
+  <li>Vera entity ids have changed. This is a one time change to migrate to a model that will prevent future conflicts.</li>
+  <li>The Twilio notify platforms now have to be configured via the twilio component.</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">twilio</span><span class="pi">:</span>
+  <span class="s">account_sid</span><span class="pi">:</span> <span class="s2">"</span><span class="s">abc"</span>
+  <span class="s">auth_token</span><span class="pi">:</span> <span class="s2">"</span><span class="s">xyz"</span>
+</code></pre>
+</div>
+<ul>
+  <li>If you are using async custom components, the passed in <code class="highlighter-rouge">async_add_devices</code> method is now a callback instead of a coroutine function.</li>
+</ul>
+<h3>If you need help…</h3>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h3>Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<h3><a class="title-link" name="release-0401---march-16" href="#release-0401---march-16"></a> Release 0.40.1 - March 16</h3>
+<ul>
+  <li>Fix wake_on_lan ping with None as host (<a href="https://github.com/iamtpage">@iamtpage</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6532">#6532</a>)</li>
+  <li>Don’t start the push updater if the Apple TV is ‘off’ (<a href="https://github.com/jnewland">@jnewland</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6552">#6552</a>)</li>
+  <li>Fix for the case of zwave value used in several devices. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6577">#6577</a>)</li>
+  <li>Fix hydroquebec (<a href="https://github.com/titilambert">@titilambert</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6574">#6574</a>)</li>
+  <li>Update pyecobee version to 0.0.7 (<a href="https://github.com/dale3h">@dale3h</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6593">#6593</a>)</li>
+  <li>Update SMA solar sensor to work with the new add_devices callback (<a href="https://github.com/kellerza">@kellerza</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6602">#6602</a>)</li>
+  <li>since knx_2_float can’t handle 0, bypass converting 0 value from knx to float (<a href="https://github.com/goofz">@goofz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6626">#6626</a>)</li>
+  <li>Fix Osram Lightify colors (<a href="https://github.com/deisi">@deisi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6598">#6598</a>)</li>
+  <li>Bugfix RFLINK remove group (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6580">#6580</a>)</li>
+</ul>
+<h3><a class="title-link" name="release-0402---march-22" href="#release-0402---march-22"></a> Release 0.40.2 - March 22</h3>
+<p>Hot fix release to fix dependency issues. More detailed information about the issue in <a href="/blog/2017/03/22/broken-dependencies/">this blog post</a>.</p>
+<ul>
+  <li>Prevent dependencies that are installed on demand from installing different versions of core dependencies (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6738">#6738</a>)</li>
+  <li>Upgrade PyChromecast to silent some benign errors (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6702">#6702</a>)</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-02-25T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 25, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/02/25/config-panel-and-state-restoration/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>It’s time for 0.39 and this release has some amazing new features!</p>
+<p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-02-0.39/social.png" style="border: 0;box-shadow: none;" /></a></p>
+<h2>T-Shirts</h2>
+<p>First off, in case you haven’t seen it yet: <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">we have t-shirts</a> now and they are beautiful. All proceeds from the shirts will be donated to the Electronic Frontier Foundation. The first three days all of you have already raised $400! Still waiting for Teespring to get back to me so stay tuned for the EU store.</p>
+<h2>Configuration panel</h2>
+<p>Yep, you read that right. We have a configuration panel. It’s just the first of many small steps. Putting in a foundation is important and gives us something to iterate on.</p>
+<p>To start, we have three simple configuration panels:</p>
+<ul>
+  <li>Core: allows you to validate config, reload core/group/automation config and restart/stop Home Assistant</li>
+  <li>Group: allows you to rename groups, change type between group/view and reorder entities.</li>
+  <li>Z-Wave: allows you to set device specific configuration settings</li>
+</ul>
+<p class="img">
+  <img src="/images/blog/2017-02-0.39/config.png" />
+  Screenshot of our new configuration panel.
+</p>
+<p>As a security measure, the configuration panel will need to be activated in the config file to be activated. This can be done by adding the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">config</span><span class="pi">:</span>
+</code></pre>
+</div>
+<p>Using our configuration panels will require you to structure your groups and Z-Wave device config according to how the configuration panel expects it. This is on purpose as it we will not be aiming to build a system that supports both our extended set of configuration extend hooks and our configuration panels. It’s one or the other.</p>
+<p>To activate them in your config, create empty files <code class="highlighter-rouge">groups.yaml</code> and <code class="highlighter-rouge">zwave_device_config.yaml</code> in your config dir and add the following entries to your config:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">group</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">groups.yaml</span>
+
+<span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">zwave_device_config.yaml</span>
+</code></pre>
+</div>
+<p><em>Note that this is the first release. Things will be missing, things might be broken.</em></p>
+<h2>Reorganized documentation</h2>
+<p>Thanks to <a href="https://github.com/fabaff">Fabian</a> we have a great re-organized documentation. Is it perfect yet? No. But we are getting close. We put a lot of focus on making sure the Raspberry Pi is the main focus of our getting started. The other instructions are still available, just not as part of the main getting started.</p>
+<h2>State restoration</h2>
+<p>Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don’t worry any longer. <a href="https://github.com/kellerza">Johann</a> has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to <code class="highlighter-rouge">input_select</code> and <code class="highlighter-rouge">input_boolean</code> components. We will be adding this to more integrations in the future.</p>
+<h2>Breaking changes to customize and Z-Wave “customize”</h2>
+<p>A couple of releases ago we introduced a new way of doing <code class="highlighter-rouge">customize</code>. It became a list that allowed different ways of matching the config to the entity.</p>
+<p>We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn’t like config panels?</p>
+<p>So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.</p>
+<p><a href="https://jsfiddle.net/balloob/d2e56q6f/74/"><strong>Update: the online tool can be found here.</strong></a></p>
+<h4>Customize has been reverted to it’s original config</h4>
+<p>The old customize is back. The options to match by domain or using glob have been moved to it’s own options. It will now look like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">light.kitchen</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">customize_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+  <span class="s">customize_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mid:description</span>
+</code></pre>
+</div>
+<h4>Z-Wave customize is now device config</h4>
+<p>Ever wondered why the Z-Wave customize was called customize? Yeah, so did we. So when migrating this to the new config format, we decided to upgrade the name too:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span>
+    <span class="s">light.kitchen</span><span class="pi">:</span>
+      <span class="s">ignored</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">device_config_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="s">device_config_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
+</div>
+<h2>Speed improvements</h2>
+<p>And a final shout out to <a href="https://github.com/pvizeli">Pascal</a>. He keeps improving the performance of components and platforms all over Home Assistant.</p>
+      <a class="btn pull-right" href="/blog/2017/02/25/config-panel-and-state-restoration/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-02-22T08:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 22, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Merchandise</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p class="img">
+  <img src="/images/blog/2017-02-shirts/beard.png" />
+  Cool dude with beard and tattoo wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
+</p>
+<p>What time is it? Yep, t-shirt time. Today we’re launching the first two Home Assistant designs. We have a blue t-shirt (<a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>) as pictured above and a design for on black/gray shirts (<a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>) as pictured below.</p>
+<ul>
+  <li><a href="https://teespring.com/stores/home-assistant-us-store">Visit the 🇺🇸 US store</a></li>
+  <li><a href="https://teespring.com/stores/home-assistant-eu-store">Visit the 🇪🇺 EU store</a></li>
+</ul>
+<p><a href="https://www.eff.org"><img src="/images/supported_brands/eff.png" style="width: 150px; float: right; box-shadow: none; border: 0; margin-left: 15px;" /></a></p>
+<p>And because we love the internet and all the things that it has brought us, <strong>we will start with having 100% of the profit from the sales be donated to the <a href="https://www.eff.org">Electronic Frontier Foundation</a></strong>. If you buy a shirt you will hit two birds with one stone (figuratively): you get to wear a kick-ass Home Assistant t-shirt and you help fund defending civil liberties in the digital world.</p>
+<p>The EFF is a nonprofit organization that aims to protect the rights of technology users. You might however be more familiar with one of their projects: <a href="https://letsencrypt.org">Let’s Encrypt</a>. <a href="https://www.eff.org/issues">Read more about what the EFF does.</a></p>
+<p>So, what are you waiting for? Get yourself a shirt! <a href="https://teespring.com/stores/home-assistant-eu-store">🇪🇺 EU store</a> – <a href="https://teespring.com/stores/home-assistant-us-store">🇺🇸 US store</a></p>
+<p class="img">
+  <img src="/images/blog/2017-02-shirts/family.png" />
+  Family of 4 on a bench wearing the new black Home Assistant shirt. <a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>
+</p>
+<p>We are using <a href="https://teespring.com">Teespring.com</a> to manage all the sales, production and distribution of the shirts and they will also donate our profits to the EFF. It’s also how we got all these amazing stockphotos. Some extra things to note about our teespring shop:</p>
+<ul>
+  <li>Teespring shows that there is a number of days left until the end of the campaign for the shirts. Don’t worry about that, it should automatically relaunch.</li>
+</ul>
+<p>More photos after the click.</p>
+      <a class="btn pull-right" href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-02-14T16:04:05+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 14, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/02/14/clt-workshop/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>There will be a Home Assistant Workshop at the <a href="https://chemnitzer.linux-tage.de/2017/">Chemnitzer Linux-Tage 2017</a>. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component.</p>
+<p>Check the Workshop <a href="https://chemnitzer.linux-tage.de/2017/en/programm/beitrag/356">overview</a> to get the details.</p>
+<p><a href="https://chemnitzer.linux-tage.de/2017/en/programm/anmeldung/workshop/356">Reqistration</a> is required as the places in the room are limited. The deadline for the registration is March, 8th 2017.</p>
+<ul>
+  <li>Location: Technische Universität Chemnitz, Reichenhainer Straße 90, 09126 Chemnitz, Germany</li>
+  <li>Date: March, 12th 2017</li>
+  <li>Time: 10:00, Room W2</li>
+  <li>Language: German</li>
+</ul>
+  </div>
+  </article>
+  <hr>
+  <div class="pagination">
+      <a class="btn pull-left" href="/blog/posts/4">&larr; Older</a>
+    <a class="btn pull-right" href="/blog/posts/2">Newer &rarr;</a>
+  </div>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Categories</h1>
+  <ul class="divided">
+      <li><a href="/blog/categories/announcements/">Announcements</a></li>
+      <li><a href="/blog/categories/community/">Community</a></li>
+      <li><a href="/blog/categories/device-tracking/">Device Tracking</a></li>
+      <li><a href="/blog/categories/esp8266/">ESP8266</a></li>
+      <li><a href="/blog/categories/how-to/">How To</a></li>
+      <li><a href="/blog/categories/internet-of-things/">Internet of Things</a></li>
+      <li><a href="/blog/categories/iot-data/">IoT Data</a></li>
+      <li><a href="/blog/categories/mqtt/">MQTT</a></li>
+      <li><a href="/blog/categories/media/">Media</a></li>
+      <li><a href="/blog/categories/merchandise/">Merchandise</a></li>
+      <li><a href="/blog/categories/micropython/">Micropython</a></li>
+      <li><a href="/blog/categories/organisation/">Organisation</a></li>
+      <li><a href="/blog/categories/owntracks/">OwnTracks</a></li>
+      <li><a href="/blog/categories/presence-detection/">Presence Detection</a></li>
+      <li><a href="/blog/categories/public-service-announcement/">Public Service Announcement</a></li>
+      <li><a href="/blog/categories/release-notes/">Release Notes</a></li>
+      <li><a href="/blog/categories/survey/">Survey</a></li>
+      <li><a href="/blog/categories/talks/">Talks</a></li>
+      <li><a href="/blog/categories/technology/">Technology</a></li>
+      <li><a href="/blog/categories/user-stories/">User Stories</a></li>
+      <li><a href="/blog/categories/video/">Video</a></li>
+      <li><a href="/blog/categories/website/">Website</a></li>
+      <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-100550088-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+    var disqus_script = 'count.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

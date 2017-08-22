@@ -1,0 +1,15 @@
+{
+  "current_version": "0.48.0",
+  "release_date": "2017-07-02T00:00:00+08:00",
+  "release_notes": "https://home-assistant-china.github.io//blog/2017/07/02/release-48/",
+  "release_notes_path": "/blog/2017/07/02/release-48/",
+  "release_title": "0.48: Snips.ai, Shiftr.io and a massive History query speed up",
+  "release_description": "Build your own local voice assistant with the new Snips.ai component, visualize your data with Shiftr.io and enjoy faster history browsing.",
+  "patch_version_notes": "#",
+  "root_url": "https://home-assistant-china.github.io/",
+  "semantic_version": {
+    "major": 0,
+    "minor": 48,
+    "patch": 0
+  }
+}
