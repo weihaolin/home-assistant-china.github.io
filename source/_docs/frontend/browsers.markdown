@@ -10,58 +10,58 @@ footer: true
 redirect_from: /getting-started/browsers/
 ---
 
-Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works.
+Home Assistant 需要浏览器来展现前端，它支持所有主流现代浏览器。我们没有测试过所有可用浏览器，但是本页展现了多个操作系统下的不同浏览器，应该能对你选择浏览器有帮助。
 
-We would appreciate if you help to keep this page up-to-date and add feedback.
+若您帮助保持该页面的更新并添加反馈信息，我们将非常感谢。
 
 ## {% linkable_title Microsoft Windows %}
 
-| Browser                   | Release        | State      | Comments                 |
+| 浏览器                   | 版本        | 状态      | 备注                 |
 | :------------------------ |:---------------|:-----------|:-------------------------|
-| Internet Explorer ([IE])  | 11             | Not supported | Does not support promises. |
-| Microsoft [Edge]          | deli. Win 10   | works | Streaming updates not working. |
-| [Chrome]                  | 50.0.2661.102  | works      |                          |
-| [Firefox]                 | 43.0.1         | works      |                          |
-| [Iridium]                 | 48.2           | works      |                          |
-| [Opera]                   | 42.0.2393.351  | works      |                          |
+| Internet Explorer ([IE])  | 11             | 不支持 | 不支持 promises。 |
+| Microsoft [Edge]          | deli. Win 10   | 可用 |流不工作 |
+| [Chrome]                  | 50.0.2661.102  | 可用      |                          |
+| [Firefox]                 | 43.0.1         | 可用      |                          |
+| [Iridium]                 | 48.2           | 可用      |                          |
+| [Opera]                   | 42.0.2393.351  | 可用      |                          |
 
 ## {% linkable_title macOS %}
 
-| Browser               | Release        | State      | Comments                 |
+| 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      |                          |
+| [Safari]              |                | 可用      | 地图有一些问题。 |
 
 ## {% linkable_title Linux %}
 
-| Browser               | Release        | State      | Comments                 |
+| 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 49.0           | works      |                          |
-| [Midori]              | 0.5.11         | works      |                          |
-| [Chromium]            | 53.0.2785.143  | works      |                          |
-| [Conkeror]            | 1.0.2          | works      |                          |
-| [Konqueror]           |                | unknown    |                          |
-| [Uzbl]                | 0.9.0          | works      |                          |
-| [Opera]               | 42.0.2393.351  | works      |                          |
-| [Lynx]                | 2.12           | fails      | loads empty page         |
-| [elinks]              |                | fails      | page with manifest and import |
-| [w3m]                 | 0.5.3          | fails      | display the icon shown while loading HA |
-| [Epiphany]            | 3.18.5         | works      |                          |
-| [surf]                | 0.7            | works      |                          |
+| [Firefox]             | 49.0           | 可用      |                          |
+| [Midori]              | 0.5.11         | 可用      |                          |
+| [Chromium]            | 53.0.2785.143  | 可用      |                          |
+| [Conkeror]            | 1.0.2          | 可用      |                          |
+| [Konqueror]           |                | 未知      |                          |
+| [Uzbl]                | 0.9.0          | 可用      |                          |
+| [Opera]               | 42.0.2393.351  | 可用      |                          |
+| [Lynx]                | 2.12           | 不可用      | 加载空白页        |
+| [elinks]              |                | 不可用      | manifest和import页面有问题 |
+| [w3m]                 | 0.5.3          | 不可用      | 加载HA时显示图标 |
+| [Epiphany]            | 3.18.5         | 可用      |                          |
+| [surf]                | 0.7            | 可用      |                          |
 
 ## {% linkable_title Android %}
 
-| Browser               | Release        | State      | Comments                 |
+| 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Chrome]              | 50.0.2661.89   | works      | Can also be added to desktop |
-| [Firefox]             | 46.0.1         | works      | Can also be added to desktop |
-| [Opera]               | 42.0.2246.112628 | works    | Can also be added to desktop |
+| [Chrome]              | 50.0.2661.89   | 可用      | 可以添加到桌面 |
+| [Firefox]             | 46.0.1         | 可用      | 可以添加到桌面 |
+| [Opera]               | 42.0.2246.112628 | 可用    | 可以添加到桌面 |
 
 ## {% linkable_title iOS %}
 
-| Browser               | Release        | State      | Comments                 |
+| 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Can also be added to desktop |
-| [Chrome]              |                | works      |                          |
+| [Safari]              |                | 可用      | 可以添加到桌面。地图有些问题。 |
+| [Chrome]              |                | 可用      |                          |
 
 
 [Firefox]: https://www.mozilla.org/en-US/firefox/
