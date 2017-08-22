@@ -13,23 +13,23 @@ ha_release: 0.36
 ---
 
 
-The `xiaomi` platform offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
+[小米路由器](http://miwifi.com) 组件 `xiaomi` 通过检测设备与路由器的连接情况，从而提供设备存在状态。  
 
-To use an Xiaomi router in your installation, add the following to your `configuration.yaml` file:
+使用小米路由器，请在 `configuration.yaml` 文件中添加如下配置：
 
 ```yaml
-# Example configuration.yaml entry
 device_tracker:
   - platform: xiaomi
     host: YOUR_ROUTER_IP
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
+变量说明：
 
-- **host** (*Required*): The IP address of your router, eg. `192.168.0.1`.
-- **username** (*Optional*: The admin username. By default `admin`.
-- **password** (*Required*): The password for the admin account.
+- **host** (*必需*): 路由器 IP `192.168.0.1`.
+- **username** (*可选*: 管理员账户名称，默认为 `admin`.
+- **password** (*可选*): 管理员账户密码
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+如何设置被嗅探设备状态，详见 [设备追踪页](/components/device_tracker/) 。
+
 
