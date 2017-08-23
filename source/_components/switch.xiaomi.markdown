@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `xiaomi` switch platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) switches.
+此组件允许你在 HA 中使用小米的开关。
 
-The requirement is that you have setup [Xiaomi](/components/xiaomi/).
+使用此组件前请先设置好[小米多功能网关](/components/xiaomi/)平台。
 

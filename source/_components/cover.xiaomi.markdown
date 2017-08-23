@@ -13,8 +13,7 @@ ha_release: "0.50"
 ha_iot_class: "Local Polling"
 ---
 
+此组件允许你在 HA 中使用小米的卷帘器等屏障类控制器。
 
-The `xiaomi` cover platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) covers.
-
-The requirement is that you have setup [Xiaomi](/components/xiaomi/).
+使用此组件前请先设置好[小米多功能网关](/components/xiaomi/)平台。
 
