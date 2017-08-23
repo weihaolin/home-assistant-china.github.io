@@ -13,14 +13,13 @@ ha_release: 0.32
 ha_iot_class: "Local Polling"
 ---
 
-The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant.
+ `yeelight` 平台允许你在 HA 中接入 Yeelight 的 Wifi 灯具。
 
 ### {% linkable_title Example configuration %}
 
-To enable those lights, add the following lines to your `configuration.yaml` file:
+添加下列配置至 `configuration.yaml` 文件：
 
 ```yaml
-# Example configuration.yaml entry
 light:
   - platform: yeelight
     devices:
@@ -33,32 +32,30 @@ light:
         name: Front Door
 ```
 
-Configuration variables:
+变量说明：
 
-- **ip** (*Required*): IP(s) of your wifi bulbs
-- **name** (*Optional*): A friendly name for the device.
-- **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
-- **use_music_mode** (*Optional*, default False): Enable music mode.
-- **save_on_change** (*Optional*, default True): Saves the bulb state when changed from Home Assistant.
+- **ip** (*必须*): IP
+- **name** (*可选*): 昵称
+- **transition** (*O可选*, 默认 350): 光效过渡时间（毫秒）
+- **use_music_mode** (*可选*, 默认 False): 开启音乐随动模式，默认关闭
+- **save_on_change** (*可选*, 默认 True): 保存当前状态为下次启动默认状态
 
 #### {% linkable_title Music mode  %}
-Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
+每个灯泡每分钟的网络请求数最大为 60，这个限制可以通过开启音乐随动模式突破。在音乐随动模式中，灯具会响应任何时间传输回的控制信号，也就是说通信协议始终处于开启状态。但是该项设置并不适合部分场景，请按需配置。
 
 ### {% linkable_title Initial setup %}
 <p class='note'>
-Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
-In the bulb property, you have to enable "Developer Mode"  Developer mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
-Determine your bulb ip (using router, software, ping ...)
+使用前请确保在 Yeelight app 中与设备配对，升级至最新固件并开启“极客模式”，同时确定设备的 ip。
 </p>
 
 <p class='note warning'>
-This component is tested to work with the following models. If you have a different model and it is working please let us know.
+该组件经过下列设备测试通过，如果你发现支持其他设备，请反馈给论坛或者群。
 </p>
 
-- **YLDP01YL**: LED Bulb (White)
-- **YLDP02YL**: LED Bulb (Color)
-- **YLDP03YL**: LED Bulb (Color) - E26
-- **YLDD02YL**: Lightstrip (Color)
+- **YLDP01YL**: LED 灯泡 (白光版)
+- **YLDP02YL**: LED 灯泡 (彩光版)
+- **YLDP03YL**: LED 灯泡 (彩光版) - E26
+- **YLDD02YL&YLDD01YL**: 灯带 (彩光版)
 
 
 
