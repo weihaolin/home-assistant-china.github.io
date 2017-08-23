@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with with Home Assistant's [script](/docs/scripts/) feature.
+HA 系统所用的命令是为了简化任务运行、帮助系统迁移及保证系统正常运转。切勿与 HA 中 脚本相混淆[script](/docs/scripts/)。
 
 ### {% linkable_title Configuration check %}
 
-Test any changes to your `configuration.yaml` file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.
+你可以在运行 HA 前检测配置文件 `configuration.yaml` 的有效性，下列命令可以帮助你在重启 HA 前就检查你对配置文件所做的修改是否有效。
 
 ```bash
 $ hass --script check_config
@@ -21,7 +21,7 @@ $ hass --script check_config
 
 ### {% linkable_title Existance of configuration %}
 
-This script checks if the `configuration.yaml` file exists. If the file is not available, one is created.
+下列命令将会检查配置文件 `configuration.yaml`是否存在，如果不存在，系统将会自动生成一个。
 
 ```bash
 $ hass --script ensure_config
@@ -29,7 +29,7 @@ $ hass --script ensure_config
 
 ### {% linkable_title Secrets %}
 
-There is a method to store secrets outside of your `configuration.yaml` file. For further details, please refer to the [Storing Secrets](/docs/configuration/secrets/) documentation.
+下列命令帮助你在 `configuration.yaml` 外保存秘钥，有关秘钥信息的设置，详见 [储存密码](/docs/configuration/secrets/) 文档。
 
 ```bash
 $ hass --script keyring
@@ -37,9 +37,9 @@ $ hass --script keyring
 
 ### {% linkable_title Benchmark %}
 
-For testing the performance of Home Assistant the Benchmark script runs until you exit using Control+C.
+测试 HA 的性能，我们可以给 HA 跑跑分，进程将不断运行，退出请按 Control+C。
 
-Firing and handling of a million events.
+这将触发并执行百万个事件（所以慎用）
 
 ```bash
 $ hass --script benchmark async_million_events
@@ -47,7 +47,9 @@ $ hass --script benchmark async_million_events
 
 ### {% linkable_title Old scripts %}
 
-Usally those scripts were only used when a massive update happend and was announced in the release notes.
+下列命令仅使用于重大更新发布时。
 
-- `db_migrator`: Migrate an existing SQLite database to the new schema.
-- `influxdb_migrator`: Convert an old InfluxDB to the new format.
+- `db_migrator`: 迁移 SQLite 数据库
+- `influxdb_migrator`: 将老式 InfluxDB 转换为新格式
+
+

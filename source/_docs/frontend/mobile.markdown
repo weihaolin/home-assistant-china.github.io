@@ -10,17 +10,17 @@ footer: true
 redirect_from: /getting-started/mobile/
 ---
 
-Home Assistant has [a companion app for iOS](https://home-assistant.io/docs/ecosystem/ios/).
+Home Assistant 提供了一个 [iOS客户端](https://home-assistant.io/docs/ecosystem/ios/).
 
-On both Android and iOS, you can add the Home Assistant "web app" to your homescreen as if it was native (Home Assistant leverages the W3C [manifest.json](https://w3c.github.io/manifest/) support).
+无论是Android还是iOS，你都可以将Home Assistant作为“web app”添加到你的主屏幕, 当作一个原生应用使用。 (Home Assistant leverages the W3C [manifest.json](https://w3c.github.io/manifest/) support).
 
 ### {% linkable_title Android %}
 
-  1. Open Chrome
-  2. Navigate to your Home Assistant instance
-  3. Tap on the Menu icon (three vertical bars)
-  4. Tap on Add to Homescreen
-  5. A dialog will popup; tap on Add
+  1. 打开 Chrome
+  2. 定位到 Home Assistant 
+  3. 点击菜单
+  4. 点击“添加到主屏幕”
+  5. 在弹窗中点击添加
 
 <p class='img' style='width:500px; margin-left: auto; margin-right: auto;'>
 <img src='/images/screenshots/android-homescreen-guide.gif' />
@@ -28,8 +28,8 @@ On both Android and iOS, you can add the Home Assistant "web app" to your homesc
 
 ### {% linkable_title iOS %}
 
-  1. Open Safari
-  2. Navigate to your Home Assistant instance
-  3. Tap on the Share icon in the middle of the bottom toolbar
-  4. Tap on "Add to Home Screen"
-  5. A dialog will popup; tap on Add
+  1. 打开 Safari
+  2. 定位到 Home Assistant 
+  3. 点击底栏中央的分享按钮
+  4. 点击“添加到主屏幕”
+  5. 在弹窗中点击添加

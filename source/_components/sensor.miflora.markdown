@@ -13,9 +13,9 @@ ha_release: 0.29
 ha_iot_class: "Local Polling"
 ---
 
-The `miflora` sensor platform allows one to monitor to plants. The [Mi Flora plant sensor](https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
+[花花草草监测仪平台](https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html) `miflora` 帮助你在 HA 中接入监测仪。 花花草草监测仪使用蓝牙传输信息，由于低功耗蓝牙传输协议的设置，每次只能与一个设备进行信息交流，此插件适应了这一特性。
 
-Start a scan to determine the MAC addresses of the sensor:
+在设备中开启扫描获取监测仪的 Mac 地址： 
 
 ```bash
 $ sudo hcitool lescan
@@ -25,41 +25,41 @@ C4:D3:8C:12:4C:57 Flower mate
 [...]
 ```
 
-Check for `Flower care` or `Flower mate` entries, those are your sensor.
+（译者注：另可通过安卓手机搜寻蓝牙设备，过程更为简单快捷）
 
-To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
+寻找名为 `Flower care` 或 `Flower mate` 的设备，记录下 Mac。
+
+将下列配置添加至`configuration.yaml` 文件：
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     monitored_conditions:
       - temperature
 ```
+变量说明：
 
-- **mac** (*Required*): The MAC address of your sensor.
-- **monitored_conditions** array (*Optional*): The paramaters that should be monitored (defaults to monitoring all parameters).
-  - **moisture**: Moisture in the soil.
-  - **light**: Brightness at the sensor's location.
-  - **temperature**: Temperature at the sensor's location.
-  - **conductivity**: Conductivity in the soil.
-  - **battery**: Battery details.
-- **name** (*Optional*): The name displayed in the frontend.
-- **force_update** (*Optional*): Sends update events even if the value hasn't changed.
-- **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine. 
-- **timeout** (*Optional*): Define the timeout value in seconds when polling (defaults to 10 if not defined)
-- **retries** (*Optional*): Define the number of retries when polling (defaults to 2 if not defined)
-- **cache_value** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
-- **adapter** (*Optional*): Define the bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
+- **mac** (*必需*): 监测仪的 mac 地址
+- **monitored_conditions** array (*可选*): 监测仪需要检测的数据，默认监测所有数据：
+  - **moisture**: 土壤湿度
+  - **light**: 亮度
+  - **temperature**: 温度
+  - **conductivity**: 肥力（土壤导电性）
+  - **battery**: 电量
+- **name** (*可选*): 昵称
+- **force_update** (*可选*): 即使数据没有变化，依旧强制推送数据
+- **median** (*可选*): 监测仪有时候只会显示数据的峰值，使用这个变量，数据将取各次推送的平均值，保证准确性。默认为 3 。
+- **timeout** (*可选*): 数据推送时间间隔，默认为 10。（秒） 
+- **retries** (*可选*): 推送失败后的重试次数，默认为 2。
+- **cache_value** (*可选*): 缓存数据容量，默认为 1200。
+- **adapter** (*可选*): 蓝牙适配器接口，默认为 hci0 。运行`hciconfig` 获取蓝牙适配器列表。
 
-Note that by default the sensor is only polled once every 15 minutes. This means with the `median: 3` setting will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn't a big problem. 
-Reducing polling intervals will have a negative effect on the battery life.
+请注意监测仪默认每 15 分钟推送一次数据，这意味着如果设定为取 3 次数据的传送值，则一共需要花费30分钟 HA 才会显示数据。但是，通常情况下，由于数据在短时间内变动不大，因此可以容忍。如果强制缩短获取信息的时间，不利于电池的寿命。
 
-A full configuration example could looks the one below:
+完整的配置如下：
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'

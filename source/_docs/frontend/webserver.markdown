@@ -10,9 +10,8 @@ footer: true
 redirect_from: /details/webserver/
 ---
 
-It was only a matter of time until the first queries for tools like [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) to search for Home Assistant instances showed up.
-
-To get an idea about how your Home Assistant instance looks to a network scanner, you can use `nmap`. The `nmap` tool is already available if you are using the [nmap device tracker](/components/device_tracker/). 
+它直到像 [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) 这样的工具发起第一次请求查询 Home Assistant 进程的时候才有作用。
+若想了解 Home Assistant 进程在 network sacnner 中的详情，你可以使用‘nmap’工具，若你正在使用[nmap device tracker](/components/device_tracker/)，则‘nmap’已经可用。
 
 ```bash
 $ nmap -sV -p 8123 --script=http-title,http-headers 192.168.1.3

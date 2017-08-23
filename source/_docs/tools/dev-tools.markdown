@@ -9,18 +9,18 @@ sharing: true
 footer: true
 ---
 
-The frontend contains a section called "Developer Tools". 
+开发者工具（Developer Tools）板块位于HA 前端的侧边栏中。
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
-Screenshot of Home Assistant's Developer Tools.
+开发者工具截图
 </p>
 
 | Section | Icon | Description |
 | ------- |------| ----- |
-| Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from components |
-| States | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Sets the representation of an entity |
-| Events | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Fires events |
-| Templates | <img src='/images/screenshots/developer-tool-templates-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Renders templates |
-| Info | <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Details about Home Assistant |
+| Services（服务） | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | 调用组件服务 |
+| States（状态） | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | 查询及设定组件状态 |
+| Events（事件） | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | 触发事件 |
+| Templates（模板） | <img src='/images/screenshots/developer-tool-templates-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | 创造模板 |
+| Info（信息） | <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | 展示 Home Assistant 的详细信息 |
 
