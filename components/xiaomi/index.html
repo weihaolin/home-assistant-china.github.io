@@ -75,49 +75,45 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi_gw</code> platform allows you to integrate the following <a href="http://www.mi.com/en/">Xiaomi</a> devices into Home Assistant.</p>
+  <p>小米平台 <code class="highlighter-rouge">xiaomi_gw</code> 允许你在 HA 中接入小米的 Zigbee 智能家居设备。支持的设备包括：</p>
 <ul>
-  <li>Temperature and Humidity Sensor (old and new version)</li>
-  <li>Motion Sensor (old and new version)</li>
-  <li>Door and Window Sensor (old and new version)</li>
-  <li>Button (old and new version)</li>
-  <li>Plug aka Socket (ZigBee version, reports power consumed, power load, state and if device in use)</li>
-  <li>Wall Plug (reports power consumed, power load and state)</li>
-  <li>Aqara Wall Switch (Single)</li>
-  <li>Aqara Wall Switch (Double)</li>
-  <li>Aqara Wall Switch LN (Single)</li>
-  <li>Aqara Wall Switch LN (Double)</li>
-  <li>Aqara Wireless Switch (Single)</li>
-  <li>Aqara Wireless Switch (Double)</li>
-  <li>Cube</li>
-  <li>Gas Leak Detector (reports alarm and density)</li>
-  <li>Smoke Detector (reports alarm and density)</li>
-  <li>Gateway (Light, Illumination Sensor, Ringtone play)</li>
-  <li>Intelligent Curtain</li>
-  <li>Battery</li>
+  <li>温度湿度传感器（新旧版）</li>
+  <li>人体传感器 （新旧版）</li>
+  <li>门窗传感器 （新旧版）</li>
+  <li>无线开关 （新旧版）</li>
+  <li>智能插座 Zigbee 版本 （反馈耗电、电力负载、通电、开关状态）</li>
+  <li>墙壁开关 (反馈耗电、电力负载、 通电状态）</li>
+  <li>绿米（Aqara）全系列墙壁开关，包括单、双键；单、零火；</li>
+  <li>绿米 （Aqara）无线开关单、双键</li>
+  <li>魔方控制器</li>
+  <li>天然气传感器 (反馈警报和浓度信息）</li>
+  <li>烟雾报警器 (反馈警报和浓度信息)</li>
+  <li>多功能网关 (支持网关灯、亮度传感器及铃声播放)</li>
+  <li>绿米智能窗帘器</li>
+  <li>各设备电量</li>
 </ul>
-<p>What’s not available?</p>
+<p>不支持：</p>
 <ul>
-  <li>Gateway Radio</li>
-  <li>Gateway Button</li>
-  <li>Water Sensor</li>
-  <li>Aqara Air Conditioning Companion</li>
-  <li>Aqara Intelligent Air Conditioner Controller Hub</li>
-  <li>Decoupled mode of the Aqara Wall Switches (Single &amp; Double)</li>
-  <li>Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure</li>
+  <li>网关广播</li>
+  <li>网关案件</li>
+  <li>水浸传感器</li>
+  <li>绿米及米家空调伴侣</li>
+  <li>墙壁开关独立使用状态</li>
+  <li>烟雾及天然气报警器的其他警报事件，包括：模拟警报、电池错误警报、灵敏度警报及 I2C 通信失败警报。</li>
 </ul>
-<p>Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
-<p>To enable Xioami gateway in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<p>One Gateway</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># You can leave mac empty if you only have one gateway.</span>
+<p>请在手机中安装米家 app 并获取多功能网关的通信密码。</p>
+<p>（译者注：请在米家 app 中与网关配对，之后进入网关页，点选右上角“……” —— 关于 —— 空白处点多下 —— 局域网通信协议 —— 打开并获取密码）</p>
+<p>之后在 <code class="highlighter-rouge">configuration.yaml</code> 文件中填入如下配置：</p>
+<p>单个网关</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 使用单网关前提下，可不填 mac</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span>
      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Multiple Gateways</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
+<p>多个网关</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 多个网关必须填入 mac</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
@@ -126,8 +122,8 @@
       <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Search for gateways on specific interface</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
+<p>搜寻固定 IP 的网关</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#  mac 必须填写</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">interface</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.0.1'</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -135,23 +131,24 @@
       <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>变量说明：</p>
 <ul>
-  <li><strong>mac</strong> (<em>Optional</em>): The MAC of your gateway. Required if you have more than one.</li>
-  <li><strong>key</strong> (<em>Optional</em>): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.</li>
-  <li><strong>discovery_retry</strong> (<em>Optional</em>): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.</li>
-  <li><strong>interface</strong> (<em>Optional</em>): Which network interface to use. Defaults to any.</li>
+  <li><strong>mac</strong> (<em>可选</em>): 网关 mac 地址，使用多个网关则必须填写</li>
+  <li><strong>key</strong> (<em>可选</em>): 网关通信协议密码。如果想要控制网关灯和开关，则必须填写；传感器在无密码情况下仍可正常运作。</li>
+  <li><strong>discovery_retry</strong> (<em>可选</em>): 连接失败重试次数，默认为 3。</li>
+  <li><strong>interface</strong> (<em>可选</em>): 所使用的接口，默认为全部(all）。</li>
 </ul>
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
-<p>The gateway provides two services: <code class="highlighter-rouge">xiaomi.play_ringtone</code> and <code class="highlighter-rouge">xiaomi.stop_ringtone</code>. To play ringtones by Home Assistant the version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. A <code class="highlighter-rouge">ringtone_id</code> and <code class="highlighter-rouge">gw_mac</code> must be supplied. The parameter <code class="highlighter-rouge">ringtone_vol</code> (percent) is optional. Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
+<p>HA 支持网关铃声的两个操作：播放 <code class="highlighter-rouge">xiaomi.play_ringtone</code> 和停止<code class="highlighter-rouge">xiaomi.stop_ringtone</code>。网关铃声的播放需要 <code class="highlighter-rouge">1.4.1_145</code> 及以上网关固件支持。 同时必须提供铃声 ID <code class="highlighter-rouge">ringtone_id</code>  和网关 Mac <code class="highlighter-rouge">gw_mac</code>。 铃声音量控制 <code class="highlighter-rouge">ringtone_vol</code> 是可选的。全部铃声 ID<code class="highlighter-rouge">ringtone_id</code>  有：</p>
 <ul>
   <li>alarm ringtones [0-8]</li>
   <li>doorbell ring [10-13]</li>
   <li>alarm clock [20-29]</li>
   <li>custom ringtones (uploaded by mi home app) starting from 10001</li>
 </ul>
-<p>Automation example</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Let a dog bark on long press</span>
+<p>（译者注：中文对应名称大家可前往米家 app 中查询）</p>
+<p>自动化示例</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Let a dog bark on long press</span> <span class="c1">#长按开关后网关发出狗叫</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">click</span>
@@ -224,6 +221,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/abode/'>Abode Home Security</a>
         </li>
         <li>
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
