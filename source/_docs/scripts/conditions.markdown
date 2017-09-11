@@ -10,11 +10,10 @@ footer: true
 redirect_from: /getting-started/scripts-conditions/
 ---
 
-Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
-
+条件可以被添加至脚本或自动化设置中以阻止指令继续执行。条件会监视当下的系统状态，例如可以设定条件以反馈开关处于开启或关闭状态。
 ### {% linkable_title AND condition %}
 
-Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
+以下展示如何用一个条件语句同时判断多个条件内容，当所有子条件满足时，该条件触发。
 
 ```yaml
 condition:
@@ -30,7 +29,7 @@ condition:
 
 ### {% linkable_title OR condition %}
 
-Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
+以下展示如何用一个条件语句同时判断多个条件内容，当任一子条件满足时，该条件触发。
 
 ```yaml
 condition:
@@ -46,8 +45,8 @@ condition:
 
 ### {% linkable_title MIXED  AND and OR conditions %}
 
-Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
-This allows you to mix several AND and OR conditions together.
+以下展示如何用一个条件语句同时判断多个条件内容，该设置重点展示如何在 AND 条件中嵌套 OR 判断子条件。
+（译者注：下列设置表示当 paulus 在家并且温度低于20度，或者paulus 在家并且下雨时，条件触发。）
 
 ```yaml
 condition:
@@ -68,11 +67,11 @@ condition:
 
 ### {% linkable_title Numeric state condition %}
 
-This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches the thresholds.
+数字条件（Numeric state condition）基于数值是否满足一定门槛而触发。 
 
-If both `below` and `above` are specified, both tests have to pass.
+如果以上`below` 和以下 `above` 同时出现在语句中，则 2 个条件都需要满足。
 
-You can optionally use a `value_template` to process the value of the state before testing it.
+你可以使用值模板 `value_template` 将数据转换为数字类型，以实现条件触发：
 
 ```yaml
 condition:
@@ -80,13 +79,15 @@ condition:
   entity_id: sensor.temperature
   above: 17
   below: 25
-  # If your sensor value needs to be adjusted
+  # 如果你的传感器的值需要转换
   value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
 ```
 
+（译者注：计算机中的数据类型有很多，最常见的有数字和字符串。其中数字还分浮点型（float）数字、整数型数字（int）等，上述配置中 HA 只可以在数字型数据间比较大小，因此需要将字符串（文本）数据转换为数字。）
+
 ### {% linkable_title State condition %}
 
-Tests if an entity is a specified state.
+当组件某个值符合设定时触发条件：
 
 ```yaml
 condition:
@@ -102,7 +103,7 @@ condition:
 
 ### {% linkable_title Sun condition %}
 
-The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
+太阳组件 `sun` 可以判定太阳日出日落的状态，可以利用其触发特定场景。`before` 和 `after` 属性仅限 `sunset` 和 `sunrise`使用。 同样，另外还有专属的抵消值属性 (`before_offset`, `after_offset`)。类似的还有[sun trigger][sun_trigger]。
 
 [sun_trigger]: /getting-started/automation-trigger/#sun-trigger
 
@@ -110,33 +111,34 @@ The sun condition can test if the sun has already set or risen when a trigger oc
 condition:
   condition: sun
   after: sunset
-  # Optional offset value
+  # 可选抵消值
   after_offset: "-1:00:00"
 ```
 
 ### {% linkable_title Template condition %}
 
-The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
+模板条件将在值 [given template][template] 为真时触发。前提是该条件的输出值为布尔值或者被设定为真值 `true`.
 
 ```yaml
 condition:
   condition: template
   value_template: '{% raw %}{{ states.device_tracker.iphone.attributes.battery > 50 }}{% endraw %}'
 ```
+（译者注：上述设置表示当 iPhone 的电量大于50时，条件触发。）
 
-Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
+在自动化配置中，模板式条件有权限监测 `trigger` 变量，详见 [此处][automation-templating].
 
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
 
 ### {% linkable_title Time condition %}
 
-The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week
+时间条件可设定在某个特定时间点触发：
 
 ```yaml
 condition:
   condition: time
-  # At least one of the following is required.
+  # 至少需要设置下列其中一项属性
   after: '15:00:00'
   before: '02:00:00'
   weekday:
@@ -145,12 +147,11 @@ condition:
     - fri
 ```
 
-Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am. 
-
+`weekday` 的有效值有 `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`。
+时间节点可以跨越零点，比如可以从下午3点到隔日2点，系统会自动识别。
 ### {% linkable_title Zone condition %}
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
+地点条件通过判定组件是否在特定地点而触发。开启地点自动化配置前，你必须已设定好支持 GPS 定位的设备追踪平台 (device tracker）。目前仅有[OwnTracks 平台](/components/device_tracker.owntracks/) 和 [iCloud 平台](/components/device_tracker.icloud/) 支持这项功能。
 
 ```yaml
 condition:
@@ -160,7 +161,7 @@ condition:
 ```
 
 ### {% linkable_title Examples %}
-
+以下设定表示在14点至23点太阳落山时分，客厅的灯处于关闭状态，并且电灯关闭脚本没有运行时，条件触发。
 ```yaml
     condition:
       - condition: numeric_state
@@ -177,3 +178,5 @@ condition:
         entity_id: script.light_turned_off_5min
         state: 'off'
 ```
+
+

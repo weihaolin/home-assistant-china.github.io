@@ -14,34 +14,37 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `xiaomi` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
+ `xiaomi` 传感器平台允许你在 HA 里使用[小米](http://www.mi.com/) 传感器
 
-The requirement is that you have setup the [`xiaomi` component](/components/xiaomi/).
+使用此组件时，你必须已经设置[小米多功能网关](/components/xiaomi/).
 
 
 ### {% linkable_title Type of sensors supported %}
 
 | Name                              | ZigBee entity       | Model no.            | States                            | Event          | Event key                               | Event values                                                                                                             |
 |-----------------------------------|---------------------|----------------------|----------------------------------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| Motion Sensor (1st gen)           | motion              | RTCGQ01LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
-| Motion Sensor (2nd gen)           | sensor_motion.aq2   | RTCGQ11LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
-| Door and Window Sensor (1st gen)  | magnet              | WSDCGQ01LM           | on, off                           |                |                                         |                                                                                                                          |
-| Door and Window Sensor (2nd gen)  | sensor_magnet.aq2   | MCCGQ11LM            | on, off                           |                |                                         |                                                                                                                          |
-| Smoke Detector                    | smoke               | JTYJ-GD-01LM/BW      | on, off                           |                |                                         |                                                                                                                          |
-| Gas Leak Detector                 | natgas              | JTQJ-BF-01LM/BW      | on, off                           |                |                                         |                                                                                                                          |
-| Water Leak Sensor                 | sensor_wleak.aq1    | SJCGQ11LM            | on, off                           |                |                                         |                                                                                                                          |
-| Button (1st gen)                  | switch              | WXKG01LM             | on (thru long_click_press), off   | `click`        | `click_type`                            | `long_click_press`, `long_click_release`, `hold`, `single`, `double`                                                     |
-| Button (2nd gen)                  | sensor_switch.aq2   | WXKG11LM             | off (always)                      | `click`        | `click_type`                            | `single`, `double`                                                                                                       |
-| Aqara Wireless Switch (Single)    | 86sw1               | WXKG03LM             | off (always)                      | `click`        | `click_type`                            | `single`                                                                                                                 |
-| Aqara Wireless Switch (Double)    | 86sw2               | WXKG02LM             | off (always)                      | `click`        | `click_type`                            | `single`, `both`                                                                                                         |
-| Cube                              | cube                | MFKZQ01LM            | off (always)                      | `cube_action`  | `action_type`, `action_value` (rotate)  | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+| 人体传感器 (1st gen)           | motion              | RTCGQ01LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
+| 人体传感器 (2nd gen)           | sensor_motion.aq2   | RTCGQ11LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
+| 门窗感应器 (1st gen)           | magnet              | WSDCGQ01LM           | on, off                           |                |                                         |                                                                                                                          |
+| 门窗感应器 (2nd gen)           | sensor_magnet.aq2   | MCCGQ11LM            | on, off                           |                |                                         |                                                                                                                          |
+| 烟雾传感器                     | smoke               | JTYJ-GD-01LM/BW      | on, off                           |                |                                         |                                                                                                                          |
+| 天然气泄漏传感器                | natgas              | JTQJ-BF-01LM/BW      | on, off                           |                |                                         |                                                                                                                          |
+| 浸水传感器                     | sensor_wleak.aq1    | SJCGQ11LM            | on, off                           |                |                                         |                                                                                                                          |
+| 开关 (1st gen)                | switch              | WXKG01LM             | on (thru long_click_press), off   | `click`        | `click_type`                            | `long_click_press`, `long_click_release`, `hold`, `single`, `double`                                                     |
+| 开关 (2nd gen)                | sensor_switch.aq2   | WXKG11LM             | off (always)                      | `click`        | `click_type`                            | `single`, `double`                                                                                                       |
+| Aqara 无线开关 (单控)          | 86sw1               | WXKG03LM             | off (always)                      | `click`        | `click_type`                            | `single`                                                                                                                 |
+| Aqara 无线开关 (双控)          | 86sw2               | WXKG02LM             | off (always)                      | `click`        | `click_type`                            | `single`, `both`                                                                                                         |
+| 小米魔方控制器                  | cube                | MFKZQ01LM            | off (always)                      | `cube_action`  | `action_type`, `action_value` (rotate)  | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+
 
 ### {% linkable_title Automation examples %}
+自动化示例
 
 #### {% linkable_title Motion %}
 
 ```yaml
-- alias: If there is motion and its dark turn on the gateway light
+- alias: If there is motion and its dark turn on the gateway #开夜灯
+light
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
@@ -59,7 +62,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
     - service: automation.turn_on
       data:
         entity_id: automation.MOTION_OFF
-- alias: If there no motion for 5 minutes turn off the gateway light
+- alias: If there no motion for 5 minutes turn off the gateway light #无人状态5分钟后关夜灯
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
@@ -78,7 +81,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
 #### {% linkable_title Door and/or Window %}
 
 ```yaml
-- alias: If the window is open turn off the radiator
+- alias: If the window is open turn off the radiator #开窗关暖气
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
@@ -89,7 +92,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
     entity_id: climate.livingroom
     data:
       operation_mode: 'Off'
-- alias: If the window is closed for 5 minutes turn on the radiator again
+- alias: If the window is closed for 5 minutes turn on the radiator again #关窗5分钟后开暖气
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
@@ -107,7 +110,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
 #### {% linkable_title Smoke %}
 
 ```yaml
-- alias: Send notification on fire alarm
+- alias: Send notification on fire alarm #失火发送消息推送
   trigger:
     platform: state
     entity_id: binary_sensor.smoke_sensor_158d0001574899
@@ -128,7 +131,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
 #### {% linkable_title Gas %}
 
 ```yaml
-- alias: Send notification on gas alarm
+- alias: Send notification on gas alarm #煤气泄漏发送消息推送
   trigger:
     platform: state
     entity_id: binary_sensor.natgas_sensor_158dxxxxxxxxxx
@@ -143,10 +146,10 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
 
 #### {% linkable_title Xiaomi Wireless Button %}
 
-Available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`. For Square version (Aqara brand) only `single` and `double` events are supported. Furthermore the space between two clicks to generate a double click must be quite large now.
+可触发的事件（有效的控制）有单击 `single`，双击 `double`，持续按住 `hold`，点按后长按 `long_click_press`以及长按后松开 `long_click_press`。绿米(Aqara) 的方型开关只支持单击及双击。注意判定为双击的 2 次按动时间间隔较长。（译者注：因此容易出现误判）
 
 ```yaml
-- alias: Toggle dining light on single press
+- alias: Toggle dining light on single press #单击亮灯
   trigger:
     platform: event
     event_type: click
@@ -156,7 +159,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
   action:
     service: switch.toggle
     entity_id: switch.wall_switch_left_158d000xxxxx01
-- alias: Toggle couch light on double click
+- alias: Toggle couch light on double click #双击亮灯
   trigger:
     platform: event
     event_type: click
@@ -166,7 +169,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
   action:
     service: switch.toggle
     entity_id: switch.wall_switch_right_158d000xxxxx01
-- alias: Let a dog bark on long press
+- alias: Let a dog bark on long press #长按网关发出狗叫
   trigger:
     platform: event
     event_type: click
@@ -183,7 +186,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 
 #### {% linkable_title Xiaomi Cube %}
 
-Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`.
+支持的魔方控制器控制有翻转90° `flip90`，翻转180° `flip180`，平移 `move`，双击 `tap_twice`， 悬空摇晃 `shake_air`，摇摆 `swing`，警报 `alert`，下落 `free_fall` 和旋转 `rotate`.
 
 ```yaml
 - alias: Cube event flip90
@@ -250,10 +253,10 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 
 #### {% linkable_title Aqara Wireless Switch %}
 
-The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
+绿米无线开关有分单键和双键版本。和小米无线开关原理一致，但仅支持单击操作。双键版本会增加一个名为`binary_sensor.wall_switch_both_158xxxxxxxxx12` 的组件，同时增加支持双键同时按下的新事件`both`。
 
 ```yaml
-- alias: Decrease brightness of the gateway light
+- alias: Decrease brightness of the gateway light #调低网关灯的亮度
   trigger:
     platform: event
     event_type: click
@@ -275,7 +278,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           10
         {% endif %}{% endraw %}
 
-- alias: Increase brightness of the gateway light
+- alias: Increase brightness of the gateway light #调亮网关灯
   trigger:
     platform: event
     event_type: click
@@ -308,3 +311,5 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_off
     entity_id: light.gateway_light_34xxxxxxxx13
 ```
+
+

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Customizing entities"
-description: "Simple customization for entities in the frontend."
+title: "实体的个性化"
+description: "简单的实体前端个性化"
 date: 2016-04-20 06:00
 sidebar: true
 comments: false
@@ -10,20 +10,20 @@ footer: true
 redirect_from: /getting-started/customizing-devices/
 ---
 
-By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
+默认情况下，接入HomeAssistant的所有设备都是可见状态，并且根据其所属类型的不同，都会被分配一个默认图标。通过修改下面一些参数，你可以自定义这些设备在前端网页的显示效果。具体是通过覆盖特定实体的某些属性来实现的。
 
 <p class='note'>
-Be careful not to forget to place `customize`, `customize_domain`, and `customize_glob` inside `homeassistant:` or it will fail.
+请记住，一定要把 `customize`, `customize_domain` 和 `customize_glob` 放在 `homeassistant:` 字段下，否则会配置失败。
 </p>
 
 ```yaml
 homeassistant:
   name: Home
   unit_system: metric
-  # etc
+  # 等等其他
 
   customize:
-    # Add an entry for each entity that you want to overwrite.
+    # 为每一个你想自定义的实体，添加一个自定义设置
     sensor.living_room_motion:
       hidden: true
     thermostat.family_room:
@@ -37,13 +37,13 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
-  # Customize all entities in a domain
+  # 为一类实体添加自定义设置
   customize_domain:
     light:
       icon: mdi:home
     automation:
       initial_state: 'on'
-  # Customize entities matching a pattern
+  # 为满足某些条件的实体添加自定义设置，支持通配符
   customize_glob:
     "light.kitchen_*":
       icon: mdi:description
@@ -53,34 +53,38 @@ homeassistant:
       homebridge_hidden: true
 ```
 
-### {% linkable_title Possible values %}
+### {% linkable_title 可能的值 %}
 
-| Attribute | Description |
+| 属性 | 描述 |
 | --------- | ----------- |
-| `friendly_name` | Name of the entity.
-| `homebridge_name` | Name of the entity in `HomeBridge`.
-| `hidden`    | Set to `true` to hide the entity.
-| `homebridge_hidden` | Set to `true` to hide the entity from `HomeBridge`.
-| `emulated_hue` | Set to `false` to hide the entity from emulated_hue.
-| `entity_picture` | Url to use as picture for entity.
-| `icon` | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
-| `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
-| `device_class` | Sets the class of the device, changing the device state and icon that is displayed on the UI (see below).
-| `initial_state` | Sets the initial state for automations. `on` or `off`.
-| `unit_of_measurement` | Defines the units of measurement, if any.
+| `friendly_name` | 实体名称（可使用汉字，汉化一般在此处）
+| `homebridge_name` |  `HomeBridge`中实体的名称.
+| `hidden`    | 设置为 `true` 表示隐藏实体，`false` 表示显示实体
+| `homebridge_hidden` | 设置为 `true` 表示隐藏`HomeBridge`中的实体，`false` 表示显示`HomeBridge`中的实体
+| `emulated_hue` |设置为 `true`表示隐藏emulated_hue中的实体.
+| `entity_picture` | 要设置为实体图标的图像URL
+| `icon` | [MDI](http://MaterialDesignIcons.com)网站上所有支持的图标，格式为：mdi:图标名称
+| `assumed_state` | 非状态反馈（假定状态）开关会默认显示为 ` 开` 和 `关` 两个按钮，如果设置为 `false` 则会显示为默认滑块开关
+| `device_class` | 设置设备的类别，更改设备类别后前端界面显示会有相应变化（见下文）
+| `initial_state` | 设置自动化操作中的默认操作. `on` or `off`.
+| `unit_of_measurement` | 定义测量值的单位
 
-### {% linkable_title Device Class %}
 
-Device class is currently supported by the following platforms:
+### {% linkable_title 设备类别 %}
 
-* [Binary Sensor](/components/binary_sensor/)
-* [Cover](/components/cover/)
+目前，仅以下两个平台支持设备类别属性：
 
-### {% linkable_title Reloading customize %}
+* [Binary Sensor](/components/binary_sensor/)（二进制传感器，如仅有 `开` 和 `关` 两个状态）
+* [Cover](/components/cover/)（电动门/窗）
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant/reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/reload_core_config` and click "Call Service".
+### {% linkable_title 重新载入个性化设置 %}
+
+HomeAssistant提供一个服务用来重新载入核心配置，服务的名称为 `homeassistant/reload_core_config`。这就允许你在不重启HomeAssistant的情况下，使个性化设置生效。点击<img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> 服务开发者工具，选择 `homeassistant/reload_core_config` 然后点击 "Call Service" 即可调用此服务。
 
 <p class='note warning'>
-New customize information will be applied the next time the state of the entity gets updated.
+新的个性化设置信息将在该实体下一次状态更新时起作用。
 </p>
+
+By [Jones](https://bbs.hassbian.com/home.php?mod=space&username=Jones)
+
 
