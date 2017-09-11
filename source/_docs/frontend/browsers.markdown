@@ -35,9 +35,9 @@ Home Assistant 需要浏览器来展现前端，它支持所有主流现代浏�
 
 | 浏览器               | 版本        | 状态      | 备注                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 49.0           | 可用      |                          |
+| [Firefox]             | 55.0           | 可用      |                          |
 | [Midori]              | 0.5.11         | 可用      |                          |
-| [Chromium]            | 53.0.2785.143  | 可用      |                          |
+| [Chromium]            | 60.0.3112.90   | 可用      |                          |
 | [Conkeror]            | 1.0.2          | 可用      |                          |
 | [Konqueror]           |                | 未知      |                          |
 | [Uzbl]                | 0.9.0          | 可用      |                          |
@@ -64,6 +64,7 @@ Home Assistant 需要浏览器来展现前端，它支持所有主流现代浏�
 | [Chrome]              |                | 可用      |                          |
 
 
+There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
 
 [Firefox]: https://www.mozilla.org/en-US/firefox/
 [Midori]: http://midori-browser.org/

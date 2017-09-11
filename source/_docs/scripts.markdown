@@ -80,6 +80,7 @@ delay: {% raw %}'00:{{ states.input_slider.minute_delay.state | int }}:00'{% end
 
 我们使用`wait_template` 模板以支持延迟至某项时间完成，通过条件为真`true` 判定，详见[Template-Trigger](/getting-started/automation-trigger/#template-trigger)。在设置中，你可以另行添加延时命令`delay`实现时间完成时停滞一段时间后再执行脚本。
 
+
 ```yaml
 # 等待至媒体播放器停止播放后执行
 wait_template: {% raw %}"{{ states.media_player.floor.states == 'stop' }}"{% endraw %}

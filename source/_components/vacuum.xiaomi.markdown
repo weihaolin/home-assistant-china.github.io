@@ -10,13 +10,14 @@ footer: true
 logo: xiaomi.png
 ha_category: Vacuum
 ha_release: 0.51
+ha_iot_class: "Local Polling"
 ---
 
 小米扫地机器人平台 `xiaomi_vacuum` 帮助你在 HA 中控制扫地机器人。
 
 目前支持的控制指令有启动 `turn_on`， 暂停 `pause`，原地停止 `stop`，回到充电桩 `return_to_home`，关闭并回到充电桩 `turn_off`，定位 `locate`，定点打扫 `clean_spot`，设定吸力 `set_fanspeed` 以及远程控制。
 
-## {% linkable_title Getting started %}
+Please follow the instructions on [Retrieving the Access Token](/components/xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 请使用手机和米家 app 根据下述教程从 SQLite 文档中获取机器人的秘钥 token，从而将扫地机接入 HA 平台。
 
@@ -78,16 +79,16 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 
 ```yaml
 vacuum:
-- platform: xiaomi
-  name: 'name of the robot'
-  host: 192.168.1.2
-  token: your-token-here
+  - platform: xiaomi
+    host: 192.168.1.2
+    token: YOUR_TOKEN
 ```
 
 变量说明：
-- **name** (*可选*): 机器人昵称
 - **host** (*必需*): 机器人 IP
 - **token** (*必需*): 机器人 token
+- **name** (*可选*): 机器人昵称
+
 
 ### {% linkable_title Platform services %}
 
@@ -124,7 +125,7 @@ vacuum:
 
 #### {% linkable_title Service `vacuum/xiaomi_remote_control_move_step` %}
 
-使用此指令进入手动控制模式，执行一项控制命令，然后退出手动控制模式。
+使用此指令进入遥控模式，执行一项控制命令，然后退出手动控制模式。
 
 | 属性    | 可选性 | 描述                                           |
 |---------------------------|----------|-------------------------------------------------------|

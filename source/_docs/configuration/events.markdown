@@ -73,7 +73,7 @@ redirect_from: /topics/events/
 属性 | 描述
 ----- | -----------
 `service` | 被发现的服务。例如: `zwave`.
-`discovered` | 发现的信息。可以是字典，元组等等。例如： `(192.168.1.10, 8889)`.
+`discovered` | 包含发现信息的字典。例如： `{ "host": "192.168.1.10", "port": 8889}`.
 
 
 ### {% linkable_title Event `component_loaded` %}

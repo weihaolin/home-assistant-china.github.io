@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Cover
 ha_release: "0.50"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 此组件允许你在 HA 中使用小米的卷帘器等屏障类控制器。
