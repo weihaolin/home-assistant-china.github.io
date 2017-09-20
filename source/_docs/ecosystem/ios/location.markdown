@@ -12,7 +12,7 @@ redirect_from: /ecosystem/ios/location/
 
 ## {% linkable_title Location tracking when outside a Home Assistant zone %}
 
-Home Assistant ios应用从ios接受 _重要位置更新_. 每当收到更新时，更新将会被发送到Home Assistant. 大概，每次你的设备切换到新的基站, 过去了很长一段时间 (一般为几个小时) 或者设备的链接状态改变与此同时系统注意到你的位置近期发生了变化.
+Home Assistant for iOS receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received everytime that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
 
 Apple [defines][apple-location-programming-guide] significant significant-change location updates as:
 
